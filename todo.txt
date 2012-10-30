@@ -1,0 +1,54 @@
+version 1
+---------
+- basically "working"
+- migrate wine editing screen from old app
+    - layout
+    - rating stars
+- add all the editable fields
+- build initial database and take backup of it
+- build initial database into the app as an asset and test well
+- wine listing page
+    - wine icon per different wine type
+    - what text to include: name, winery, year, region, overall rating, price, flag, photo
+    - order by flag + rating
+    - as per ordering of fields, see other apps for reference
+- test well
+
+
+release
+-------
+- google play page
+- release notes
+- focus on the "WHY"
+- list of features
+
+
+version 2
+---------
+- improved wine list
+    - do not show title if does not exist
+    - use first photo
+- install "Android Compatibility package" and rewrite queries
+- optimization
+    - rewrite parts inside ScrollView with RelativeLayout
+
+
+version 3
+---------
+- clean up file paths in WineFileManager
+    - a.getDatabasePath("sqlite3.db") -> /data/data/com.winenotes/databases/sqlite3.db
+    - a.getPackageCodePath -> /data/app/com.winenotes.apk
+    - a.getPackageName -> com.winenotes
+    - Environment.getDataDirectory -> /data
+    - Environment.getExternalStorageDirectory -> /sdcard
+    - eliminate code duplication
+- delete misspelled impressions
+- do not crash if no camera or not accessible
+- make it possible to reorder lists
+- more efficient handling of impressions editing
+    - make use of the _id of impressions in the autocomplete list
+    - when saving, use the _id of impressions from the autocomplete list
+    - impressions that were entered manually, try to find in autocomplete list
+    - only lookup/insert impressions when necessary
+
+

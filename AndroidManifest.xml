@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.winenotes"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="4" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:icon="@drawable/launcher_main"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Light.NoTitleBar" >
+        <activity
+            android:name=".WineListActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="nosensor" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EditWineActivity"
+            android:label="Edit wine"
+            android:screenOrientation="nosensor" >
+        </activity>
+        <activity
+            android:name=".ViewWineActivity"
+            android:label="Wine"
+            android:screenOrientation="nosensor" >
+        </activity>
+        <activity
+            android:name=".FileSelectorActivity"
+            android:label="File Selector"
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name=".EditAromaImpressionsActivity"
+            android:label="Aroma Impressions"
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:scrollbars="none" >
+
+    <RelativeLayout
+        style="@style/mainHeaderWrapper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/mainHeader"
+            android:layout_toLeftOf="@+id/btn_edit"
+            android:text="@string/title_wine" />
+
+        <ImageButton
+            android:id="@id/btn_edit"
+            style="@style/mainHeaderButton"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/headerbtn_edit" />
+    </RelativeLayout>
+
+    <ScrollView style="@style/mainContent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/wineViewLabel"
+                android:text="@string/label_impressions" />
+
+            <TextView
+                android:id="@+id/impressions"
+                style="@style/wineViewValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tags"
+                style="@style/wineViewValue"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+            <LinearLayout
+                android:id="@+id/photos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

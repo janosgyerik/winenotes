@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wine Notes</string>
+    <string name="fatal_sdcard_required">Oh snap. SD card is not available
+        or not writable, and this app cannot work properly like that.
+        This may be improved in an upcoming version.</string>
+    <string name="title_winelist">Wines</string>
+    <string name="title_delete_wine">Delete wine</string>
+    <string name="title_delete_photo">Delete photo</string>
+    <string name="title_delete_file">Delete file</string>
+    <string name="title_select_backupfile">Select backup file</string>
+    <string name="title_wine">Wine</string>
+    <string name="title_noname_wine">Wine</string>
+    <string name="title_wine_details">Wine</string>
+    <string name="hint_name">Name (optional)</string>
+    <string name="hint_impressions">Impressions&#8230;</string>
+    <string name="note_entering_impressions">Hint: you can add many at once, separated by comma.
+        Don\'t worry about formatting, your input will be automatically normalized.</string>
+    <string name="msg_no_impressions">No impressions. Use the input box above to add some!</string>
+    <string name="msg_updated_wine">Updated wine</string>
+    <string name="error_update_wine">Could not update wine</string>
+    <string name="confirm_are_you_sure">Are you sure?</string>
+    <string name="msg_quit">Are you sure you want to quit?</string>
+    <string name="msg_no_matching_files">No matching files</string>
+    <string name="btn_add_wine">Add wine</string>
+    <string name="btn_edit_wine">Edit wine</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_add_impressions">Add impressions</string>
+    <string name="btn_edit_impressions">Edit impressions</string>
+    <string name="btn_add_photos">Add photos</string>
+    <string name="btn_edit_photos">Edit photos</string>
+    <string name="btn_save_wine">Done</string>
+    <string name="btn_add_photo">Take a photo</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_done">Done</string>
+    <string name="label_impressions">Impressions: </string>
+    <string name="label_none">(none)</string>
+    <string name="menu_backup">Backup</string>
+    <string name="menu_restore">Restore</string>
+    <string name="menu_quit">Quit</string>
+    <string name="msg_wine_deleted">Deleted wine</string>
+    <string name="msg_backup_created">Created backup</string>
+    <string name="error_backup_failed">Backup failed</string>
+    <string name="error_backup_exception">Backup failed unexpectedly</string>
+    <string name="title_confirm_restore">Restore database</string>
+    <string name="confirm_restore">The database will be replaced with the selected file.
+        Make sure you took a backup of the current database before doing this.
+        Are you sure to go ahead?</string>
+    <string name="msg_restore_success">Restored database</string>
+    <string name="error_restore_failed">Restore failed</string>
+    <string name="error_restore_exception">Restore failed unexpectedly</string>
+    <string name="bullet_wine">[wine]</string>
+
+</resources>

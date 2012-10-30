@@ -1,0 +1,9 @@
+gen
+bin
+./winenotes/sqlite3.db
+.DS_Store
+./local.properties
+./proguard-project.txt
+android
+tmp
+libs

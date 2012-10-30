@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:scrollbars="none" >
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/mainHeader"
+        android:text="@string/title_wine" />
+
+    <!--
+         Dirty to hack to avoid auto-focus on the first text field
+    		and android opening the soft keyboard
+    -->
+
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <ScrollView style="@style/mainContent" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/name_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/hint_name"
+                android:singleLine="true" />
+
+            <RelativeLayout
+                android:id="@+id/impressions_container2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name_edit" >
+
+                <RelativeLayout
+                    android:id="@+id/impressions_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/btn_edit_impressions" >
+
+                    <TextView
+                        android:id="@+id/label_impressions"
+                        style="@style/wineViewLabel"
+                        android:text="@string/label_impressions" />
+
+                    <TextView
+                        android:id="@+id/impressions"
+                        style="@style/wineViewValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/label_impressions" />
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@id/btn_edit_impressions"
+                    style="@style/wineViewButton"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/btn_edit"
+                    android:text="@string/btn_edit" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/tags_container2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/impressions_container2" >
+
+                <RelativeLayout
+                    android:id="@+id/tags_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/btn_edit_tags" >
+
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@id/btn_edit_tags"
+                    style="@style/wineViewButton"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/btn_edit"
+                    android:text="@string/btn_edit" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_add_photo"
+                style="@style/wideButton"
+                android:layout_below="@id/tags_container2"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:drawableRight="@drawable/btn_add_photo"
+                android:text="@string/btn_add_photo" />
+
+            <LinearLayout
+                android:id="@+id/photos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_add_photo"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_save"
+        style="@style/wideButton"
+        android:text="@string/btn_save_wine" />
+
+</LinearLayout>
