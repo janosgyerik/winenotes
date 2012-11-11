@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 public class WineListActivity extends ListActivity {
 
-	private static final String TAG = "WineListActivity";
+	private static final String TAG = WineListActivity.class.getSimpleName();
 
 	private WineNotesSQLiteOpenHelper helper;
 	private Cursor cursor;

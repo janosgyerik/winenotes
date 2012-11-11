@@ -8,8 +8,6 @@ import android.view.View.OnClickListener;
 
 public class ViewWineActivity extends AbstractWineActivity {
 
-//	private static final String TAG = "ViewWineActivity";
-
 	private static final int RETURN_FROM_EDIT = 1;
 
 	@Override

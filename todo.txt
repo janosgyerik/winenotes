@@ -3,7 +3,6 @@ version 1
 - library-fy
 - wine editing
     - goodies from recipe notes
-        - hide ingredients and tags if empty 175
         - 'cancel' empty wine 178 179
         - say 'added wine' when adding new 182
     - saving
@@ -15,17 +14,16 @@ version 1
     - order by flag + rating
     - as per ordering of fields, see other apps for reference
 - convert logger to use .class
-- tune photo display for portraits
 - build initial database and take backup of it to fill it offline
     - get data from internet
     - add sample database to repo
     - generate insert script from local initial database
 - build initial database into the app as an asset and test well
-- test well
 - port to recipe notes
     - change the main layout inside scrolling area to linear layout
     - margin styles in edit wine
     - header color
+    - FileSelectorActivity
 - replace license protected images
     - launcher
     - wine icon in wine list

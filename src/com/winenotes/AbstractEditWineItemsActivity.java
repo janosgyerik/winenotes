@@ -22,9 +22,7 @@ import android.widget.Toast;
 
 public abstract class AbstractEditWineItemsActivity extends ListActivity {
 
-	// Debugging
-	private static final String TAG = "AbstractListEditorActivity";
-	private static final boolean D = false;
+	private static final String TAG = AbstractEditWineItemsActivity.class.getSimpleName();
 
 	public static final String OUT_CHANGED = "CHANGED";
 
@@ -51,7 +49,7 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(getContentViewId());
-		if (D) Log.d(TAG, "++onCreate");
+		Log.d(TAG, "++onCreate");
 
 		helper = new WineNotesSQLiteOpenHelper(this);
 
@@ -104,7 +102,7 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)  {
-		if (D) Log.d(TAG, "onKeyDown");
+		Log.d(TAG, "onKeyDown");
 		if (keyCode == KeyEvent.KEYCODE_BACK
 				&& event.getRepeatCount() == 0) {
 			returnResult();

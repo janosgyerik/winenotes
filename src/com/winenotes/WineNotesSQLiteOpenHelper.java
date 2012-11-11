@@ -20,8 +20,7 @@ import android.util.SparseArray;
 
 public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 
-	// Debugging
-	private static final String TAG = "WineNotesSQLiteOpenHelper";
+	private static final String TAG = WineNotesSQLiteOpenHelper.class.getSimpleName();
 
 	private static final String DATABASE_NAME = "sqlite3.db";
 	private static final int DATABASE_VERSION = 1;

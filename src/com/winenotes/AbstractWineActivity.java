@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 public abstract class AbstractWineActivity extends Activity {
 
-	private static final String TAG = "AbstractWineActivity";
+	private static final String TAG = AbstractWineActivity.class.getSimpleName();
 
 	protected WineNotesSQLiteOpenHelper helper;
 	protected String wineId;

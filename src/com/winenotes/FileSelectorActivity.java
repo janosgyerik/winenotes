@@ -20,9 +20,7 @@ import android.widget.ArrayAdapter;
 
 public class FileSelectorActivity extends ListActivity {
 
-	// Debugging
-	private static final String TAG = "FileSelectorActivity";
-	private static final boolean D = false;
+	private static final String TAG = FileSelectorActivity.class.getSimpleName();
 
 	public static final String IN_TITLE = "TITLE";
 	public static final String IN_DIRPARAM = "DIRPARAM";
@@ -39,7 +37,7 @@ public class FileSelectorActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (D) Log.d(TAG, "+++ ON CREATE +++");
+		Log.d(TAG, "+++ ON CREATE +++");
 
 		setContentView(R.layout.fileselector);
 
