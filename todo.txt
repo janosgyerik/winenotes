@@ -1,5 +1,6 @@
 version 1
 ---------
+- library-fy
 - wine editing
     - layout from old app
     - rating stars from old app
@@ -19,12 +20,19 @@ version 1
 - convert logger to use .class
 - tune photo display for portraits
 - port from recipenotes
-    - allow orientation change
     - remove unnecessary casts to (View)
     - android:contentDescription to eliminate warnings 166
-- build initial database and take backup of it
+- build initial database and take backup of it to fill it offline
+    - get data from internet
+    - add sample database to repo
+    - generate insert script from local initial database
 - build initial database into the app as an asset and test well
 - test well
+- port to recipe notes
+    - change the main layout inside scrolling area to linear layout
+- replace license protected images
+    - launcher
+    - wine icon in wine list
 
 
 release
