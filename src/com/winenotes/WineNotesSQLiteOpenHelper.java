@@ -337,7 +337,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	public Cursor getWineListCursor() {
 		Log.d(TAG, "get all wines");
 		Cursor cursor = getReadableDatabase().rawQuery(
-				"select _id, ifnull(nullif(name, ''), '(wine)') name, summary, display_name"
+				"select _id, ifnull(nullif(name, ''), '(wine)') name, summary, listing_text"
 						+ " from main_wine"
 						+ " order by updated_dt desc, name",
 						null);

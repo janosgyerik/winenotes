@@ -72,7 +72,7 @@ public class WineNotesActivity extends ListActivity {
 				R.layout.winelist_item,
 				cursor,
 				new String[] { 
-						BaseColumns._ID, "name", "display_name",
+						BaseColumns._ID, "name", "listing_text",
 				}, // column names in the query ...
 				new int[] { 
 						R.id._ID, R.id.name, R.id.impressions,
