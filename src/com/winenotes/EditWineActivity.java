@@ -67,14 +67,14 @@ public class EditWineActivity extends AbstractWineActivity {
 		}
 
 		if (wineId == null) {
-			wineId = helper.newWine();
+			wineId = "3";//helper.newWine();
 		}
 
 		nameView = (EditText) findViewById(R.id.name_edit);
 
 		final Activity this_ = this;
 
-		View editAromaImpressionsButton = (View) findViewById(R.id.btn_edit_impressions);
+		View editAromaImpressionsButton = findViewById(R.id.btn_edit_aroma);
 		editAromaImpressionsButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -84,7 +84,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			}
 		});
 
-		View addPhotoButton = (View) findViewById(R.id.btn_add_photo);
+		View addPhotoButton = findViewById(R.id.btn_add_photo);
 		addPhotoButton.setOnClickListener(new AddPhotoOnClickListener());
 
 		Button save = (Button) findViewById(R.id.btn_save);

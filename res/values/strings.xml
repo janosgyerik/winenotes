@@ -13,12 +13,17 @@
     <string name="title_wine">Wine</string>
     <string name="title_noname_wine">Wine</string>
     <string name="title_wine_details">Wine</string>
-    <string name="hint_name">Name (optional)</string>
+    <string name="hint_name">Name of the wine</string>
+    <string name="hint_region">Region</string>
+    <string name="hint_grape">Grape / Cépage</string>
     <string name="hint_impressions">Impressions&#8230;</string>
-    <string name="note_entering_impressions">Hint: you can add many at once, separated by comma.
-        Don\'t worry about formatting, your input will be automatically normalized.</string>
+    <string name="note_entering_impressions">Hint: you can add many at once,
+        separated by comma.</string>
     <string name="msg_no_impressions">No impressions. Use the input box above to add some!</string>
+    <string name="hint_memo"></string>
+    <string name="label_memo">Memo: </string>
     <string name="msg_updated_wine">Updated wine</string>
+    <string name="msg_created_wine">Added wine</string>
     <string name="error_update_wine">Could not update wine</string>
     <string name="confirm_are_you_sure">Are you sure?</string>
     <string name="msg_quit">Are you sure you want to quit?</string>
@@ -30,7 +35,7 @@
     <string name="btn_edit_impressions">Edit impressions</string>
     <string name="btn_add_photos">Add photos</string>
     <string name="btn_edit_photos">Edit photos</string>
-    <string name="btn_save_wine">Done</string>
+    <string name="btn_save_wine">Save</string>
     <string name="btn_add_photo">Take a photo</string>
     <string name="btn_yes">Yes</string>
     <string name="btn_cancel">Cancel</string>
@@ -58,7 +63,14 @@
     <string name="error_allocating_photo_file">There was an error
         when trying to allocate a file to store the photo.
         We don\'t know how this is possible.
-        Unfortunately you cannot take photos :(
-        </string>
-    
+        Unfortunately you cannot take photos :(</string>
+    <string name="prompt_year">Year / Millésime</string>
+    <string name="prompt_wine_type">Type of wine</string>
+    <string name="prompt_buy_flag">To buy or not to buy?</string>
+    <string name="btn_contentDescription">[btn]</string>
+    <string name="label_aroma">Aroma</string>
+    <string name="label_taste">Taste</string>
+    <string name="label_aftertaste">Aftertaste</string>
+    <string name="label_overall">Overall</string>
+
 </resources>

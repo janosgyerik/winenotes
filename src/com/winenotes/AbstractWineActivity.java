@@ -89,7 +89,7 @@ public abstract class AbstractWineActivity extends Activity {
 				}
 				aromaImpressionsCursor.close();
 
-				TextView aromaImpressionsView = (TextView) findViewById(R.id.impressions);
+				TextView aromaImpressionsView = (TextView) findViewById(R.id.aroma);
 				if (aromaImpressionsBuffer.length() > 2) {
 					aromaImpressionsView.setText(aromaImpressionsBuffer.substring(0, aromaImpressionsBuffer.length() - 2));
 				}

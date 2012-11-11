@@ -23,82 +23,236 @@
 
     <ScrollView style="@style/mainContent" >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <EditText
                 android:id="@+id/name_edit"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="10dp"
+                style="@style/wineEditingLine"
                 android:hint="@string/hint_name"
                 android:singleLine="true" />
 
-            <RelativeLayout
-                android:id="@+id/impressions_container2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/name_edit" >
+            <LinearLayout
+                style="@style/wineEditingLine"
+                android:orientation="horizontal" >
 
-                <RelativeLayout
-                    android:id="@+id/impressions_container"
+                <Spinner
+                    android:id="@+id/year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/btn_edit_impressions" >
+                    android:prompt="@string/prompt_year" />
+
+                <Spinner
+                    android:id="@+id/wine_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/prompt_wine_type" />
+
+                <Spinner
+                    android:id="@+id/buy_flag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/prompt_buy_flag" />
+            </LinearLayout>
+
+            <AutoCompleteTextView
+                android:id="@+id/region"
+                style="@style/wineEditingLine"
+                android:hint="@string/hint_region"
+                android:singleLine="true" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/grape"
+                style="@style/wineEditingLine"
+                android:hint="@string/hint_grape"
+                android:singleLine="true" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/btn_edit_aroma" >
 
                     <TextView
-                        android:id="@+id/label_impressions"
+                        android:id="@+id/label_aroma"
                         style="@style/wineViewLabel"
-                        android:text="@string/label_impressions" />
+                        android:layout_toLeftOf="@+id/rating_aroma"
+                        android:text="@string/label_aroma" />
+
+                    <RatingBar
+                        android:id="@id/rating_aroma"
+                        style="@style/prettyRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:numStars="5"
+                        android:stepSize="1.0" />
 
                     <TextView
-                        android:id="@+id/impressions"
+                        android:id="@+id/aroma"
                         style="@style/wineViewValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_below="@id/label_impressions" />
+                        android:layout_below="@id/label_aroma" />
                 </RelativeLayout>
 
                 <ImageButton
-                    android:id="@id/btn_edit_impressions"
+                    android:id="@id/btn_edit_aroma"
                     style="@style/wineViewButton"
                     android:layout_alignParentRight="true"
+                    android:contentDescription="@string/btn_contentDescription"
                     android:src="@drawable/btn_edit"
                     android:text="@string/btn_edit" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/tags_container2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/impressions_container2" >
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
 
                 <RelativeLayout
-                    android:id="@+id/tags_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/btn_edit_tags" >
+                    android:layout_toLeftOf="@+id/btn_edit_taste" >
 
+                    <TextView
+                        android:id="@+id/label_taste"
+                        style="@style/wineViewLabel"
+                        android:layout_toLeftOf="@+id/rating_taste"
+                        android:text="@string/label_taste" />
+
+                    <RatingBar
+                        android:id="@id/rating_taste"
+                        style="@style/prettyRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:numStars="5"
+                        android:stepSize="1.0" />
+
+                    <TextView
+                        android:id="@+id/taste"
+                        style="@style/wineViewValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/label_taste" />
                 </RelativeLayout>
 
                 <ImageButton
-                    android:id="@id/btn_edit_tags"
+                    android:id="@id/btn_edit_taste"
                     style="@style/wineViewButton"
                     android:layout_alignParentRight="true"
+                    android:contentDescription="@string/btn_contentDescription"
                     android:src="@drawable/btn_edit"
                     android:text="@string/btn_edit" />
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/btn_edit_aftertaste" >
+
+                    <TextView
+                        android:id="@+id/label_aftertaste"
+                        style="@style/wineViewLabel"
+                        android:layout_toLeftOf="@+id/rating_aftertaste"
+                        android:text="@string/label_aftertaste" />
+
+                    <RatingBar
+                        android:id="@id/rating_aftertaste"
+                        style="@style/prettyRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:numStars="5"
+                        android:stepSize="1.0" />
+
+                    <TextView
+                        android:id="@+id/aftertaste"
+                        style="@style/wineViewValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/label_aftertaste" />
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@id/btn_edit_aftertaste"
+                    style="@style/wineViewButton"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/btn_contentDescription"
+                    android:src="@drawable/btn_edit"
+                    android:text="@string/btn_edit" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/btn_edit_overall" >
+
+                    <TextView
+                        android:id="@+id/label_overall"
+                        style="@style/wineViewLabel"
+                        android:layout_toLeftOf="@+id/rating_overall"
+                        android:text="@string/label_overall" />
+
+                    <RatingBar
+                        android:id="@id/rating_overall"
+                        style="@style/prettyRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:numStars="5"
+                        android:stepSize="1.0" />
+
+                    <TextView
+                        android:id="@+id/overall"
+                        style="@style/wineViewValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/label_overall" />
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@id/btn_edit_overall"
+                    style="@style/wineViewButton"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/btn_contentDescription"
+                    android:src="@drawable/btn_edit"
+                    android:text="@string/btn_edit"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/memo_label"
+                style="@style/wineViewLabel"
+                android:text="@string/label_memo" />
+
+            <EditText
+                android:id="@+id/memo"
+                style="@style/wineEditingLine"
+                android:gravity="top"
+                android:hint="@string/hint_memo"
+                android:lines="3" />
+
             <Button
                 android:id="@+id/btn_add_photo"
-                style="@style/wideButton"
-                android:layout_below="@id/tags_container2"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="10dp"
+                style="@style/wineEditingLine"
                 android:drawableRight="@drawable/btn_add_photo"
                 android:text="@string/btn_add_photo" />
 
@@ -106,10 +260,9 @@
                 android:id="@+id/photos"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btn_add_photo"
                 android:orientation="vertical" >
             </LinearLayout>
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
     <Button
