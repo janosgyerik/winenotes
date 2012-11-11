@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Light.NoTitleBar" >
         <activity
-            android:name=".WineListActivity"
+            android:name=".WineNotesActivity"
             android:label="@string/app_name"
             android:screenOrientation="nosensor" >
             <intent-filter>
