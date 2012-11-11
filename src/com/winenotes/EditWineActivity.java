@@ -31,11 +31,12 @@ import android.widget.Toast;
 
 public class EditWineActivity extends AbstractWineActivity {
 
-	private static final String TAG = "EditWineActivity";
+	private static final String TAG = EditWineActivity.class.getSimpleName();
 
-	private static final int RETURN_FROM_EDIT_AROMA_IMPRESSIONS = 1;
-	private static final int RETURN_FROM_EDIT_TAGS = 2;
-	private static final int RETURN_FROM_ADD_PHOTO = 3;
+	private static final int RETURN_FROM_EDIT_AROMA = 1;
+	private static final int RETURN_FROM_EDIT_TASTE = 2;
+	private static final int RETURN_FROM_EDIT_AFTERTASTE = 3;
+	private static final int RETURN_FROM_ADD_PHOTO = 4;
 
 	private static final String PHOTO_INFO_FILE = "photoInfo.bin";
 
@@ -68,6 +69,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
 		if (wineId == null) {
 			wineId = "3";//helper.newWine();
+			newWine = true;
 		}
 
 		nameView = (EditText) findViewById(R.id.name_edit);
@@ -80,7 +82,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			public void onClick(View v) {
 				Intent intent = new Intent(this_, EditAromaImpressionsActivity.class);
 				intent.putExtra(BaseColumns._ID, wineId);
-				startActivityForResult(intent, RETURN_FROM_EDIT_AROMA_IMPRESSIONS);
+				startActivityForResult(intent, RETURN_FROM_EDIT_AROMA);
 			}
 		});
 
@@ -128,7 +130,7 @@ public class EditWineActivity extends AbstractWineActivity {
 		return Character.toUpperCase(name.charAt(0)) + name.substring(1);
 	}
 
-	private void handleReturnFromEditAromaImpressions(Intent data) {
+	private void handleReturnFromEditAroma(Intent data) {
 		Bundle extras = data.getExtras();
 		if (extras != null) {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
@@ -141,17 +143,17 @@ public class EditWineActivity extends AbstractWineActivity {
 		Log.i(TAG, "aroma impressions have NOT changed -> NOT reloading details");
 	}
 
-	private void handleReturnFromEditTags(Intent data) {
+	private void handleReturnFromEditTaste(Intent data) {
 		Bundle extras = data.getExtras();
 		if (extras != null) {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
 			if (isChanged) {
-				Log.i(TAG, "tags have changed -> reloading details");
+				Log.i(TAG, "taste impressions have changed -> reloading details");
 				reloadAndRefreshWineDetails(true);
 				return;
 			}
 		}
-		Log.i(TAG, "tags have NOT changed -> NOT reloading details");
+		Log.i(TAG, "taste impressions have NOT changed -> NOT reloading details");
 	}
 
 	@Override
@@ -159,13 +161,13 @@ public class EditWineActivity extends AbstractWineActivity {
 		Log.i(TAG, "onActivityResult");
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
-			case RETURN_FROM_EDIT_AROMA_IMPRESSIONS:
+			case RETURN_FROM_EDIT_AROMA:
 				Log.i(TAG, "OK edit aroma impressions");
-				handleReturnFromEditAromaImpressions(data);
+				handleReturnFromEditAroma(data);
 				break;
-			case RETURN_FROM_EDIT_TAGS:
-				Log.i(TAG, "OK edit tags");
-				handleReturnFromEditTags(data);
+			case RETURN_FROM_EDIT_TASTE:
+				Log.i(TAG, "OK edit taste impressions");
+				handleReturnFromEditTaste(data);
 				break;
 			case RETURN_FROM_ADD_PHOTO:
 				Log.i(TAG, "OK take photo");
@@ -178,11 +180,11 @@ public class EditWineActivity extends AbstractWineActivity {
 		}
 		else {
 			switch (requestCode) {
-			case RETURN_FROM_EDIT_AROMA_IMPRESSIONS:
+			case RETURN_FROM_EDIT_AROMA:
 				Log.i(TAG, "CANCEL edit aroma impressions");
 				break;
-			case RETURN_FROM_EDIT_TAGS:
-				Log.i(TAG, "CANCEL edit tags");
+			case RETURN_FROM_EDIT_TASTE:
+				Log.i(TAG, "CANCEL edit taste impressions");
 				break;
 			case RETURN_FROM_ADD_PHOTO:
 				Log.i(TAG, "CANCEL add photo");
