@@ -1,11 +1,19 @@
 package com.winenotes;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -29,7 +37,13 @@ public class EditWineActivity extends AbstractWineActivity {
 	private static final int RETURN_FROM_EDIT_TAGS = 2;
 	private static final int RETURN_FROM_ADD_PHOTO = 3;
 
+	private static final String PHOTO_INFO_FILE = "photoInfo.bin";
+
+	private static final String OUT_DELETED = "DELETED";
+
 	private EditText nameView;
+
+	private boolean newWine = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,10 +51,21 @@ public class EditWineActivity extends AbstractWineActivity {
 		setContentView(R.layout.editwine);
 
 		// for debugging:
-//		wineId = "42"; // rich
-//		wineId = "999"; // non-existent
-//		 wineId = "44"; // lean
-		
+		//		wineId = "42"; // rich
+		//		wineId = "999"; // non-existent
+		//		 wineId = "44"; // lean
+
+		if (wineId == null) {
+			PhotoInfo info = loadPhotoInfo();
+			if (info != null) {
+				if (helper.isExistingWineId(info.wineId)) {
+					wineId = info.wineId;
+					photoFile = info.photoFile;
+				}
+				deletePhotoInfo();
+			}
+		}
+
 		if (wineId == null) {
 			wineId = helper.newWine();
 		}
@@ -143,6 +168,8 @@ public class EditWineActivity extends AbstractWineActivity {
 				handleReturnFromEditTags(data);
 				break;
 			case RETURN_FROM_ADD_PHOTO:
+				Log.i(TAG, "OK take photo");
+				deletePhotoInfo();
 				handleSmallCameraPhoto(data);
 				break;
 			default:
@@ -159,6 +186,7 @@ public class EditWineActivity extends AbstractWineActivity {
 				break;
 			case RETURN_FROM_ADD_PHOTO:
 				Log.i(TAG, "CANCEL add photo");
+				deletePhotoInfo();
 				if (photoFile != null && photoFile.isFile()) {
 					photoFile.delete();
 				}
@@ -185,9 +213,24 @@ public class EditWineActivity extends AbstractWineActivity {
 			e.printStackTrace();
 			photoFile = null;
 		}
-		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-		takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
-		startActivityForResult(takePictureIntent, RETURN_FROM_ADD_PHOTO);
+		if (photoFile != null) {
+			savePhotoInfo();
+			Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+			takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+			startActivityForResult(takePictureIntent, RETURN_FROM_ADD_PHOTO);
+		}
+		else {
+			new AlertDialog.Builder(this)
+			.setTitle(R.string.title_unexpected_error)
+			.setMessage(R.string.error_allocating_photo_file)
+			.setCancelable(true)
+			.setPositiveButton(R.string.btn_ok, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					dialog.cancel();
+				}
+			})
+			.show();
+		}
 	}
 
 	public static boolean isIntentAvailable(Context context, String action) {
@@ -198,14 +241,62 @@ public class EditWineActivity extends AbstractWineActivity {
 		return list.size() > 0;
 	}
 
-	private void addPhotoToWine(File photoFile) {
-		helper.addWinePhoto(wineId, photoFile.getName());
+	private void addPhotoToWine(String photoFilename) {
+		helper.addWinePhoto(wineId, photoFilename);
 	}
 
 	private void handleSmallCameraPhoto(Intent intent) {
 		if (photoFile != null && photoFile.isFile()) {
-			addPhotoToWine(photoFile);
-			addPhotoToLayout(photoFile, true);
+			deletePhotoInfo();
+			Log.d(TAG, "adding photo: " + photoFile);
+			String filename = photoFile.getName();
+			addPhotoToWine(filename);
+			addPhotoToLayout(filename, true);
 		}
+		else {
+			Log.e(TAG, "Something's wrong with the photo file: " + photoFile);
+		}
+	}
+
+	private void savePhotoInfo() {
+		try {
+			FileOutputStream fos = openFileOutput(PHOTO_INFO_FILE, Context.MODE_PRIVATE);
+			PhotoInfo info = new PhotoInfo();
+			info.wineId = wineId;
+			info.photoFile = photoFile;
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(info);
+			fos.write(baos.toByteArray());
+			fos.close();
+		}
+		catch (Exception e) {
+			Log.e(TAG, "Could not create photo info file!");
+			e.printStackTrace();
+		}
+	}
+
+	private void deletePhotoInfo() {
+		deleteFile(PHOTO_INFO_FILE);
+	}
+
+	private PhotoInfo loadPhotoInfo() {
+		try {
+			FileInputStream fis = openFileInput(PHOTO_INFO_FILE);
+			Log.w(TAG, "Loading photo info file, the app must have crashed earlier...");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			PhotoInfo info = (PhotoInfo)ois.readObject();
+			Log.i(TAG, "read wineId = " + info.wineId);
+			Log.i(TAG, "read photoFile = " + info.photoFile);
+			return info;
+		}
+		catch (FileNotFoundException e) {
+			// this is normal, normally there should be no photo info file
+		}
+		catch (Exception e) {
+			Log.e(TAG, "Could not read photo file!");
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

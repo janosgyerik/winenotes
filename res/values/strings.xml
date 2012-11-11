@@ -54,5 +54,11 @@
     <string name="error_restore_failed">Restore failed</string>
     <string name="error_restore_exception">Restore failed unexpectedly</string>
     <string name="bullet_wine">[wine]</string>
-
+    <string name="title_unexpected_error">Unexpected Error</string>
+    <string name="error_allocating_photo_file">There was an error
+        when trying to allocate a file to store the photo.
+        We don\'t know how this is possible.
+        Unfortunately you cannot take photos :(
+        </string>
+    
 </resources>

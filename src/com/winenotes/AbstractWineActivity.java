@@ -1,7 +1,5 @@
 package com.winenotes;
 
-import java.io.File;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -42,16 +40,16 @@ public abstract class AbstractWineActivity extends Activity {
 		layout.removeAllViews();
 	}
 
-	protected void addPhotoToLayout(File photoFile, boolean editable) {
-		if (photoFile.isFile()) {
-			int appWidth = getWindowManager().getDefaultDisplay().getWidth();
-			Bitmap bitmap = BitmapTools.createScaledBitmap(photoFile, appWidth);
+	protected void addPhotoToLayout(String photoFilename, boolean editable) {
+		int appWidth = getWindowManager().getDefaultDisplay().getWidth();
+		Bitmap bitmap = WineFileManager.getMediumPhotoBitmap(photoFilename, appWidth);
+		if (bitmap != null) {
 			ImageView photoView = new ImageView(this);
 			photoView.setImageBitmap(bitmap);
-			photoView.setPadding(10, 10, 10, 10);
-			photoView.setTag(photoFile.getName());
+			photoView.setPadding(2, 2, 2, 2);
+			photoView.setTag(photoFilename);
 			if (editable) {
-				photoView.setOnLongClickListener(new PhotoOnLongClickListener(photoFile));
+				photoView.setOnLongClickListener(new PhotoOnLongClickListener(photoFilename));
 			}
 
 			// dirty hack for motorola
@@ -90,7 +88,7 @@ public abstract class AbstractWineActivity extends Activity {
 					aromaImpressionsBuffer.append(", ");
 				}
 				aromaImpressionsCursor.close();
-				
+
 				TextView aromaImpressionsView = (TextView) findViewById(R.id.impressions);
 				if (aromaImpressionsBuffer.length() > 2) {
 					aromaImpressionsView.setText(aromaImpressionsBuffer.substring(0, aromaImpressionsBuffer.length() - 2));
@@ -103,7 +101,7 @@ public abstract class AbstractWineActivity extends Activity {
 				clearPhotosFromLayout();
 				while (photosCursor.moveToNext()) {
 					String filename = photosCursor.getString(0);
-					addPhotoToLayout(WineFileManager.getPhotoFile(filename), editable);
+					addPhotoToLayout(filename, editable);
 				}
 				photosCursor.close();
 			}
@@ -114,28 +112,27 @@ public abstract class AbstractWineActivity extends Activity {
 		}
 	}
 
-	private void removePhoto(File photoFile) {
-		if (photoFile.delete()) {
-			if (removePhotoFromWine(photoFile)) {
-				removePhotoFromLayout(photoFile);
-			}
+	private void removePhoto(String photoFilename) {
+		if (removePhotoFromWine(photoFilename)) {
+			WineFileManager.deletePhotos(photoFilename);
+			removePhotoFromLayout(photoFilename);
 		}
 	}
 
-	private void removePhotoFromLayout(File photoFile) {
+	private void removePhotoFromLayout(String photoFilename) {
 		LinearLayout layout = (LinearLayout) findViewById(R.id.photos);
-		layout.removeView(layout.findViewWithTag(photoFile.getName()));
+		layout.removeView(layout.findViewWithTag(photoFilename));
 	}
 
-	private boolean removePhotoFromWine(File photoFile) {
-		return helper.removeWinePhoto(wineId, photoFile.getName());
+	private boolean removePhotoFromWine(String photoFilename) {
+		return helper.removeWinePhoto(wineId, photoFilename);
 	}
 
 	class PhotoOnLongClickListener implements OnLongClickListener {
-		private final File photoFile;
+		private final String photoFilename;
 
-		public PhotoOnLongClickListener(File photoFile) {
-			this.photoFile = photoFile;
+		public PhotoOnLongClickListener(String photoFilename) {
+			this.photoFilename = photoFilename;
 		}
 
 		@Override
@@ -146,7 +143,7 @@ public abstract class AbstractWineActivity extends Activity {
 			.setTitle(R.string.title_delete_photo)
 			.setPositiveButton(R.string.btn_yes, new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
-					removePhoto(photoFile);
+					removePhoto(photoFilename);
 				}
 			})
 			.setNegativeButton(R.string.btn_cancel, new DialogInterface.OnClickListener() {

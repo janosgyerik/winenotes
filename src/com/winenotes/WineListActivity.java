@@ -23,7 +23,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WineNotesActivity extends ListActivity {
+public class WineListActivity extends ListActivity {
 
 	private static final String TAG = "WineListActivity";
 
@@ -90,7 +90,7 @@ public class WineNotesActivity extends ListActivity {
 	class AddWineOnClickListener implements OnClickListener {
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent(WineNotesActivity.this, EditWineActivity.class);
+			Intent intent = new Intent(WineListActivity.this, EditWineActivity.class);
 			startActivity(intent);
 		}
 	}
@@ -99,7 +99,7 @@ public class WineNotesActivity extends ListActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			Intent intent = new Intent(WineNotesActivity.this, ViewWineActivity.class);
+			Intent intent = new Intent(WineListActivity.this, ViewWineActivity.class);
 			intent.putExtra(BaseColumns._ID, ((TextView)view.findViewById(R.id._ID)).getText());
 			startActivity(intent);
 		}
@@ -108,7 +108,7 @@ public class WineNotesActivity extends ListActivity {
 	class WineListOnItemLongClickListener implements OnItemLongClickListener {
 		private void deleteWine(String wineId) {
 			if (helper.deleteWine(wineId)) {
-				WineFileManager.deleteWine(wineId);
+				WineFileManager.deleteWinePhotos(wineId);
 				cursor.requery();
 				Toast.makeText(getBaseContext(), R.string.msg_wine_deleted, Toast.LENGTH_LONG).show();
 			}
@@ -118,7 +118,7 @@ public class WineNotesActivity extends ListActivity {
 		public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 				int arg2, long arg3) {
 			final String wineId = String.valueOf(arg3);
-			new AlertDialog.Builder(WineNotesActivity.this)
+			new AlertDialog.Builder(WineListActivity.this)
 			.setTitle(R.string.title_delete_wine)
 			.setMessage(R.string.confirm_are_you_sure)
 			.setCancelable(true)

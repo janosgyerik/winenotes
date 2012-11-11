@@ -407,4 +407,19 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		return cursor;
 	}
 
+	public boolean isExistingWineId(String wineId) {
+		Log.d(TAG, "isExistingWineId " + wineId);
+		boolean exists = false;
+		Cursor cursor = getReadableDatabase().query(
+				WINES_TABLE_NAME, new String[]{ "name", }, 
+				BaseColumns._ID + " = ?", new String[]{ wineId },
+				null, null, null);
+		if (cursor.moveToNext()) {
+			exists = true;
+		}
+		cursor.close();
+		Log.d(TAG, "isExistingWineId " + wineId + " -> " + exists);
+		return exists;
+	}
+
 }
