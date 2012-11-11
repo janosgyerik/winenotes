@@ -3,7 +3,6 @@ version 1
 - library-fy
 - wine editing
     - goodies from recipe notes
-        - memo field 173 174
         - hide ingredients and tags if empty 175
         - 'cancel' empty wine 178 179
         - say 'added wine' when adding new 182
@@ -25,6 +24,8 @@ version 1
 - test well
 - port to recipe notes
     - change the main layout inside scrolling area to linear layout
+    - margin styles in edit wine
+    - header color
 - replace license protected images
     - launcher
     - wine icon in wine list

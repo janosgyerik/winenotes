@@ -86,6 +86,26 @@ public class EditWineActivity extends AbstractWineActivity {
 			}
 		});
 
+		View editTasteImpressionsButton = findViewById(R.id.btn_edit_taste);
+		editTasteImpressionsButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(this_, EditTasteImpressionsActivity.class);
+				intent.putExtra(BaseColumns._ID, wineId);
+				startActivityForResult(intent, RETURN_FROM_EDIT_TASTE);
+			}
+		});
+
+		View editAftertasteImpressionsButton = findViewById(R.id.btn_edit_aftertaste);
+		editAftertasteImpressionsButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(this_, EditAftertasteImpressionsActivity.class);
+				intent.putExtra(BaseColumns._ID, wineId);
+				startActivityForResult(intent, RETURN_FROM_EDIT_AFTERTASTE);
+			}
+		});
+
 		View addPhotoButton = findViewById(R.id.btn_add_photo);
 		addPhotoButton.setOnClickListener(new AddPhotoOnClickListener());
 
@@ -156,6 +176,19 @@ public class EditWineActivity extends AbstractWineActivity {
 		Log.i(TAG, "taste impressions have NOT changed -> NOT reloading details");
 	}
 
+	private void handleReturnFromEditAftertaste(Intent data) {
+		Bundle extras = data.getExtras();
+		if (extras != null) {
+			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
+			if (isChanged) {
+				Log.i(TAG, "aftertaste impressions have changed -> reloading details");
+				reloadAndRefreshWineDetails(true);
+				return;
+			}
+		}
+		Log.i(TAG, "aftertaste impressions have NOT changed -> NOT reloading details");
+	}
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		Log.i(TAG, "onActivityResult");
@@ -168,6 +201,10 @@ public class EditWineActivity extends AbstractWineActivity {
 			case RETURN_FROM_EDIT_TASTE:
 				Log.i(TAG, "OK edit taste impressions");
 				handleReturnFromEditTaste(data);
+				break;
+			case RETURN_FROM_EDIT_AFTERTASTE:
+				Log.i(TAG, "OK edit aftertaste impressions");
+				handleReturnFromEditAftertaste(data);
 				break;
 			case RETURN_FROM_ADD_PHOTO:
 				Log.i(TAG, "OK take photo");

@@ -30,19 +30,16 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	private static final String WINES_TABLE_NAME = "main_wine";
 	private static final String AROMA_IMPRESSIONS_TABLE_NAME = "main_aromaimpression";
 	private static final String TASTE_IMPRESSIONS_TABLE_NAME = "main_tasteimpression";
-	private static final String AFTERTASTE_IMPRESSIONS_TABLE_NAME = "main_aftertasteimpression";
 	private static final String COLORS_TABLE_NAME = "main_color";
 	private static final String REGIONS_TABLE_NAME = "main_region";
 	private static final String BUYFLAGS_TABLE_NAME = "main_buyflag";
 	private static final String GRAPES_TABLE_NAME = "main_grape";
-	private static final String TAGS_TABLE_NAME = "main_tag";
 
 	// relationships
 	private static final String WINE_GRAPES_TABLE_NAME = "main_winegrape";
 	private static final String WINE_AROMA_IMPRESSIONS_TABLE_NAME = "main_winearomaimpression";
 	private static final String WINE_TASTE_IMPRESSIONS_TABLE_NAME = "main_winetasteimpression";
 	private static final String WINE_AFTERTASTE_IMPRESSIONS_TABLE_NAME = "main_wineaftertasteimpression";
-	private static final String WINE_TAGS_TABLE_NAME = "main_winetag";
 	private static final String WINE_PHOTOS_TABLE_NAME = "main_winephoto";
 
 	private List<String> sqlCreateStatements;
@@ -55,7 +52,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 
 		sqlCreateStatements = getSqlStatements(context, "sql_create.sql");
 		sqlUpgradeStatements = new SparseArray<List<String>>();
-//		sqlUpgradeStatements.put(2, getSqlStatements(context, "sql_upgrade2.sql"));
+		//		sqlUpgradeStatements.put(2, getSqlStatements(context, "sql_upgrade2.sql"));
 	}
 
 	private List<String> getSqlStatements(Context context, String assetName) {
@@ -93,13 +90,13 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		}
 		// TODO replace with import from an export file
 		// dummy wines
-//		db.execSQL("insert into main_wine (name, display_name) values ('Steak', 'Steak');");
+		//		db.execSQL("insert into main_wine (name, display_name) values ('Steak', 'Steak');");
 
 		// initial ingredients collection
-//		db.execSQL("insert into main_ingredient (name) values ('Avocado');");
+		//		db.execSQL("insert into main_ingredient (name) values ('Avocado');");
 
 		// initial tags collection
-//		db.execSQL("insert into main_tag (name) values ('Main');");
+		//		db.execSQL("insert into main_tag (name) values ('Main');");
 	}
 
 	@Override
@@ -160,84 +157,11 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		getWritableDatabase().delete(WINE_AROMA_IMPRESSIONS_TABLE_NAME, "wine_id = ?", new String[]{ wineId });
 		getWritableDatabase().delete(WINE_TASTE_IMPRESSIONS_TABLE_NAME, "wine_id = ?", new String[]{ wineId });
 		getWritableDatabase().delete(WINE_AFTERTASTE_IMPRESSIONS_TABLE_NAME, "wine_id = ?", new String[]{ wineId });
-		getWritableDatabase().delete(WINE_TAGS_TABLE_NAME, "wine_id = ?", new String[]{ wineId });
 		getWritableDatabase().delete(WINE_PHOTOS_TABLE_NAME, "wine_id = ?", new String[]{ wineId });
 		getWritableDatabase().delete(WINES_TABLE_NAME, "_id = ?", new String[]{ wineId });
 		Log.d(TAG, "deleted wine " + wineId);
 		// TODO error handling
 		return true;
-	}
-
-	public String getOrCreateTag(String name) {
-		String tagId = getTagIdByName(name);
-		if (tagId == null) {
-			tagId = newTag(name);
-		}
-		return tagId;
-	}
-
-	/**
-	 * Returns tagId or null if tag does not exist.
-	 * @param name
-	 * @return
-	 */
-	public String getTagIdByName(String name) {
-		String tagId = null;
-		Cursor cursor = getReadableDatabase().query(
-				TAGS_TABLE_NAME, 
-				new String[] { BaseColumns._ID }, 
-				"name = ?", 
-				new String[] { name }, 
-				null, null, null, "1");
-		if (cursor.moveToNext()) {
-			tagId = cursor.getString(0);
-			Log.d(TAG, String.format("got tag: %s -> %s", tagId, name));
-		}
-		cursor.close();
-		return tagId;
-	}
-
-	/**
-	 * Returns new tagId on success or else null
-	 * @return
-	 */
-	private String newTag(String name) {
-		ContentValues values = new ContentValues();
-		values.put("name", name);
-		long createdDt = new Date().getTime();
-		values.put("created_dt", createdDt);
-		values.put("updated_dt", createdDt);
-		long ret = getWritableDatabase().insert(TAGS_TABLE_NAME, null, values);
-		Log.d(TAG, String.format("insert tag: %s <- %s", name, ret));
-		if (ret >= 0) {
-			String tagId = String.valueOf(ret);
-			return tagId;
-		}
-		else {
-			return null;
-		}
-	}
-
-	public boolean addWineTag(String wineId, String tagId) {
-		ContentValues values = new ContentValues();
-		values.put("wine_id", wineId);
-		values.put("tag_id", tagId);
-		long createdDt = new Date().getTime();
-		values.put("created_dt", createdDt);
-		values.put("updated_dt", createdDt);
-		long ret = getWritableDatabase().insert(WINE_TAGS_TABLE_NAME, null, values);
-		Log.d(TAG, String.format("insert wine tag: %s, %s <- %s",
-				wineId, tagId, ret));
-		return ret >= 0;
-	}
-
-	public boolean removeWineTag(String wineId, String tagId) {
-		int ret = getWritableDatabase().delete(WINE_TAGS_TABLE_NAME,
-				"wine_id = ? AND tag_id = ?",
-				new String[]{ wineId, tagId });
-		Log.d(TAG, String.format("delete wine tag: %s, %s <- %s",
-				wineId, tagId, ret));
-		return ret > 0;
 	}
 
 	public String getOrCreateAromaImpression(String name) {
@@ -312,6 +236,163 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		return ret > 0;
 	}
 
+	public Cursor getAromaImpressionsListCursor() {
+		Log.d(TAG, "get all aroma impressions");
+		Cursor cursor = getReadableDatabase().query(
+				AROMA_IMPRESSIONS_TABLE_NAME, 
+				new String[]{ BaseColumns._ID, "name", }, 
+				null, null, null, null, "name");
+		return cursor;
+	}
+
+	public Cursor getWineAromaImpressionsCursor(String wineId) {
+		Log.d(TAG, "get wine aroma impressions " + wineId);
+		Cursor cursor = getReadableDatabase().rawQuery(
+				String.format(
+						"SELECT i.name FROM %s ri JOIN %s i ON ri.aroma_impression_id = i.%s WHERE ri.wine_id = ? ORDER BY i.name",
+						WINE_AROMA_IMPRESSIONS_TABLE_NAME, AROMA_IMPRESSIONS_TABLE_NAME, BaseColumns._ID
+						),
+						new String[]{ wineId }
+				);
+		return cursor;
+	}
+	
+	
+	
+
+	public String getOrCreateTasteImpression(String name) {
+		String tasteImpressionId = getTasteImpressionIdByName(name);
+		if (tasteImpressionId == null) {
+			tasteImpressionId = newTasteImpression(name);
+		}
+		return tasteImpressionId;
+	}
+
+	/**
+	 * Returns tasteImpressionId or null if taste impression does not exist.
+	 * @param name
+	 * @return
+	 */
+	public String getTasteImpressionIdByName(String name) {
+		String tasteImpressionId = null;
+		Cursor cursor = getReadableDatabase().query(
+				TASTE_IMPRESSIONS_TABLE_NAME, 
+				new String[] { BaseColumns._ID }, 
+				"name = ?", 
+				new String[] { name }, 
+				null, null, null, "1");
+		if (cursor.moveToNext()) {
+			tasteImpressionId = cursor.getString(0);
+			Log.d(TAG, String.format("got taste impression: %s -> %s", tasteImpressionId, name));
+		}
+		cursor.close();
+		return tasteImpressionId;
+	}
+
+	/**
+	 * Returns new tasteImpressionId on success or else null
+	 * @return
+	 */
+	private String newTasteImpression(String name) {
+		ContentValues values = new ContentValues();
+		values.put("name", name);
+		long createdDt = new Date().getTime();
+		values.put("created_dt", createdDt);
+		values.put("updated_dt", createdDt);
+		long ret = getWritableDatabase().insert(TASTE_IMPRESSIONS_TABLE_NAME, null, values);
+		Log.d(TAG, String.format("insert taste impression: %s <- %s", name, ret));
+		if (ret >= 0) {
+			String tasteImpressionId = String.valueOf(ret);
+			return tasteImpressionId;
+		}
+		else {
+			return null;
+		}
+	}
+
+	public boolean addWineTasteImpression(String wineId, String tasteImpressionId) {
+		ContentValues values = new ContentValues();
+		values.put("wine_id", wineId);
+		values.put("taste_impression_id", tasteImpressionId);
+		long createdDt = new Date().getTime();
+		values.put("created_dt", createdDt);
+		values.put("updated_dt", createdDt);
+		long ret = getWritableDatabase().insert(WINE_TASTE_IMPRESSIONS_TABLE_NAME, null, values);
+		Log.d(TAG, String.format("insert taste impression: %s, %s <- %s",
+				wineId, tasteImpressionId, ret));
+		return ret >= 0;
+	}
+
+	public boolean removeWineTasteImpression(String wineId, String tasteImpressionId) {
+		int ret = getWritableDatabase().delete(WINE_TASTE_IMPRESSIONS_TABLE_NAME,
+				"wine_id = ? AND taste_impression_id = ?",
+				new String[]{ wineId, tasteImpressionId });
+		Log.d(TAG, String.format("delete wine taste impression: %s, %s <- %s",
+				wineId, tasteImpressionId, ret));
+		return ret > 0;
+	}
+
+	public Cursor getTasteImpressionsListCursor() {
+		Log.d(TAG, "get all taste impressions");
+		Cursor cursor = getReadableDatabase().query(
+				TASTE_IMPRESSIONS_TABLE_NAME, 
+				new String[]{ BaseColumns._ID, "name", }, 
+				null, null, null, null, "name");
+		return cursor;
+	}
+
+	public Cursor getWineTasteImpressionsCursor(String wineId) {
+		Log.d(TAG, "get wine taste impressions " + wineId);
+		Cursor cursor = getReadableDatabase().rawQuery(
+				String.format(
+						"SELECT i.name FROM %s ri JOIN %s i ON ri.taste_impression_id = i.%s WHERE ri.wine_id = ? ORDER BY i.name",
+						WINE_TASTE_IMPRESSIONS_TABLE_NAME, TASTE_IMPRESSIONS_TABLE_NAME, BaseColumns._ID
+						),
+						new String[]{ wineId }
+				);
+		return cursor;
+	}
+
+
+
+	
+	public boolean addWineAftertasteImpression(String wineId, String aftertasteImpressionId) {
+		ContentValues values = new ContentValues();
+		values.put("wine_id", wineId);
+		values.put("aftertaste_impression_id", aftertasteImpressionId);
+		long createdDt = new Date().getTime();
+		values.put("created_dt", createdDt);
+		values.put("updated_dt", createdDt);
+		long ret = getWritableDatabase().insert(WINE_AFTERTASTE_IMPRESSIONS_TABLE_NAME, null, values);
+		Log.d(TAG, String.format("insert aftertaste impression: %s, %s <- %s",
+				wineId, aftertasteImpressionId, ret));
+		return ret >= 0;
+	}
+
+	public boolean removeWineAftertasteImpression(String wineId, String aftertasteImpressionId) {
+		int ret = getWritableDatabase().delete(WINE_AFTERTASTE_IMPRESSIONS_TABLE_NAME,
+				"wine_id = ? AND aftertaste_impression_id = ?",
+				new String[]{ wineId, aftertasteImpressionId });
+		Log.d(TAG, String.format("delete wine aftertaste impression: %s, %s <- %s",
+				wineId, aftertasteImpressionId, ret));
+		return ret > 0;
+	}
+
+	public Cursor getWineAftertasteImpressionsCursor(String wineId) {
+		Log.d(TAG, "get wine aftertaste impressions " + wineId);
+		Cursor cursor = getReadableDatabase().rawQuery(
+				String.format(
+						"SELECT i.name FROM %s ri JOIN %s i ON ri.aftertaste_impression_id = i.%s WHERE ri.wine_id = ? ORDER BY i.name",
+						WINE_AFTERTASTE_IMPRESSIONS_TABLE_NAME, TASTE_IMPRESSIONS_TABLE_NAME, BaseColumns._ID
+						),
+						new String[]{ wineId }
+				);
+		return cursor;
+	}
+
+
+
+	
 	public boolean addWinePhoto(String wineId, String filename) {
 		ContentValues values = new ContentValues();
 		values.put("wine_id", wineId);
@@ -344,54 +425,16 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		return cursor;
 	}
 
-	public Cursor getAromaImpressionsListCursor() {
-		Log.d(TAG, "get all aroma impressions");
-		Cursor cursor = getReadableDatabase().query(
-				AROMA_IMPRESSIONS_TABLE_NAME, 
-				new String[]{ BaseColumns._ID, "name", }, 
-				null, null, null, null, "name");
-		return cursor;
-	}
-
-	public Cursor getTagsListCursor() {
-		Log.d(TAG, "get all tags");
-		Cursor cursor = getReadableDatabase().query(
-				TAGS_TABLE_NAME, 
-				new String[]{ BaseColumns._ID, "name", }, 
-				null, null, null, null, "name");
-		return cursor;
-	}
-
 	public Cursor getWineDetailsCursor(String wineId) {
 		Log.d(TAG, "get wine " + wineId);
 		Cursor cursor = getReadableDatabase().query(
-				WINES_TABLE_NAME, new String[]{ "name", }, 
+				WINES_TABLE_NAME, new String[]{ "name", "winery_name",
+						"price", "color_id", "year", "region_id",
+						"aroma_rating", "taste_rating", "aftertaste_rating", "overall_rating",
+						"buy_flag_id",
+						"memo", }, 
 				BaseColumns._ID + " = ?", new String[]{ wineId },
 				null, null, null);
-		return cursor;
-	}
-
-	public Cursor getWineAromaImpressionsCursor(String wineId) {
-		Log.d(TAG, "get wine aroma impressions " + wineId);
-		Cursor cursor = getReadableDatabase().rawQuery(
-				String.format(
-						"SELECT i.name FROM %s ri JOIN %s i ON ri.aroma_impression_id = i.%s WHERE ri.wine_id = ? ORDER BY i.name",
-						WINE_AROMA_IMPRESSIONS_TABLE_NAME, AROMA_IMPRESSIONS_TABLE_NAME, BaseColumns._ID
-						),
-						new String[]{ wineId }
-				);
-		return cursor;
-	}
-
-	public Cursor getWineTagsCursor(String wineId) {
-		Log.d(TAG, "get wine tags " + wineId);
-		Cursor cursor = getReadableDatabase().rawQuery(
-				String.format(
-						"SELECT t.name FROM %s rt JOIN %s t ON rt.tag_id = t.%s WHERE rt.wine_id = ? ORDER BY t.name",
-						WINE_TAGS_TABLE_NAME, TAGS_TABLE_NAME, BaseColumns._ID
-						),
-						new String[]{ wineId }
-				);
 		return cursor;
 	}
 
