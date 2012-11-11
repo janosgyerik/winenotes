@@ -99,23 +99,6 @@ public abstract class AbstractWineActivity extends Activity {
 					aromaImpressionsView.setText(R.string.label_none);
 				}
 
-				Cursor tagsCursor = helper.getWineTagsCursor(wineId);
-				StringBuffer tagsBuffer = new StringBuffer();
-				while (tagsCursor.moveToNext()) {
-					String tag = tagsCursor.getString(0);
-					tagsBuffer.append(tag);
-					tagsBuffer.append(", ");
-				}
-				tagsCursor.close();
-				
-				TextView tagsView = (TextView) findViewById(R.id.tags);
-				if (tagsBuffer.length() > 2) {
-					tagsView.setText(tagsBuffer.substring(0, tagsBuffer.length() - 2));
-				}
-				else {
-					tagsView.setText(R.string.label_none);
-				}
-
 				Cursor photosCursor = helper.getWinePhotosCursor(wineId);
 				clearPhotosFromLayout();
 				while (photosCursor.moveToNext()) {
