@@ -58,7 +58,7 @@ public class WineListActivity extends ListActivity {
 		getListView().setOnItemClickListener(new WineListOnItemClickListener());
 		getListView().setOnItemLongClickListener(new WineListOnItemLongClickListener());
 
-		((View)findViewById(R.id.btn_add_wine)).setOnClickListener(new AddWineOnClickListener());
+		findViewById(R.id.btn_add_wine).setOnClickListener(new AddWineOnClickListener());
 
 		WineFileManager.updateDailyBackup();
 	}
