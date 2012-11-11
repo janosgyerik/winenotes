@@ -1,17 +1,29 @@
 version 1
 ---------
-- basically "working"
-- migrate wine editing screen from old app
-    - layout
-    - rating stars
-- add all the editable fields
-- build initial database and take backup of it
-- build initial database into the app as an asset and test well
+- wine editing
+    - layout from old app
+    - rating stars from old app
+    - goodies from recipe notes
+        - memo field 173 174
+        - hide ingredients and tags if empty 175
+        - 'cancel' empty wine 178 179
+        - say 'added wine' when adding new 182
+    - saving
+    - loading
+- wine view
 - wine listing page
     - wine icon per different wine type
     - what text to include: name, winery, year, region, overall rating, price, flag, photo
     - order by flag + rating
     - as per ordering of fields, see other apps for reference
+- convert logger to use .class
+- tune photo display for portraits
+- port from recipenotes
+    - allow orientation change
+    - remove unnecessary casts to (View)
+    - android:contentDescription to eliminate warnings 166
+- build initial database and take backup of it
+- build initial database into the app as an asset and test well
 - test well
 
 
