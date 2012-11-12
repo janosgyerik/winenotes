@@ -99,7 +99,7 @@ public class EditWineActivity extends AbstractWineActivity {
 		// TODO calculate dynamically from preferences minimum and current year
 		final int minYear = 1997;
 		List<Integer> yearChoices = new ArrayList<Integer>();
-		for (int i = minYear; i <= 2012; ++i) {
+		for (int i = 2012; i > minYear; --i) {
 			yearChoices.add(i);
 		}
 		ArrayAdapter<Integer> yearListAdapter = new ArrayAdapter<Integer>(this,

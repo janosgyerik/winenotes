@@ -35,7 +35,7 @@
     <string name="btn_edit_impressions">Edit impressions</string>
     <string name="btn_add_photos">Add photos</string>
     <string name="btn_edit_photos">Edit photos</string>
-    <string name="btn_save_wine">Save</string>
+    <string name="btn_save_wine">Save changes</string>
     <string name="btn_add_photo">Take a photo</string>
     <string name="btn_yes">Yes</string>
     <string name="btn_cancel">Cancel</string>

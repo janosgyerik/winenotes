@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.TextView;
 
 public abstract class AbstractWineActivity extends Activity {
@@ -90,6 +91,7 @@ public abstract class AbstractWineActivity extends Activity {
 				RatingBar aromaRatingBar = (RatingBar) findViewById(R.id.rating_aroma);
 				columnIndex = wineCursor.getColumnIndex("aroma_rating");
 				aromaRatingBar.setRating(wineCursor.getFloat(columnIndex));
+				aromaRatingBar.setEnabled(false);
 				
 				Cursor aromaImpressionsCursor = helper.getWineAromaImpressionsCursor(wineId);
 				StringBuffer aromaImpressionsBuffer = new StringBuffer();
