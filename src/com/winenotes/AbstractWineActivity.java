@@ -14,6 +14,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 public abstract class AbstractWineActivity extends Activity {
@@ -86,6 +87,10 @@ public abstract class AbstractWineActivity extends Activity {
 				
 				
 
+				RatingBar aromaRatingBar = (RatingBar) findViewById(R.id.rating_aroma);
+				columnIndex = wineCursor.getColumnIndex("aroma_rating");
+				aromaRatingBar.setRating(wineCursor.getFloat(columnIndex));
+				
 				Cursor aromaImpressionsCursor = helper.getWineAromaImpressionsCursor(wineId);
 				StringBuffer aromaImpressionsBuffer = new StringBuffer();
 				while (aromaImpressionsCursor.moveToNext()) {
@@ -114,6 +119,10 @@ public abstract class AbstractWineActivity extends Activity {
 				}
 
 				
+				
+				RatingBar tasteRatingBar = (RatingBar) findViewById(R.id.rating_taste);
+				columnIndex = wineCursor.getColumnIndex("taste_rating");
+				tasteRatingBar.setRating(wineCursor.getFloat(columnIndex));
 				
 				Cursor tasteImpressionsCursor = helper.getWineTasteImpressionsCursor(wineId);
 				StringBuffer tasteImpressionsBuffer = new StringBuffer();
@@ -144,6 +153,10 @@ public abstract class AbstractWineActivity extends Activity {
 				
 
 				
+				RatingBar aftertasteRatingBar = (RatingBar) findViewById(R.id.rating_aftertaste);
+				columnIndex = wineCursor.getColumnIndex("aftertaste_rating");
+				aftertasteRatingBar.setRating(wineCursor.getFloat(columnIndex));
+				
 				Cursor aftertasteImpressionsCursor = helper.getWineAftertasteImpressionsCursor(wineId);
 				StringBuffer aftertasteImpressionsBuffer = new StringBuffer();
 				while (aftertasteImpressionsCursor.moveToNext()) {
@@ -173,6 +186,13 @@ public abstract class AbstractWineActivity extends Activity {
 
 				
 
+				RatingBar overallRatingBar = (RatingBar) findViewById(R.id.rating_overall);
+				columnIndex = wineCursor.getColumnIndex("overall_rating");
+				overallRatingBar.setRating(wineCursor.getFloat(columnIndex));
+
+				
+				
+				
 				columnIndex = wineCursor.getColumnIndex("memo");
 				String memo = wineCursor.getString(columnIndex);
 				TextView memoView = (TextView) findViewById(R.id.memo);

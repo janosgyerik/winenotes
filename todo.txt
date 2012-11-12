@@ -4,9 +4,10 @@ version 1
 - wine editing
     - goodies from recipe notes
         - 'cancel' empty wine 178 179
-        - say 'added wine' when adding new 182
     - saving
     - loading
+    - rename colorId to wineType everywhere (makes it possible for non-wine, like champagne)
+    - more fields: winery, price
 - wine view
 - wine listing page
     - wine icon per different wine type

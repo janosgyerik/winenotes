@@ -132,18 +132,26 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		}
 	}
 
-	public boolean saveWine(String wineId,
-			String name,
-			String displayName) {
+	public boolean saveWine(String wineId, String name, String wineryName, float price,
+			int colorId, int year, int regionId,
+			float aromaRating, float tasteRating, float aftertasteRating, float overallRating,
+			int buyFlagId, String memo) {
 		ContentValues values = new ContentValues();
 		values.put("name", name);
+		values.put("winery_name", wineryName);
+		values.put("price", price);
+		values.put("color_id", colorId);
+		values.put("year", year);
+		values.put("region_id", regionId);
+		values.put("aroma_rating", aromaRating);
+		values.put("taste_rating", tasteRating);
+		values.put("aftertaste_rating", aftertasteRating);
+		values.put("overall_rating", overallRating);
+		values.put("buy_flag_id", buyFlagId);
+		values.put("memo", memo);
+
 		long updatedDt = new Date().getTime();
 		values.put("updated_dt", updatedDt);
-
-		values.put("display_name", displayName);
-
-		// display_image
-		//TODO
 
 		int ret = getWritableDatabase().update(WINES_TABLE_NAME, values, 
 				BaseColumns._ID + " = ?", new String[]{ wineId });
@@ -255,9 +263,9 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 				);
 		return cursor;
 	}
-	
-	
-	
+
+
+
 
 	public String getOrCreateTasteImpression(String name) {
 		String tasteImpressionId = getTasteImpressionIdByName(name);
@@ -354,7 +362,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 
 
 
-	
+
 	public boolean addWineAftertasteImpression(String wineId, String aftertasteImpressionId) {
 		ContentValues values = new ContentValues();
 		values.put("wine_id", wineId);
@@ -391,7 +399,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 
 
 
-	
+
 	public boolean addWinePhoto(String wineId, String filename) {
 		ContentValues values = new ContentValues();
 		values.put("wine_id", wineId);
@@ -432,8 +440,8 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 						"aroma_rating", "taste_rating", "aftertaste_rating", "overall_rating",
 						"buy_flag_id",
 						"memo", }, 
-				BaseColumns._ID + " = ?", new String[]{ wineId },
-				null, null, null);
+						BaseColumns._ID + " = ?", new String[]{ wineId },
+						null, null, null);
 		return cursor;
 	}
 
