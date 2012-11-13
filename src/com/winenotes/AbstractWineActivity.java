@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
-import android.widget.RatingBar.OnRatingBarChangeListener;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public abstract class AbstractWineActivity extends Activity {
@@ -85,13 +85,14 @@ public abstract class AbstractWineActivity extends Activity {
 		return value;
 	}
 	
-	protected void reloadAndRefreshWineDetails(boolean editable) {
+	protected void loadWineInfo(boolean editable) {
 		if (wineId != null) {
 			Cursor wineCursor = helper.getWineDetailsCursor(wineId);
 			
 			if (wineCursor.moveToNext()) {
 				
 				String name = getStringColumn(wineCursor, "name");
+				int wineryId = getIntColumn(wineCursor, "winery_id");
 				String wineryName = getStringColumn(wineCursor, "winery_name");
 				float price = getFloatColumn(wineCursor, "price");
 				int wineTypeId = getIntColumn(wineCursor, "winetype_id");
@@ -106,6 +107,18 @@ public abstract class AbstractWineActivity extends Activity {
 				int flagId = getIntColumn(wineCursor, "flag_id");
 				String flag = getStringColumn(wineCursor, "flag");
 				String memo = getStringColumn(wineCursor, "memo");
+				
+				WineInfo wineInfo = new WineInfo();
+				wineInfo.wineryName = wineryName;
+				wineInfo.wineTypeId = wineTypeId;
+				wineInfo.wineType = wineType;
+				wineInfo.year = year;
+				wineInfo.regionId = regionId;
+				wineInfo.region = region;
+				wineInfo.flagId = flagId;
+				wineInfo.flag = flag;
+				
+				wineInfoLoaded(wineInfo);
 				
 				Cursor photosCursor = helper.getWinePhotosCursor(wineId);
 				clearPhotosFromLayout();
@@ -122,7 +135,7 @@ public abstract class AbstractWineActivity extends Activity {
 				else {
 					nameView.setText(R.string.title_noname_wine);
 				}
-
+				
 				RatingBar aromaRatingBar = (RatingBar) findViewById(R.id.rating_aroma);
 				aromaRatingBar.setRating(aromaRating);
 				
@@ -291,7 +304,7 @@ public abstract class AbstractWineActivity extends Activity {
 			wineCursor.close();
 		}
 	}
-
+	
 	private void removePhoto(String photoFilename) {
 		if (removePhotoFromWine(photoFilename)) {
 			WineFileManager.deletePhotos(photoFilename);
@@ -343,4 +356,6 @@ public abstract class AbstractWineActivity extends Activity {
 		super.onDestroy();
 		helper.close();
 	}
+	
+	abstract void wineInfoLoaded(WineInfo wineInfo);
 }

@@ -25,16 +25,22 @@ public class ViewWineActivity extends AbstractWineActivity {
 			}
 		});
 
-		reloadAndRefreshWineDetails(false);
+		loadWineInfo(false);
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
 		case RETURN_FROM_EDIT:
-			reloadAndRefreshWineDetails(false);
+			loadWineInfo(false);
 			break;
 		}
+	}
+
+	@Override
+	void wineInfoLoaded(WineInfo wineInfo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

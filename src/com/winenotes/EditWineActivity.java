@@ -18,7 +18,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
@@ -64,6 +63,29 @@ public class EditWineActivity extends AbstractWineActivity {
 
 	private boolean newWine = false;
 
+	// TODO calculate dynamically from preferences minimum and current year
+	static final int MIN_YEAR = 1997;
+	static final Integer[] YEAR_CHOICES;
+	static {
+		List<Integer> choices = new ArrayList<Integer>();
+		for (int i = 2012; i > MIN_YEAR; --i) {
+			choices.add(i);
+		}
+		YEAR_CHOICES = choices.toArray(new Integer[0]);
+	}
+
+	// TODO get list from database
+	static final String[] WINETYPE_CHOICES = new String[] {
+		"Red", "White", "Rose",
+		"Orange", "Gray", "Yellow", "Tawny", "Other",
+	};
+
+	// TODO get list from database
+	static final String[] FLAG_CHOICES = new String[] {
+		"-", "Buy", "Maybe", "Never",
+	};
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -96,34 +118,20 @@ public class EditWineActivity extends AbstractWineActivity {
 		//    	private EditText wineryNameView;
 		//    	private EditText priceView;
 
-		// TODO calculate dynamically from preferences minimum and current year
-		final int minYear = 1997;
-		List<Integer> yearChoices = new ArrayList<Integer>();
-		for (int i = 2012; i > minYear; --i) {
-			yearChoices.add(i);
-		}
 		ArrayAdapter<Integer> yearListAdapter = new ArrayAdapter<Integer>(this,
-				android.R.layout.simple_spinner_item, yearChoices.toArray(new Integer[0]));
+				android.R.layout.simple_spinner_item, YEAR_CHOICES);
 		yearListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		yearView = (Spinner) findViewById(R.id.year);
 		yearView.setAdapter(yearListAdapter);
-		
-		// TODO get list from database
-		final String[] wineTypeChoices = new String[] {
-				"Red", "White", "Rose", "Orange", "Gray", "Yellow", "Tawny", "Other",
-		};
+
 		ArrayAdapter<String> wineTypeListAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, wineTypeChoices);
+				android.R.layout.simple_spinner_item, WINETYPE_CHOICES);
 		wineTypeListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		wineTypeView = (Spinner) findViewById(R.id.wine_type);
 		wineTypeView.setAdapter(wineTypeListAdapter);
 
-		// TODO get list from database
-		final String[] flagChoices = new String[] {
-				"-", "Buy", "Maybe", "Never",
-		};
 		ArrayAdapter<String> flagListAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, flagChoices);
+				android.R.layout.simple_spinner_item, FLAG_CHOICES);
 		flagListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		flagView = (Spinner) findViewById(R.id.flag);
 		flagView.setAdapter(flagListAdapter);
@@ -131,8 +139,8 @@ public class EditWineActivity extends AbstractWineActivity {
 		regionView = (AutoCompleteTextView) findViewById(R.id.region);
 		AutoCompleteHelper.configureAutoCompleteTextView(getBaseContext(), regionView,
 				helper.getAromaImpressionsListCursor());
-		
-//		grapeView = (MultiAutoCompleteTextView) findViewById(R.id.grape);
+
+		//		grapeView = (MultiAutoCompleteTextView) findViewById(R.id.grape);
 
 		aromaRatingView = (RatingBar) findViewById(R.id.rating_aroma);
 		tasteRatingView = (RatingBar) findViewById(R.id.rating_taste);
@@ -179,7 +187,7 @@ public class EditWineActivity extends AbstractWineActivity {
 		Button save = (Button) findViewById(R.id.btn_save);
 		save.setOnClickListener(new SaveWineOnClickListener());
 
-		reloadAndRefreshWineDetails(true);
+		loadWineInfo(true);
 	}
 
 	class SaveWineOnClickListener implements OnClickListener {
@@ -189,7 +197,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			int wineryId = 0;//TODO capitalize(wineryNameView.getText().toString());
 			float price = 0;//TODO Float.parseFloat(priceView.getText().toString());
 			int wineTypeId = 0;// TODO
-			int year = 0;//TODO
+			int year = (Integer)yearView.getSelectedItem();
 			int regionId = 0;//TODO
 			float aromaRating = aromaRatingView.getRating();
 			float tasteRating = tasteRatingView.getRating();
@@ -226,7 +234,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
 			if (isChanged) {
 				Log.i(TAG, "aroma impressions have changed -> reloading details");
-				reloadAndRefreshWineDetails(true);
+				loadWineInfo(true);
 				return;
 			}
 		}
@@ -239,7 +247,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
 			if (isChanged) {
 				Log.i(TAG, "taste impressions have changed -> reloading details");
-				reloadAndRefreshWineDetails(true);
+				loadWineInfo(true);
 				return;
 			}
 		}
@@ -252,7 +260,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
 			if (isChanged) {
 				Log.i(TAG, "aftertaste impressions have changed -> reloading details");
-				reloadAndRefreshWineDetails(true);
+				loadWineInfo(true);
 				return;
 			}
 		}
@@ -407,5 +415,23 @@ public class EditWineActivity extends AbstractWineActivity {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	private void setSpinnerValue(Spinner spinner, Object value, Object[] choices) {
+		int position = 0;
+		for (Object choice : choices) {
+			if (choice.equals(value)) {
+				spinner.setSelection(position);
+				return;
+			}
+			++position;
+		}
+	}
+
+	@Override
+	void wineInfoLoaded(WineInfo wineInfo) {
+		setSpinnerValue(yearView, wineInfo.year, YEAR_CHOICES);
+		setSpinnerValue(wineTypeView, wineInfo.wineTypeId, WINETYPE_CHOICES);
+		setSpinnerValue(flagView, wineInfo.flag, FLAG_CHOICES);
 	}
 }
