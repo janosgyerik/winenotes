@@ -66,7 +66,7 @@
         Unfortunately you cannot take photos :(</string>
     <string name="prompt_year">Year / Millésime</string>
     <string name="prompt_wine_type">Type of wine</string>
-    <string name="prompt_buy_flag">To buy or not to buy?</string>
+    <string name="prompt_flag">To buy or not to buy?</string>
     <string name="btn_contentDescription">[btn]</string>
     <string name="label_aroma">Aroma</string>
     <string name="label_taste">Taste</string>

@@ -51,10 +51,10 @@
                     android:prompt="@string/prompt_wine_type" />
 
                 <Spinner
-                    android:id="@+id/buy_flag"
+                    android:id="@+id/flag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:prompt="@string/prompt_buy_flag" />
+                    android:prompt="@string/prompt_flag" />
             </LinearLayout>
 
             <AutoCompleteTextView

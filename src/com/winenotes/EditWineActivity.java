@@ -53,7 +53,7 @@ public class EditWineActivity extends AbstractWineActivity {
 	//	private EditText priceView;
 	private Spinner wineTypeView;
 	private Spinner yearView;
-	private Spinner buyFlagView;
+	private Spinner flagView;
 	private AutoCompleteTextView regionView;
 	private MultiAutoCompleteTextView grapeView;
 	private RatingBar aromaRatingView;
@@ -85,7 +85,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			}
 		}
 
-		wineId = "3";
+		wineId = "1";
 		if (wineId == null) {
 			wineId = helper.newWine();
 			newWine = true;
@@ -119,14 +119,14 @@ public class EditWineActivity extends AbstractWineActivity {
 		wineTypeView.setAdapter(wineTypeListAdapter);
 
 		// TODO get list from database
-		final String[] buyFlagChoices = new String[] {
+		final String[] flagChoices = new String[] {
 				"-", "Buy", "Maybe", "Never",
 		};
-		ArrayAdapter<String> buyFlagListAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, buyFlagChoices);
-		buyFlagListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		buyFlagView = (Spinner) findViewById(R.id.buy_flag);
-		buyFlagView.setAdapter(buyFlagListAdapter);
+		ArrayAdapter<String> flagListAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, flagChoices);
+		flagListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		flagView = (Spinner) findViewById(R.id.flag);
+		flagView.setAdapter(flagListAdapter);
 
 		regionView = (AutoCompleteTextView) findViewById(R.id.region);
 		AutoCompleteHelper.configureAutoCompleteTextView(getBaseContext(), regionView,
@@ -186,7 +186,7 @@ public class EditWineActivity extends AbstractWineActivity {
 		@Override
 		public void onClick(View view) {
 			String name = capitalize(nameView.getText().toString());
-			String wineryName = "";//TODO capitalize(wineryNameView.getText().toString());
+			int wineryId = 0;//TODO capitalize(wineryNameView.getText().toString());
 			float price = 0;//TODO Float.parseFloat(priceView.getText().toString());
 			int wineTypeId = 0;// TODO
 			int year = 0;//TODO
@@ -195,15 +195,15 @@ public class EditWineActivity extends AbstractWineActivity {
 			float tasteRating = tasteRatingView.getRating();
 			float aftertasteRating = aftertasteRatingView.getRating();
 			float overallRating = overallRatingView.getRating();
-			int buyFlagId = 0;//TODO
+			int flagId = 0;//TODO
 			String memo = capitalize(memoView.getText().toString());
 
 			// TODO save the grapes: normalize, capitalize
 
-			if (helper.saveWine(wineId, name, wineryName, price,
+			if (helper.saveWine(wineId, name, wineryId, price,
 					wineTypeId, year, regionId,
 					aromaRating, tasteRating, aftertasteRating, overallRating,
-					buyFlagId, memo)) {
+					flagId, memo)) {
 				int msgId = newWine ? R.string.msg_created_wine : R.string.msg_updated_wine;
 				Toast.makeText(getApplicationContext(), msgId, Toast.LENGTH_SHORT).show();
 				finish();

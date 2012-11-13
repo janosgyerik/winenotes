@@ -67,31 +67,64 @@ public abstract class AbstractWineActivity extends Activity {
 		}
 	}
 
+	private String getStringColumn(Cursor cursor, String columnName) {
+		int columnIndex = cursor.getColumnIndex(columnName);
+		String value = cursor.getString(columnIndex);
+		return value;
+	}
+	
+	private float getFloatColumn(Cursor cursor, String columnName) {
+		int columnIndex = cursor.getColumnIndex(columnName);
+		float value = cursor.getFloat(columnIndex);
+		return value;
+	}
+	
+	private int getIntColumn(Cursor cursor, String columnName) {
+		int columnIndex = cursor.getColumnIndex(columnName);
+		int value = cursor.getInt(columnIndex);
+		return value;
+	}
+	
 	protected void reloadAndRefreshWineDetails(boolean editable) {
 		if (wineId != null) {
 			Cursor wineCursor = helper.getWineDetailsCursor(wineId);
+			
 			if (wineCursor.moveToNext()) {
-				int columnIndex;
+				
+				String name = getStringColumn(wineCursor, "name");
+				String wineryName = getStringColumn(wineCursor, "winery_name");
+				float price = getFloatColumn(wineCursor, "price");
+				int wineTypeId = getIntColumn(wineCursor, "winetype_id");
+				String wineType = getStringColumn(wineCursor, "winetype");
+				int year = getIntColumn(wineCursor, "year");
+				int regionId = getIntColumn(wineCursor, "region_id");
+				String region = getStringColumn(wineCursor, "region");
+				float aromaRating = getFloatColumn(wineCursor, "aroma_rating");
+				float tasteRating = getFloatColumn(wineCursor, "taste_rating");
+				float aftertasteRating = getFloatColumn(wineCursor, "aftertaste_rating");
+				float overallRating = getFloatColumn(wineCursor, "overall_rating");
+				int flagId = getIntColumn(wineCursor, "flag_id");
+				String flag = getStringColumn(wineCursor, "flag");
+				String memo = getStringColumn(wineCursor, "memo");
+				
+				Cursor photosCursor = helper.getWinePhotosCursor(wineId);
+				clearPhotosFromLayout();
+				while (photosCursor.moveToNext()) {
+					String filename = photosCursor.getString(0);
+					addPhotoToLayout(filename, editable);
+				}
+				photosCursor.close();
 				
 				TextView nameView = (TextView) findViewById(R.id.name);
-				EditText nameEditView = (EditText) findViewById(R.id.name_edit);
-				String name = wineCursor.getString(0);
 				if (name != null && name.length() > 0) {
 					nameView.setText(name);
-					if (nameEditView != null) {
-						nameEditView.setText(name);
-					}
 				}
 				else {
 					nameView.setText(R.string.title_noname_wine);
 				}
-				
-				
 
 				RatingBar aromaRatingBar = (RatingBar) findViewById(R.id.rating_aroma);
-				columnIndex = wineCursor.getColumnIndex("aroma_rating");
-				aromaRatingBar.setRating(wineCursor.getFloat(columnIndex));
-				aromaRatingBar.setEnabled(false);
+				aromaRatingBar.setRating(aromaRating);
 				
 				Cursor aromaImpressionsCursor = helper.getWineAromaImpressionsCursor(wineId);
 				StringBuffer aromaImpressionsBuffer = new StringBuffer();
@@ -102,126 +135,63 @@ public abstract class AbstractWineActivity extends Activity {
 					aromaImpressionsBuffer.append(", ");
 				}
 				aromaImpressionsCursor.close();
+				boolean haveAromaImpressions = aromaImpressionsBuffer.length() > 0;
+				boolean haveAroma = haveAromaImpressions || aromaRating > 0;
 				
-				View aromaImpressionsLabel = findViewById(R.id.label_aroma);
 				TextView aromaImpressionsView = (TextView) findViewById(R.id.aroma);
 				if (aromaImpressionsBuffer.length() > 2) {
 					aromaImpressionsView.setText(aromaImpressionsBuffer.substring(0, aromaImpressionsBuffer.length() - 2));
-					aromaImpressionsView.setVisibility(View.VISIBLE);
-					aromaImpressionsLabel.setVisibility(View.VISIBLE);
 				}
-				else if (editable) {
+				else {
 					aromaImpressionsView.setText(R.string.label_none);
-					aromaImpressionsView.setVisibility(View.VISIBLE);
-					aromaImpressionsLabel.setVisibility(View.VISIBLE);
-				}
-				else {
-					aromaImpressionsView.setVisibility(View.GONE);
-					aromaImpressionsLabel.setVisibility(View.GONE);
-				}
-
-				
-				
-				RatingBar tasteRatingBar = (RatingBar) findViewById(R.id.rating_taste);
-				columnIndex = wineCursor.getColumnIndex("taste_rating");
-				tasteRatingBar.setRating(wineCursor.getFloat(columnIndex));
-				
-				Cursor tasteImpressionsCursor = helper.getWineTasteImpressionsCursor(wineId);
-				StringBuffer tasteImpressionsBuffer = new StringBuffer();
-				while (tasteImpressionsCursor.moveToNext()) {
-					emptyWine = false;
-					String tasteImpression = tasteImpressionsCursor.getString(0);
-					tasteImpressionsBuffer.append(tasteImpression);
-					tasteImpressionsBuffer.append(", ");
-				}
-				tasteImpressionsCursor.close();
-				
-				View tasteImpressionsLabel = findViewById(R.id.label_taste);
-				TextView tasteImpressionsView = (TextView) findViewById(R.id.taste);
-				if (tasteImpressionsBuffer.length() > 2) {
-					tasteImpressionsView.setText(tasteImpressionsBuffer.substring(0, tasteImpressionsBuffer.length() - 2));
-					tasteImpressionsView.setVisibility(View.VISIBLE);
-					tasteImpressionsLabel.setVisibility(View.VISIBLE);
-				}
-				else if (editable) {
-					tasteImpressionsView.setText(R.string.label_none);
-					tasteImpressionsView.setVisibility(View.VISIBLE);
-					tasteImpressionsLabel.setVisibility(View.VISIBLE);
-				}
-				else {
-					tasteImpressionsView.setVisibility(View.GONE);
-					tasteImpressionsLabel.setVisibility(View.GONE);
 				}
 				
-
 				
-				RatingBar aftertasteRatingBar = (RatingBar) findViewById(R.id.rating_aftertaste);
-				columnIndex = wineCursor.getColumnIndex("aftertaste_rating");
-				aftertasteRatingBar.setRating(wineCursor.getFloat(columnIndex));
 				
-				Cursor aftertasteImpressionsCursor = helper.getWineAftertasteImpressionsCursor(wineId);
-				StringBuffer aftertasteImpressionsBuffer = new StringBuffer();
-				while (aftertasteImpressionsCursor.moveToNext()) {
-					emptyWine = false;
-					String aftertasteImpression = aftertasteImpressionsCursor.getString(0);
-					aftertasteImpressionsBuffer.append(aftertasteImpression);
-					aftertasteImpressionsBuffer.append(", ");
-				}
-				aftertasteImpressionsCursor.close();
-				
-				View aftertasteImpressionsLabel = findViewById(R.id.label_aftertaste);
-				TextView aftertasteImpressionsView = (TextView) findViewById(R.id.aftertaste);
-				if (aftertasteImpressionsBuffer.length() > 2) {
-					aftertasteImpressionsView.setText(aftertasteImpressionsBuffer.substring(0, aftertasteImpressionsBuffer.length() - 2));
-					aftertasteImpressionsView.setVisibility(View.VISIBLE);
-					aftertasteImpressionsLabel.setVisibility(View.VISIBLE);
-				}
-				else if (editable) {
-					aftertasteImpressionsView.setText(R.string.label_none);
-					aftertasteImpressionsView.setVisibility(View.VISIBLE);
-					aftertasteImpressionsLabel.setVisibility(View.VISIBLE);
-				}
-				else {
-					aftertasteImpressionsView.setVisibility(View.GONE);
-					aftertasteImpressionsLabel.setVisibility(View.GONE);
-				}
-
-				
-
 				RatingBar overallRatingBar = (RatingBar) findViewById(R.id.rating_overall);
-				columnIndex = wineCursor.getColumnIndex("overall_rating");
-				overallRatingBar.setRating(wineCursor.getFloat(columnIndex));
+				overallRatingBar.setRating(overallRating);
 
 				
-				
-				
-				columnIndex = wineCursor.getColumnIndex("memo");
-				String memo = wineCursor.getString(columnIndex);
 				TextView memoView = (TextView) findViewById(R.id.memo);
 				memoView.setText(memo);
-				View memoLabel = findViewById(R.id.memo_label);
+				boolean haveMemo = false;
 				if (memo != null && memo.length() > 0) {
 					emptyWine  = false;
-					memoLabel.setVisibility(View.VISIBLE);
-					memoView.setVisibility(View.VISIBLE);
+					haveMemo = true;
 				}
-				else if (editable) {
-					memoLabel.setVisibility(View.VISIBLE);
-					memoView.setVisibility(View.VISIBLE);
+				
+				if (editable) {
+					EditText nameEditView = (EditText) findViewById(R.id.name_edit);
+					nameEditView.setText(name);
+					
 				}
 				else {
-					memoLabel.setVisibility(View.GONE);
-					memoView.setVisibility(View.GONE);
+					View aromaLabel = findViewById(R.id.label_aroma);
+					if (haveAroma) {
+						if (haveAromaImpressions) {
+							aromaImpressionsView.setVisibility(View.VISIBLE);
+						}
+						else {
+							aromaImpressionsView.setVisibility(View.GONE);
+						}
+						aromaLabel.setVisibility(View.VISIBLE);
+						aromaRatingBar.setVisibility(View.VISIBLE);
+					}
+					else {
+						aromaLabel.setVisibility(View.GONE);
+						aromaRatingBar.setVisibility(View.GONE);
+					}
+					
+					View memoLabel = findViewById(R.id.memo_label);
+					if (haveMemo) {
+						memoLabel.setVisibility(View.VISIBLE);
+						memoView.setVisibility(View.VISIBLE);
+					}
+					else {
+						memoLabel.setVisibility(View.GONE);
+						memoView.setVisibility(View.GONE);
+					}
 				}
-				
-				
-				Cursor photosCursor = helper.getWinePhotosCursor(wineId);
-				clearPhotosFromLayout();
-				while (photosCursor.moveToNext()) {
-					String filename = photosCursor.getString(0);
-					addPhotoToLayout(filename, editable);
-				}
-				photosCursor.close();
 			}
 			else {
 				// TODO

@@ -1,4 +1,4 @@
-CREATE TABLE "main_color" (
+CREATE TABLE "main_winetype" (
     "_id" integer NULL PRIMARY KEY AUTOINCREMENT,
     "name" varchar(20) NULL,
     "display_order" integer NULL,
@@ -14,9 +14,22 @@ CREATE TABLE "main_region" (
     "updated_dt" datetime NULL
 )
 ;
-CREATE TABLE "main_buyflag" (
+CREATE TABLE "main_flag" (
     "_id" integer NULL PRIMARY KEY AUTOINCREMENT,
     "name" varchar(20) NULL,
+    "display_order" integer NULL,
+    "created_dt" datetime NULL,
+    "updated_dt" datetime NULL
+)
+;
+CREATE TABLE "main_winery" (
+    "_id" integer NULL PRIMARY KEY AUTOINCREMENT,
+    "name" varchar(20) NULL,
+    "lat" real NULL,
+    "lon" real NULL,
+    "address" text NULL,
+    "website" varchar(200) NULL,
+    "tel" varchar(50) NULL,
     "display_order" integer NULL,
     "created_dt" datetime NULL,
     "updated_dt" datetime NULL
@@ -25,18 +38,18 @@ CREATE TABLE "main_buyflag" (
 CREATE TABLE "main_wine" (
     "_id" integer NULL PRIMARY KEY AUTOINCREMENT,
     "name" varchar(80) NULL,
-    "winery_name" varchar(80) NULL,
+    "winery_id" integer NULL REFERENCES "main_winery" ("_id"),
     "summary" text NULL,
     "listing_text" text NULL,
     "price" real NULL,
-    "color_id" integer NULL REFERENCES "main_color" ("_id"),
+    "winetype_id" integer NULL REFERENCES "main_winetype" ("_id"),
     "year" integer NULL,
     "region_id" integer NULL REFERENCES "main_region" ("_id"),
     "aroma_rating" integer NULL,
     "taste_rating" integer NULL,
     "aftertaste_rating" integer NULL,
     "overall_rating" integer NULL,
-    "buy_flag_id" integer NULL REFERENCES "main_buyflag" ("_id"),
+    "flag_id" integer NULL REFERENCES "main_flag" ("_id"),
     "memo" text NULL,
     "display_image" varchar(80) NULL,
     "display_order" integer NULL,

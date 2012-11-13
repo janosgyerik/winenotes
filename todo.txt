@@ -6,7 +6,6 @@ version 1
         - 'cancel' empty wine 178 179
     - saving
     - loading
-    - rename colorId to wineType everywhere (makes it possible for non-wine, like champagne)
     - more fields: winery, price
 - wine view
 - wine listing page

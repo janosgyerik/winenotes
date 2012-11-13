@@ -3,7 +3,7 @@ from datetime import datetime
 from django.db import models
 
 
-class Color(models.Model):
+class WineType(models.Model):
     name = models.CharField(max_length=20)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
@@ -17,8 +17,20 @@ class Region(models.Model):
     updated_dt = models.DateTimeField(default=datetime.now)
 
 
-class BuyFlag(models.Model):
+class Flag(models.Model):
     name = models.CharField(max_length=20)
+    display_order = models.IntegerField()
+    created_dt = models.DateTimeField(default=datetime.now)
+    updated_dt = models.DateTimeField(default=datetime.now)
+
+
+class Winery(models.Model):
+    name = models.CharField(max_length=20)
+    lat = models.FloatField()
+    lon = models.FloatField()
+    address = models.TextField()
+    website = models.CharField(max_length=200)
+    tel = models.CharField(max_length=50)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
     updated_dt = models.DateTimeField(default=datetime.now)
@@ -26,18 +38,18 @@ class BuyFlag(models.Model):
 
 class Wine(models.Model):
     name = models.CharField(max_length=80)
-    winery_name = models.CharField(max_length=80)
+    winery = models.ForeignKey(Winery)
     summary = models.TextField()
     listing_text = models.TextField()
     price = models.FloatField()
-    color = models.ForeignKey(Color)
+    winetype = models.ForeignKey(WineType)
     year = models.IntegerField()
     region = models.ForeignKey(Region)
     aroma_rating = models.IntegerField()
     taste_rating = models.IntegerField()
     aftertaste_rating = models.IntegerField()
     overall_rating = models.IntegerField()
-    buy_flag = models.ForeignKey(BuyFlag)
+    flag = models.ForeignKey(Flag)
     memo = models.TextField()
     display_image = models.CharField(max_length=80)
     display_order = models.IntegerField()

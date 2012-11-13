@@ -29,10 +29,11 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	private static final String WINES_TABLE_NAME = "main_wine";
 	private static final String AROMA_IMPRESSIONS_TABLE_NAME = "main_aromaimpression";
 	private static final String TASTE_IMPRESSIONS_TABLE_NAME = "main_tasteimpression";
-	private static final String COLORS_TABLE_NAME = "main_color";
+	private static final String WINETYPES_TABLE_NAME = "main_winetype";
 	private static final String REGIONS_TABLE_NAME = "main_region";
-	private static final String BUYFLAGS_TABLE_NAME = "main_buyflag";
 	private static final String GRAPES_TABLE_NAME = "main_grape";
+	private static final String WINERY_TABLE_NAME = "main_winery";
+	private static final String FLAGS_TABLE_NAME = "main_flag";
 
 	// relationships
 	private static final String WINE_GRAPES_TABLE_NAME = "main_winegrape";
@@ -47,7 +48,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	WineNotesSQLiteOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
-		//context.deleteDatabase(DATABASE_NAME);
+//		context.deleteDatabase(DATABASE_NAME);
 
 		sqlCreateStatements = getSqlStatements(context, "sql_create.sql");
 		sqlUpgradeStatements = new SparseArray<List<String>>();
@@ -132,22 +133,22 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		}
 	}
 
-	public boolean saveWine(String wineId, String name, String wineryName, float price,
-			int colorId, int year, int regionId,
+	public boolean saveWine(String wineId, String name, int wineryId, float price,
+			int wineTypeId, int year, int regionId,
 			float aromaRating, float tasteRating, float aftertasteRating, float overallRating,
-			int buyFlagId, String memo) {
+			int flagId, String memo) {
 		ContentValues values = new ContentValues();
 		values.put("name", name);
-		values.put("winery_name", wineryName);
+		values.put("winery_id", wineryId);
 		values.put("price", price);
-		values.put("color_id", colorId);
+		values.put("winetype_id", wineTypeId);
 		values.put("year", year);
 		values.put("region_id", regionId);
 		values.put("aroma_rating", aromaRating);
 		values.put("taste_rating", tasteRating);
 		values.put("aftertaste_rating", aftertasteRating);
 		values.put("overall_rating", overallRating);
-		values.put("buy_flag_id", buyFlagId);
+		values.put("flag_id", flagId);
 		values.put("memo", memo);
 
 		long updatedDt = new Date().getTime();
@@ -435,20 +436,22 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	public Cursor getWineDetailsCursor(String wineId) {
 		Log.d(TAG, "get wine " + wineId);
 		String sql = String.format(
-				"SELECT w.name, winery_name, price, " +
-						"color_id winetype_id, t.name winetype, year, " +
+				"SELECT w.name, winery_id, f.name winery_name, price, " +
+						"winetype_id, t.name winetype, year, " +
 						"region_id, r.name region, " +
 						"aroma_rating, taste_rating, aftertaste_rating, overall_rating, " +
-						"buy_flag_id, b.name buy_flag, memo " + 
+						"flag_id, b.name flag, memo " + 
 						"FROM %s w " +
-						"LEFT JOIN %s t ON w.color_id = t._id " +
+						"LEFT JOIN %s t ON w.winetype_id = t._id " +
 						"LEFT JOIN %s r ON w.region_id = r._id " +
-						"LEFT JOIN %s b ON w.buy_flag_id = b._id " +
+						"LEFT JOIN %s f ON w.winery_id = f._id " +
+						"LEFT JOIN %s b ON w.flag_id = b._id " +
 						"WHERE w._id = ?",
 						WINES_TABLE_NAME,
-						COLORS_TABLE_NAME,
+						WINETYPES_TABLE_NAME,
 						REGIONS_TABLE_NAME,
-						BUYFLAGS_TABLE_NAME
+						WINERY_TABLE_NAME,
+						FLAGS_TABLE_NAME
 				);
 		Log.d(TAG, sql);
 		Cursor cursor = getReadableDatabase().rawQuery(sql, new String[]{ wineId });
