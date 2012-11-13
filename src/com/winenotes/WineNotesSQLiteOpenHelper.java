@@ -434,14 +434,24 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 
 	public Cursor getWineDetailsCursor(String wineId) {
 		Log.d(TAG, "get wine " + wineId);
-		Cursor cursor = getReadableDatabase().query(
-				WINES_TABLE_NAME, new String[]{ "name", "winery_name",
-						"price", "color_id", "year", "region_id",
-						"aroma_rating", "taste_rating", "aftertaste_rating", "overall_rating",
-						"buy_flag_id",
-						"memo", }, 
-						BaseColumns._ID + " = ?", new String[]{ wineId },
-						null, null, null);
+		String sql = String.format(
+				"SELECT w.name, winery_name, price, " +
+						"color_id winetype_id, t.name winetype, year, " +
+						"region_id, r.name region, " +
+						"aroma_rating, taste_rating, aftertaste_rating, overall_rating, " +
+						"buy_flag_id, b.name buy_flag, memo " + 
+						"FROM %s w " +
+						"LEFT JOIN %s t ON w.color_id = t._id " +
+						"LEFT JOIN %s r ON w.region_id = r._id " +
+						"LEFT JOIN %s b ON w.buy_flag_id = b._id " +
+						"WHERE w._id = ?",
+						WINES_TABLE_NAME,
+						COLORS_TABLE_NAME,
+						REGIONS_TABLE_NAME,
+						BUYFLAGS_TABLE_NAME
+				);
+		Log.d(TAG, sql);
+		Cursor cursor = getReadableDatabase().rawQuery(sql, new String[]{ wineId });
 		return cursor;
 	}
 
