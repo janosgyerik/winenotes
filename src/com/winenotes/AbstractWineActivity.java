@@ -148,8 +148,59 @@ public abstract class AbstractWineActivity extends Activity {
 				
 				
 				
+				RatingBar tasteRatingBar = (RatingBar) findViewById(R.id.rating_taste);
+				tasteRatingBar.setRating(tasteRating);
+				
+				Cursor tasteImpressionsCursor = helper.getWineTasteImpressionsCursor(wineId);
+				StringBuffer tasteImpressionsBuffer = new StringBuffer();
+				while (tasteImpressionsCursor.moveToNext()) {
+					emptyWine = false;
+					String tasteImpression = tasteImpressionsCursor.getString(0);
+					tasteImpressionsBuffer.append(tasteImpression);
+					tasteImpressionsBuffer.append(", ");
+				}
+				tasteImpressionsCursor.close();
+				boolean haveTasteImpressions = tasteImpressionsBuffer.length() > 0;
+				boolean haveTaste = haveTasteImpressions || tasteRating > 0;
+				
+				TextView tasteImpressionsView = (TextView) findViewById(R.id.taste);
+				if (tasteImpressionsBuffer.length() > 2) {
+					tasteImpressionsView.setText(tasteImpressionsBuffer.substring(0, tasteImpressionsBuffer.length() - 2));
+				}
+				else {
+					tasteImpressionsView.setText(R.string.label_none);
+				}
+				
+				
+				
+				RatingBar aftertasteRatingBar = (RatingBar) findViewById(R.id.rating_aftertaste);
+				aftertasteRatingBar.setRating(aftertasteRating);
+				
+				Cursor aftertasteImpressionsCursor = helper.getWineAftertasteImpressionsCursor(wineId);
+				StringBuffer aftertasteImpressionsBuffer = new StringBuffer();
+				while (aftertasteImpressionsCursor.moveToNext()) {
+					emptyWine = false;
+					String aftertasteImpression = aftertasteImpressionsCursor.getString(0);
+					aftertasteImpressionsBuffer.append(aftertasteImpression);
+					aftertasteImpressionsBuffer.append(", ");
+				}
+				aftertasteImpressionsCursor.close();
+				boolean haveAftertasteImpressions = aftertasteImpressionsBuffer.length() > 0;
+				boolean haveAftertaste = haveAftertasteImpressions || aftertasteRating > 0;
+				
+				TextView aftertasteImpressionsView = (TextView) findViewById(R.id.aftertaste);
+				if (aftertasteImpressionsBuffer.length() > 2) {
+					aftertasteImpressionsView.setText(aftertasteImpressionsBuffer.substring(0, aftertasteImpressionsBuffer.length() - 2));
+				}
+				else {
+					aftertasteImpressionsView.setText(R.string.label_none);
+				}
+				
+				
+				
 				RatingBar overallRatingBar = (RatingBar) findViewById(R.id.rating_overall);
 				overallRatingBar.setRating(overallRating);
+				boolean haveOverall = overallRating > 0;
 
 				
 				TextView memoView = (TextView) findViewById(R.id.memo);
@@ -163,7 +214,6 @@ public abstract class AbstractWineActivity extends Activity {
 				if (editable) {
 					EditText nameEditView = (EditText) findViewById(R.id.name_edit);
 					nameEditView.setText(name);
-					
 				}
 				else {
 					View aromaLabel = findViewById(R.id.label_aroma);
@@ -182,6 +232,48 @@ public abstract class AbstractWineActivity extends Activity {
 						aromaRatingBar.setVisibility(View.GONE);
 					}
 					
+					View tasteLabel = findViewById(R.id.label_taste);
+					if (haveTaste) {
+						if (haveTasteImpressions) {
+							tasteImpressionsView.setVisibility(View.VISIBLE);
+						}
+						else {
+							tasteImpressionsView.setVisibility(View.GONE);
+						}
+						tasteLabel.setVisibility(View.VISIBLE);
+						tasteRatingBar.setVisibility(View.VISIBLE);
+					}
+					else {
+						tasteLabel.setVisibility(View.GONE);
+						tasteRatingBar.setVisibility(View.GONE);
+					}
+
+					View aftertasteLabel = findViewById(R.id.label_aftertaste);
+					if (haveAftertaste) {
+						if (haveAftertasteImpressions) {
+							aftertasteImpressionsView.setVisibility(View.VISIBLE);
+						}
+						else {
+							aftertasteImpressionsView.setVisibility(View.GONE);
+						}
+						aftertasteLabel.setVisibility(View.VISIBLE);
+						aftertasteRatingBar.setVisibility(View.VISIBLE);
+					}
+					else {
+						aftertasteLabel.setVisibility(View.GONE);
+						aftertasteRatingBar.setVisibility(View.GONE);
+					}
+					
+					View overallLabel = findViewById(R.id.label_overall);
+					if (haveOverall) {
+						overallLabel.setVisibility(View.VISIBLE);
+						overallRatingBar.setVisibility(View.VISIBLE);
+					}
+					else {
+						overallLabel.setVisibility(View.GONE);
+						overallRatingBar.setVisibility(View.GONE);
+					}
+
 					View memoLabel = findViewById(R.id.memo_label);
 					if (haveMemo) {
 						memoLabel.setVisibility(View.VISIBLE);

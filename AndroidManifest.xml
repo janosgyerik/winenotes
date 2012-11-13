@@ -20,15 +20,15 @@
         <activity
             android:name=".WineListActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".EditWineActivity"
+            android:label="Edit wine" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".EditWineActivity"
-            android:label="Edit wine" >
         </activity>
         <activity
             android:name=".ViewWineActivity"
@@ -42,6 +42,16 @@
         <activity
             android:name=".EditAromaImpressionsActivity"
             android:label="Aroma Impressions"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name=".EditTasteImpressionsActivity"
+            android:label="Taste Impressions"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name=".EditAftertasteImpressionsActivity"
+            android:label="Aftertaste Impressions"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
