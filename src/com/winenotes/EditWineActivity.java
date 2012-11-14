@@ -117,15 +117,15 @@ public class EditWineActivity extends AbstractWineActivity {
 		yearView = (Spinner) findViewById(R.id.year);
 		yearView.setAdapter(yearListAdapter);
 
-		Cursor wineTypesListCursor = helper.getWineTypesListCursor();
+		Cursor wineTypeListCursor = helper.getWineTypeListCursor();
 		List<ForeignKey> wineTypeChoices = new ArrayList<ForeignKey>();
 		wineTypeChoices.add(new ForeignKey(0, ""));
-		while (wineTypesListCursor.moveToNext()) {
-			int refId = wineTypesListCursor.getInt(0);
-			String name = wineTypesListCursor.getString(1);
+		while (wineTypeListCursor.moveToNext()) {
+			int refId = wineTypeListCursor.getInt(0);
+			String name = wineTypeListCursor.getString(1);
 			wineTypeChoices.add(new ForeignKey(refId, name));
 		}
-		wineTypesListCursor.close();
+		wineTypeListCursor.close();
 		WINETYPE_CHOICES = wineTypeChoices.toArray(new ForeignKey[0]);
 
 		ArrayAdapter<ForeignKey> wineTypeListAdapter = new ArrayAdapter<ForeignKey>(this,
@@ -153,7 +153,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
 		regionView = (AutoCompleteTextView) findViewById(R.id.region);
 		AutoCompleteHelper.configureAutoCompleteTextView(getBaseContext(), regionView,
-				helper.getAromaImpressionsListCursor());
+				helper.getAromaImpressionListCursor());
 
 		//		grapeView = (MultiAutoCompleteTextView) findViewById(R.id.grape);
 

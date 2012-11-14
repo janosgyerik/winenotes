@@ -174,7 +174,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	
 	
 	
-	public Cursor getWineTypesListCursor() {
+	public Cursor getWineTypeListCursor() {
 		Log.d(TAG, "get all wine types");
 		Cursor cursor = getReadableDatabase().query(
 				WINETYPES_TABLE_NAME, 
@@ -266,7 +266,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		return ret > 0;
 	}
 
-	public Cursor getAromaImpressionsListCursor() {
+	public Cursor getAromaImpressionListCursor() {
 		Log.d(TAG, "get all aroma impressions");
 		Cursor cursor = getReadableDatabase().query(
 				AROMA_IMPRESSIONS_TABLE_NAME, 
@@ -362,7 +362,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		return ret > 0;
 	}
 
-	public Cursor getTasteImpressionsListCursor() {
+	public Cursor getTasteImpressionListCursor() {
 		Log.d(TAG, "get all taste impressions");
 		Cursor cursor = getReadableDatabase().query(
 				TASTE_IMPRESSIONS_TABLE_NAME, 

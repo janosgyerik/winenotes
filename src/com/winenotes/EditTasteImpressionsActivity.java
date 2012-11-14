@@ -11,7 +11,7 @@ public class EditTasteImpressionsActivity extends AbstractEditWineItemsActivity 
 
 	@Override
 	Cursor getAutoCompleteListCursor() {
-		return helper.getTasteImpressionsListCursor();
+		return helper.getTasteImpressionListCursor();
 	}
 
 	@Override

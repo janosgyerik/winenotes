@@ -11,7 +11,7 @@ public class EditAromaImpressionsActivity extends AbstractEditWineItemsActivity 
 
 	@Override
 	Cursor getAutoCompleteListCursor() {
-		return helper.getAromaImpressionsListCursor();
+		return helper.getAromaImpressionListCursor();
 	}
 
 	@Override
