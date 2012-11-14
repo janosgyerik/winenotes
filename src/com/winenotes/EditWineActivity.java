@@ -92,7 +92,6 @@ public class EditWineActivity extends AbstractWineActivity {
 			}
 		}
 
-		wineId = "1";
 		if (wineId == null) {
 			wineId = helper.newWine();
 			newWine = true;

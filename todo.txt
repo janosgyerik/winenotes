@@ -9,6 +9,7 @@ version 1
     - as per ordering of fields, see other apps for reference
 - build initial database and take backup of it to fill it offline
     - generate insert script from local initial database
+- price
 - build initial database into the app as an asset and test well
 - replace license protected images
     - launcher
@@ -32,9 +33,6 @@ release
 
 version 2
 ---------
-- wine editing
-    - winery
-    - price
 - wine editing: cancel wine if empty
     - see recipe notes 178 179
 - improved wine list
