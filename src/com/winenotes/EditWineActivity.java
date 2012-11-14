@@ -56,7 +56,7 @@ public class EditWineActivity extends AbstractWineActivity {
 	private Spinner yearView;
 	private Spinner flagView;
 	private AutoCompleteTextView regionView;
-	private MultiAutoCompleteTextView grapeView;
+	private MultiAutoCompleteTextView grapesView;
 	private RatingBar aromaRatingView;
 	private RatingBar tasteRatingView;
 	private RatingBar aftertasteRatingView;
@@ -213,13 +213,16 @@ public class EditWineActivity extends AbstractWineActivity {
 			float price = 0;//TODO Float.parseFloat(priceView.getText().toString());
 			int wineTypeId = ((ForeignKey)wineTypeView.getSelectedItem()).refId;
 			int year = ((ForeignKey)yearView.getSelectedItem()).refId;
-			int regionId = 0;//TODO
+			String region = capitalize(regionView.getText().toString());
+			String regionId = helper.getOrCreateRegion(region);
 			float aromaRating = aromaRatingView.getRating();
 			float tasteRating = tasteRatingView.getRating();
 			float aftertasteRating = aftertasteRatingView.getRating();
 			float overallRating = overallRatingView.getRating();
 			int flagId = ((ForeignKey)flagView.getSelectedItem()).refId;
 			String memo = capitalize(memoView.getText().toString());
+			
+//			updateGrapes(grapesView.getText().toString());
 
 			// TODO save the grapes: normalize, capitalize
 
@@ -236,6 +239,21 @@ public class EditWineActivity extends AbstractWineActivity {
 			}
 		}
 	}
+	
+	/*
+	private void updateGrapes(String items) {
+		helper.clearWineGrapes(wineId);
+		if (items.length() > 0) {
+			for (String item : items.split(",")) {
+				item = capitalize(item);
+				String itemId = helper.getOrCreateGrape(item);
+				if (itemId != null) {
+					helper.addWineGrape(wineId, itemId);
+				}
+			}
+		}
+	}
+	*/
 
 	static String capitalize(String name) {
 		if (name == null || name.trim().length() < 1) return name;
@@ -448,5 +466,6 @@ public class EditWineActivity extends AbstractWineActivity {
 		setSpinnerValue(yearView, wineInfo.year, YEAR_CHOICES);
 		setSpinnerValue(wineTypeView, wineInfo.wineTypeId, WINETYPE_CHOICES);
 		setSpinnerValue(flagView, wineInfo.flagId, FLAG_CHOICES);
+		regionView.setText(wineInfo.region);
 	}
 }

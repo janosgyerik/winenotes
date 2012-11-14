@@ -5,7 +5,6 @@ version 1
     - return from edit should not overwrite anything else except the relevant field
     - goodies from recipe notes
         - 'cancel' empty wine 178 179
-    - region
     - grape
     - winery
     - price

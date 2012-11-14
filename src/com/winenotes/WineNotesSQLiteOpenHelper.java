@@ -134,7 +134,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	}
 
 	public boolean saveWine(String wineId, String name, int wineryId, float price,
-			int wineTypeId, int year, int regionId,
+			int wineTypeId, int year, String regionId,
 			float aromaRating, float tasteRating, float aftertasteRating, float overallRating,
 			int flagId, String memo) {
 		ContentValues values = new ContentValues();
@@ -194,6 +194,60 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 
 	
 
+	public String getOrCreateRegion(String name) {
+		String regionId = getRegionIdByName(name);
+		if (regionId == null) {
+			regionId = newRegion(name);
+		}
+		return regionId;
+	}
+
+	/**
+	 * Returns aromaImpressionId or null if aroma impression does not exist.
+	 * @param name
+	 * @return
+	 */
+	public String getRegionIdByName(String name) {
+		String regionId = null;
+		Cursor cursor = getReadableDatabase().query(
+				REGIONS_TABLE_NAME, 
+				new String[] { BaseColumns._ID }, 
+				"name = ?", 
+				new String[] { name }, 
+				null, null, null, "1");
+		if (cursor.moveToNext()) {
+			regionId = cursor.getString(0);
+			Log.d(TAG, String.format("got region: %s -> %s", regionId, name));
+		}
+		cursor.close();
+		return regionId;
+	}
+
+	/**
+	 * Returns new regionId on success or else null
+	 * @return
+	 */
+	private String newRegion(String name) {
+		ContentValues values = new ContentValues();
+		values.put("name", name);
+		long createdDt = new Date().getTime();
+		values.put("created_dt", createdDt);
+		values.put("updated_dt", createdDt);
+		long ret = getWritableDatabase().insert(REGIONS_TABLE_NAME, null, values);
+		Log.d(TAG, String.format("insert region: %s <- %s", name, ret));
+		if (ret >= 0) {
+			String regionId = String.valueOf(ret);
+			return regionId;
+		}
+		else {
+			return null;
+		}
+	}
+
+
+
+	
+	
 	public String getOrCreateAromaImpression(String name) {
 		String aromaImpressionId = getAromaImpressionIdByName(name);
 		if (aromaImpressionId == null) {
