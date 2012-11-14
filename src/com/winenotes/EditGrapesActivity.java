@@ -5,6 +5,11 @@ import android.database.Cursor;
 public class EditGrapesActivity extends AbstractEditWineItemsActivity {
 
 	@Override
+	protected String getHint() {
+		return this.getString(R.string.hint_grape);
+	}
+	
+	@Override
 	int getContentViewId() {
 		return R.layout.editimpressions;
 	}

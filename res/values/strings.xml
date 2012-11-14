@@ -15,8 +15,8 @@
     <string name="title_wine_details">Wine</string>
     <string name="hint_name">Name of the wine</string>
     <string name="hint_region">Region</string>
-    <string name="hint_grape">Grape / Cépage</string>
-    <string name="hint_impressions">Impressions&#8230;</string>
+    <string name="hint_grape">Merlot, Grenache, &#8230;</string>
+    <string name="hint_impressions">Fruity, Sweet, &#8230;</string>
     <string name="note_entering_impressions">Hint: you can add many at once,
         separated by comma.</string>
     <string name="msg_no_impressions">No impressions. Use the input box above to add some!</string>

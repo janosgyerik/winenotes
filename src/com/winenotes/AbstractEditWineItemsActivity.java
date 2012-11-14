@@ -44,6 +44,10 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 	abstract boolean addWineItem(String itemId);
 	abstract String getItemIdByName(String name);
 	abstract boolean removeWineItem(String itemId);
+	
+	protected String getHint() {
+		return this.getString(R.string.hint_impressions);
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +81,7 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 		inputView = (MultiAutoCompleteTextView) findViewById(R.id.input);
 		inputView.setAdapter(itemsAutoCompleteAdapter);
 		inputView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+		inputView.setHint(getHint());
 
 		itemListAdapter =
 				new ArrayAdapter<String>(this, R.layout.impressionslist_item);
