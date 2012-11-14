@@ -1,13 +1,6 @@
 version 1
 ---------
 - library-fy
-- wine editing
-    - return from edit should not overwrite anything else except the relevant field
-    - goodies from recipe notes
-        - 'cancel' empty wine 178 179
-    - grape
-    - winery
-    - price
 - wine view
 - wine listing page
     - wine icon per different wine type
@@ -41,6 +34,11 @@ release
 
 version 2
 ---------
+- wine editing
+    - winery
+    - price
+- wine editing: cancel wine if empty
+    - see recipe notes 178 179
 - improved wine list
     - do not show title if does not exist
     - use first photo

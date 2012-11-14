@@ -260,12 +260,12 @@ public class EditWineActivity extends AbstractWineActivity {
 		if (extras != null) {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
 			if (isChanged) {
-				Log.i(TAG, "grapes have changed -> reloading details");
-				loadWineInfo(true);
+				Log.i(TAG, "grapes have changed -> reloading");
+				updateGrapes(true);
 				return;
 			}
 		}
-		Log.i(TAG, "grapes have NOT changed -> NOT reloading details");
+		Log.i(TAG, "grapes have NOT changed -> NOT reloading");
 	}
 
 	private void handleReturnFromEditAroma(Intent data) {
@@ -273,12 +273,12 @@ public class EditWineActivity extends AbstractWineActivity {
 		if (extras != null) {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
 			if (isChanged) {
-				Log.i(TAG, "aroma impressions have changed -> reloading details");
-				loadWineInfo(true);
+				Log.i(TAG, "aroma impressions have changed -> reloading");
+				updateAroma(true);
 				return;
 			}
 		}
-		Log.i(TAG, "aroma impressions have NOT changed -> NOT reloading details");
+		Log.i(TAG, "aroma impressions have NOT changed -> NOT reloading");
 	}
 
 	private void handleReturnFromEditTaste(Intent data) {
@@ -286,12 +286,12 @@ public class EditWineActivity extends AbstractWineActivity {
 		if (extras != null) {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
 			if (isChanged) {
-				Log.i(TAG, "taste impressions have changed -> reloading details");
-				loadWineInfo(true);
+				Log.i(TAG, "taste impressions have changed -> reloading");
+				updateTaste(true);
 				return;
 			}
 		}
-		Log.i(TAG, "taste impressions have NOT changed -> NOT reloading details");
+		Log.i(TAG, "taste impressions have NOT changed -> NOT reloading");
 	}
 
 	private void handleReturnFromEditAftertaste(Intent data) {
@@ -299,12 +299,12 @@ public class EditWineActivity extends AbstractWineActivity {
 		if (extras != null) {
 			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
 			if (isChanged) {
-				Log.i(TAG, "aftertaste impressions have changed -> reloading details");
-				loadWineInfo(true);
+				Log.i(TAG, "aftertaste impressions have changed -> reloading");
+				updateAftertaste(true);
 				return;
 			}
 		}
-		Log.i(TAG, "aftertaste impressions have NOT changed -> NOT reloading details");
+		Log.i(TAG, "aftertaste impressions have NOT changed -> NOT reloading");
 	}
 
 	@Override
