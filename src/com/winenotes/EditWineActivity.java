@@ -123,6 +123,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
 		Cursor wineTypesListCursor = helper.getWineTypesListCursor();
 		List<ForeignKey> wineTypeChoices = new ArrayList<ForeignKey>();
+		wineTypeChoices.add(new ForeignKey(0, ""));
 		while (wineTypesListCursor.moveToNext()) {
 			int refId = wineTypesListCursor.getInt(0);
 			String name = wineTypesListCursor.getString(1);
