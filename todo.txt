@@ -6,11 +6,11 @@ version 1
     - wine icon per different wine type
     - what text to include: name, winery, year, region, overall rating, price, flag, photo
     - order by flag + rating
-    - as per ordering of fields, see other apps for reference
-- build initial database and take backup of it to fill it offline
-    - generate insert script from local initial database
+- save improvement
+    - add save button icon in header
+    - move save button outside of scrolling area
+- generate insert script from local initial database
 - price
-- build initial database into the app as an asset and test well
 - replace license protected images
     - launcher
     - wine icon in wine list

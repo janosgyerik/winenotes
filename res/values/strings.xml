@@ -21,7 +21,7 @@
         separated by comma.</string>
     <string name="msg_no_impressions">No impressions. Use the input box above to add some!</string>
     <string name="hint_memo"></string>
-    <string name="label_memo">Memo: </string>
+    <string name="label_memo">Memo</string>
     <string name="msg_updated_wine">Updated wine</string>
     <string name="msg_created_wine">Added wine</string>
     <string name="error_update_wine">Could not update wine</string>
@@ -69,6 +69,7 @@
     <string name="prompt_flag">To buy or not to buy?</string>
     <string name="btn_contentDescription">[btn]</string>
     <string name="label_grapes">Grape / Cépage</string>
+    <string name="label_region">Region</string>
     <string name="label_aroma">Aroma</string>
     <string name="label_taste">Taste</string>
     <string name="label_aftertaste">Aftertaste</string>

@@ -164,6 +164,11 @@ public abstract class AbstractWineActivity extends Activity {
 					nameEditView.setText(wineInfo.name);
 				}
 				else {
+					aromaRatingBar.setEnabled(false);
+					tasteRatingBar.setEnabled(false);
+					aftertasteRatingBar.setEnabled(false);
+					overallRatingBar.setEnabled(false);
+					
 					View overallLabel = findViewById(R.id.label_overall);
 					if (haveOverall) {
 						overallLabel.setVisibility(View.VISIBLE);
@@ -229,6 +234,7 @@ public abstract class AbstractWineActivity extends Activity {
 			}
 			else {
 				grapesLabel.setVisibility(View.GONE);
+				grapesView.setVisibility(View.GONE);
 			}
 		}
 	}
@@ -271,6 +277,7 @@ public abstract class AbstractWineActivity extends Activity {
 			else {
 				aromaLabel.setVisibility(View.GONE);
 				aromaRatingBar.setVisibility(View.GONE);
+				aromaImpressionsView.setVisibility(View.GONE);
 			}
 		}
 	}
@@ -313,6 +320,7 @@ public abstract class AbstractWineActivity extends Activity {
 			else {
 				tasteLabel.setVisibility(View.GONE);
 				tasteRatingBar.setVisibility(View.GONE);
+				tasteImpressionsView.setVisibility(View.GONE);
 			}
 		}
 	}
@@ -355,6 +363,7 @@ public abstract class AbstractWineActivity extends Activity {
 			else {
 				aftertasteLabel.setVisibility(View.GONE);
 				aftertasteRatingBar.setVisibility(View.GONE);
+				aftertasteImpressionsView.setVisibility(View.GONE);
 			}
 		}
 

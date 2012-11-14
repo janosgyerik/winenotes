@@ -5,10 +5,18 @@ import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 public class ViewWineActivity extends AbstractWineActivity {
 
 	private static final int RETURN_FROM_EDIT = 1;
+
+	private TextView regionView;
+
+	private View basicInfoView;
+	private TextView wineTypeView;
+	private TextView yearView;
+	private TextView flagView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -25,6 +33,12 @@ public class ViewWineActivity extends AbstractWineActivity {
 			}
 		});
 
+		regionView = (TextView) findViewById(R.id.region);
+		basicInfoView = findViewById(R.id.basic_info);
+		wineTypeView = (TextView) findViewById(R.id.wine_type);
+		yearView = (TextView) findViewById(R.id.year);
+		flagView = (TextView) findViewById(R.id.flag);
+
 		loadWineInfo(false);
 	}
 
@@ -39,8 +53,29 @@ public class ViewWineActivity extends AbstractWineActivity {
 
 	@Override
 	void wineInfoLoaded(WineInfo wineInfo) {
-		// TODO Auto-generated method stub
-		
+		if (wineInfo.wineType != null && wineInfo.year > 0 && wineInfo.flag != null) {
+			if (wineInfo.wineType != null) {
+				wineTypeView.setText(wineInfo.wineType);
+			}
+			if (wineInfo.year > 0) {
+				yearView.setText("" + wineInfo.year);
+			}
+			if (wineInfo.flag != null) {
+				flagView.setText(wineInfo.flag);
+			}
+		}
+		else {
+			basicInfoView.setVisibility(View.GONE);
+		}
+		basicInfoView.setVisibility(View.GONE);  // TODO
+
+		if (wineInfo.region != null) {
+			regionView.setText(wineInfo.region);
+		}
+		else {
+			findViewById(R.id.label_region).setVisibility(View.GONE);
+		}
 	}
+
 
 }
