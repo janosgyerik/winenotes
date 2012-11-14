@@ -63,11 +63,37 @@
                 android:hint="@string/hint_region"
                 android:singleLine="true" />
 
-            <MultiAutoCompleteTextView
-                android:id="@+id/grape"
-                style="@style/wineEditingLine"
-                android:hint="@string/hint_grape"
-                android:singleLine="true" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/btn_edit_grapes" >
+
+                    <TextView
+                        android:id="@+id/label_grapes"
+                        style="@style/wineViewLabel"
+                        android:text="@string/label_grapes" />
+
+                    <TextView
+                        android:id="@+id/grapes"
+                        style="@style/wineViewValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/label_grapes" />
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@id/btn_edit_grapes"
+                    style="@style/wineViewButton"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/btn_contentDescription"
+                    android:src="@drawable/btn_edit"
+                    android:text="@string/btn_edit" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="fill_parent"

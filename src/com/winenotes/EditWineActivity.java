@@ -31,7 +31,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.MultiAutoCompleteTextView;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -40,10 +39,11 @@ public class EditWineActivity extends AbstractWineActivity {
 
 	private static final String TAG = EditWineActivity.class.getSimpleName();
 
-	private static final int RETURN_FROM_EDIT_AROMA = 1;
-	private static final int RETURN_FROM_EDIT_TASTE = 2;
-	private static final int RETURN_FROM_EDIT_AFTERTASTE = 3;
-	private static final int RETURN_FROM_ADD_PHOTO = 4;
+	private static final int RETURN_FROM_EDIT_GRAPES = 1;
+	private static final int RETURN_FROM_EDIT_AROMA = 2;
+	private static final int RETURN_FROM_EDIT_TASTE = 3;
+	private static final int RETURN_FROM_EDIT_AFTERTASTE = 4;
+	private static final int RETURN_FROM_ADD_PHOTO = 5;
 
 	private static final String PHOTO_INFO_FILE = "photoInfo.bin";
 
@@ -56,7 +56,6 @@ public class EditWineActivity extends AbstractWineActivity {
 	private Spinner yearView;
 	private Spinner flagView;
 	private AutoCompleteTextView regionView;
-	private MultiAutoCompleteTextView grapesView;
 	private RatingBar aromaRatingView;
 	private RatingBar tasteRatingView;
 	private RatingBar aftertasteRatingView;
@@ -166,6 +165,16 @@ public class EditWineActivity extends AbstractWineActivity {
 
 		final Activity this_ = this;
 
+		View editGrapesButton = findViewById(R.id.btn_edit_grapes);
+		editGrapesButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(this_, EditGrapesActivity.class);
+				intent.putExtra(BaseColumns._ID, wineId);
+				startActivityForResult(intent, RETURN_FROM_EDIT_GRAPES);
+			}
+		});
+
 		View editAromaImpressionsButton = findViewById(R.id.btn_edit_aroma);
 		editAromaImpressionsButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -221,8 +230,8 @@ public class EditWineActivity extends AbstractWineActivity {
 			float overallRating = overallRatingView.getRating();
 			int flagId = ((ForeignKey)flagView.getSelectedItem()).refId;
 			String memo = capitalize(memoView.getText().toString());
-			
-//			updateGrapes(grapesView.getText().toString());
+
+			//			updateGrapes(grapesView.getText().toString());
 
 			// TODO save the grapes: normalize, capitalize
 
@@ -239,26 +248,24 @@ public class EditWineActivity extends AbstractWineActivity {
 			}
 		}
 	}
-	
-	/*
-	private void updateGrapes(String items) {
-		helper.clearWineGrapes(wineId);
-		if (items.length() > 0) {
-			for (String item : items.split(",")) {
-				item = capitalize(item);
-				String itemId = helper.getOrCreateGrape(item);
-				if (itemId != null) {
-					helper.addWineGrape(wineId, itemId);
-				}
-			}
-		}
-	}
-	*/
 
 	static String capitalize(String name) {
 		if (name == null || name.trim().length() < 1) return name;
 		name = name.trim();
 		return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+	}
+
+	private void handleReturnFromEditGrapes(Intent data) {
+		Bundle extras = data.getExtras();
+		if (extras != null) {
+			boolean isChanged = extras.getBoolean(AbstractEditWineItemsActivity.OUT_CHANGED);
+			if (isChanged) {
+				Log.i(TAG, "grapes have changed -> reloading details");
+				loadWineInfo(true);
+				return;
+			}
+		}
+		Log.i(TAG, "grapes have NOT changed -> NOT reloading details");
 	}
 
 	private void handleReturnFromEditAroma(Intent data) {
@@ -305,6 +312,10 @@ public class EditWineActivity extends AbstractWineActivity {
 		Log.i(TAG, "onActivityResult");
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
+			case RETURN_FROM_EDIT_GRAPES:
+				Log.i(TAG, "OK edit grapes");
+				handleReturnFromEditGrapes(data);
+				break;
 			case RETURN_FROM_EDIT_AROMA:
 				Log.i(TAG, "OK edit aroma impressions");
 				handleReturnFromEditAroma(data);

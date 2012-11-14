@@ -257,6 +257,102 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 
 
 
+	public String getOrCreateGrape(String name) {
+		String grapeId = getGrapeIdByName(name);
+		if (grapeId == null) {
+			grapeId = newGrape(name);
+		}
+		return grapeId;
+	}
+
+	/**
+	 * Returns grapeId or null if grape does not exist.
+	 * @param name
+	 * @return
+	 */
+	public String getGrapeIdByName(String name) {
+		String grapeId = null;
+		Cursor cursor = getReadableDatabase().query(
+				GRAPES_TABLE_NAME, 
+				new String[] { BaseColumns._ID }, 
+				"name = ?", 
+				new String[] { name }, 
+				null, null, null, "1");
+		if (cursor.moveToNext()) {
+			grapeId = cursor.getString(0);
+			Log.d(TAG, String.format("got grape: %s -> %s", grapeId, name));
+		}
+		cursor.close();
+		return grapeId;
+	}
+
+	/**
+	 * Returns new grapeId on success or else null
+	 * @return
+	 */
+	private String newGrape(String name) {
+		ContentValues values = new ContentValues();
+		values.put("name", name);
+		long createdDt = new Date().getTime();
+		values.put("created_dt", createdDt);
+		values.put("updated_dt", createdDt);
+		long ret = getWritableDatabase().insert(GRAPES_TABLE_NAME, null, values);
+		Log.d(TAG, String.format("insert grape: %s <- %s", name, ret));
+		if (ret >= 0) {
+			String grapeId = String.valueOf(ret);
+			return grapeId;
+		}
+		else {
+			return null;
+		}
+	}
+
+	public boolean addWineGrape(String wineId, String grapeId) {
+		ContentValues values = new ContentValues();
+		values.put("wine_id", wineId);
+		values.put("grape_id", grapeId);
+		long createdDt = new Date().getTime();
+		values.put("created_dt", createdDt);
+		values.put("updated_dt", createdDt);
+		long ret = getWritableDatabase().insert(WINE_GRAPES_TABLE_NAME, null, values);
+		Log.d(TAG, String.format("insert wine grape: %s, %s <- %s",
+				wineId, grapeId, ret));
+		return ret >= 0;
+	}
+
+	public boolean removeWineGrape(String wineId, String grapeId) {
+		int ret = getWritableDatabase().delete(WINE_GRAPES_TABLE_NAME,
+				"wine_id = ? AND grape_id = ?",
+				new String[]{ wineId, grapeId });
+		Log.d(TAG, String.format("delete wine grape: %s, %s <- %s",
+				wineId, grapeId, ret));
+		return ret > 0;
+	}
+
+	public Cursor getGrapeListCursor() {
+		Log.d(TAG, "get all grapes");
+		Cursor cursor = getReadableDatabase().query(
+				GRAPES_TABLE_NAME, 
+				new String[]{ BaseColumns._ID, "name", }, 
+				null, null, null, null, "name");
+		return cursor;
+	}
+
+	public Cursor getWineGrapesCursor(String wineId) {
+		Log.d(TAG, "get wine grapes " + wineId);
+		Cursor cursor = getReadableDatabase().rawQuery(
+				String.format(
+						"SELECT i.name FROM %s ri JOIN %s i ON ri.grape_id = i.%s WHERE ri.wine_id = ? ORDER BY i.name",
+						WINE_GRAPES_TABLE_NAME, GRAPES_TABLE_NAME, BaseColumns._ID
+						),
+						new String[]{ wineId }
+				);
+		return cursor;
+	}
+	
+	
+	
+	
 	public String getOrCreateAromaImpression(String name) {
 		String aromaImpressionId = getAromaImpressionIdByName(name);
 		if (aromaImpressionId == null) {

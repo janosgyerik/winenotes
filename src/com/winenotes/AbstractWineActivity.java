@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 public abstract class AbstractWineActivity extends Activity {
@@ -72,25 +71,25 @@ public abstract class AbstractWineActivity extends Activity {
 		String value = cursor.getString(columnIndex);
 		return value;
 	}
-	
+
 	private float getFloatColumn(Cursor cursor, String columnName) {
 		int columnIndex = cursor.getColumnIndex(columnName);
 		float value = cursor.getFloat(columnIndex);
 		return value;
 	}
-	
+
 	private int getIntColumn(Cursor cursor, String columnName) {
 		int columnIndex = cursor.getColumnIndex(columnName);
 		int value = cursor.getInt(columnIndex);
 		return value;
 	}
-	
+
 	protected void loadWineInfo(boolean editable) {
 		if (wineId != null) {
 			Cursor wineCursor = helper.getWineDetailsCursor(wineId);
-			
+
 			if (wineCursor.moveToNext()) {
-				
+
 				String name = getStringColumn(wineCursor, "name");
 				int wineryId = getIntColumn(wineCursor, "winery_id");
 				String wineryName = getStringColumn(wineCursor, "winery_name");
@@ -107,7 +106,7 @@ public abstract class AbstractWineActivity extends Activity {
 				int flagId = getIntColumn(wineCursor, "flag_id");
 				String flag = getStringColumn(wineCursor, "flag");
 				String memo = getStringColumn(wineCursor, "memo");
-				
+
 				WineInfo wineInfo = new WineInfo();
 				wineInfo.wineryName = wineryName;
 				wineInfo.wineTypeId = wineTypeId;
@@ -117,9 +116,9 @@ public abstract class AbstractWineActivity extends Activity {
 				wineInfo.region = region;
 				wineInfo.flagId = flagId;
 				wineInfo.flag = flag;
-				
+
 				wineInfoLoaded(wineInfo);
-				
+
 				Cursor photosCursor = helper.getWinePhotosCursor(wineId);
 				clearPhotosFromLayout();
 				while (photosCursor.moveToNext()) {
@@ -127,7 +126,7 @@ public abstract class AbstractWineActivity extends Activity {
 					addPhotoToLayout(filename, editable);
 				}
 				photosCursor.close();
-				
+
 				TextView nameView = (TextView) findViewById(R.id.name);
 				if (name != null && name.length() > 0) {
 					nameView.setText(name);
@@ -135,10 +134,33 @@ public abstract class AbstractWineActivity extends Activity {
 				else {
 					nameView.setText(R.string.title_noname_wine);
 				}
-				
+
+
+
+				Cursor grapesCursor = helper.getWineGrapesCursor(wineId);
+				StringBuffer grapesBuffer = new StringBuffer();
+				while (grapesCursor.moveToNext()) {
+					emptyWine = false;
+					String grape = grapesCursor.getString(0);
+					grapesBuffer.append(grape);
+					grapesBuffer.append(", ");
+				}
+				grapesCursor.close();
+				boolean haveGrapes = grapesBuffer.length() > 0;
+
+				TextView grapesView = (TextView) findViewById(R.id.grapes);
+				if (grapesBuffer.length() > 2) {
+					grapesView.setText(grapesBuffer.substring(0, grapesBuffer.length() - 2));
+				}
+				else {
+					grapesView.setText(R.string.label_none);
+				}
+
+
+
 				RatingBar aromaRatingBar = (RatingBar) findViewById(R.id.rating_aroma);
 				aromaRatingBar.setRating(aromaRating);
-				
+
 				Cursor aromaImpressionsCursor = helper.getWineAromaImpressionsCursor(wineId);
 				StringBuffer aromaImpressionsBuffer = new StringBuffer();
 				while (aromaImpressionsCursor.moveToNext()) {
@@ -150,7 +172,7 @@ public abstract class AbstractWineActivity extends Activity {
 				aromaImpressionsCursor.close();
 				boolean haveAromaImpressions = aromaImpressionsBuffer.length() > 0;
 				boolean haveAroma = haveAromaImpressions || aromaRating > 0;
-				
+
 				TextView aromaImpressionsView = (TextView) findViewById(R.id.aroma);
 				if (aromaImpressionsBuffer.length() > 2) {
 					aromaImpressionsView.setText(aromaImpressionsBuffer.substring(0, aromaImpressionsBuffer.length() - 2));
@@ -158,12 +180,12 @@ public abstract class AbstractWineActivity extends Activity {
 				else {
 					aromaImpressionsView.setText(R.string.label_none);
 				}
-				
-				
-				
+
+
+
 				RatingBar tasteRatingBar = (RatingBar) findViewById(R.id.rating_taste);
 				tasteRatingBar.setRating(tasteRating);
-				
+
 				Cursor tasteImpressionsCursor = helper.getWineTasteImpressionsCursor(wineId);
 				StringBuffer tasteImpressionsBuffer = new StringBuffer();
 				while (tasteImpressionsCursor.moveToNext()) {
@@ -175,7 +197,7 @@ public abstract class AbstractWineActivity extends Activity {
 				tasteImpressionsCursor.close();
 				boolean haveTasteImpressions = tasteImpressionsBuffer.length() > 0;
 				boolean haveTaste = haveTasteImpressions || tasteRating > 0;
-				
+
 				TextView tasteImpressionsView = (TextView) findViewById(R.id.taste);
 				if (tasteImpressionsBuffer.length() > 2) {
 					tasteImpressionsView.setText(tasteImpressionsBuffer.substring(0, tasteImpressionsBuffer.length() - 2));
@@ -183,12 +205,12 @@ public abstract class AbstractWineActivity extends Activity {
 				else {
 					tasteImpressionsView.setText(R.string.label_none);
 				}
-				
-				
-				
+
+
+
 				RatingBar aftertasteRatingBar = (RatingBar) findViewById(R.id.rating_aftertaste);
 				aftertasteRatingBar.setRating(aftertasteRating);
-				
+
 				Cursor aftertasteImpressionsCursor = helper.getWineAftertasteImpressionsCursor(wineId);
 				StringBuffer aftertasteImpressionsBuffer = new StringBuffer();
 				while (aftertasteImpressionsCursor.moveToNext()) {
@@ -200,7 +222,7 @@ public abstract class AbstractWineActivity extends Activity {
 				aftertasteImpressionsCursor.close();
 				boolean haveAftertasteImpressions = aftertasteImpressionsBuffer.length() > 0;
 				boolean haveAftertaste = haveAftertasteImpressions || aftertasteRating > 0;
-				
+
 				TextView aftertasteImpressionsView = (TextView) findViewById(R.id.aftertaste);
 				if (aftertasteImpressionsBuffer.length() > 2) {
 					aftertasteImpressionsView.setText(aftertasteImpressionsBuffer.substring(0, aftertasteImpressionsBuffer.length() - 2));
@@ -208,14 +230,14 @@ public abstract class AbstractWineActivity extends Activity {
 				else {
 					aftertasteImpressionsView.setText(R.string.label_none);
 				}
-				
-				
-				
+
+
+
 				RatingBar overallRatingBar = (RatingBar) findViewById(R.id.rating_overall);
 				overallRatingBar.setRating(overallRating);
 				boolean haveOverall = overallRating > 0;
 
-				
+
 				TextView memoView = (TextView) findViewById(R.id.memo);
 				memoView.setText(memo);
 				boolean haveMemo = false;
@@ -223,12 +245,26 @@ public abstract class AbstractWineActivity extends Activity {
 					emptyWine  = false;
 					haveMemo = true;
 				}
-				
+
 				if (editable) {
 					EditText nameEditView = (EditText) findViewById(R.id.name_edit);
 					nameEditView.setText(name);
 				}
 				else {
+					View grapesLabel = findViewById(R.id.label_grapes);
+					if (haveGrapes) {
+						if (haveGrapes) {
+							grapesView.setVisibility(View.VISIBLE);
+						}
+						else {
+							grapesView.setVisibility(View.GONE);
+						}
+						grapesLabel.setVisibility(View.VISIBLE);
+					}
+					else {
+						grapesLabel.setVisibility(View.GONE);
+					}
+
 					View aromaLabel = findViewById(R.id.label_aroma);
 					if (haveAroma) {
 						if (haveAromaImpressions) {
@@ -244,7 +280,7 @@ public abstract class AbstractWineActivity extends Activity {
 						aromaLabel.setVisibility(View.GONE);
 						aromaRatingBar.setVisibility(View.GONE);
 					}
-					
+
 					View tasteLabel = findViewById(R.id.label_taste);
 					if (haveTaste) {
 						if (haveTasteImpressions) {
@@ -276,7 +312,7 @@ public abstract class AbstractWineActivity extends Activity {
 						aftertasteLabel.setVisibility(View.GONE);
 						aftertasteRatingBar.setVisibility(View.GONE);
 					}
-					
+
 					View overallLabel = findViewById(R.id.label_overall);
 					if (haveOverall) {
 						overallLabel.setVisibility(View.VISIBLE);
@@ -304,7 +340,7 @@ public abstract class AbstractWineActivity extends Activity {
 			wineCursor.close();
 		}
 	}
-	
+
 	private void removePhoto(String photoFilename) {
 		if (removePhotoFromWine(photoFilename)) {
 			WineFileManager.deletePhotos(photoFilename);
@@ -356,6 +392,6 @@ public abstract class AbstractWineActivity extends Activity {
 		super.onDestroy();
 		helper.close();
 	}
-	
+
 	abstract void wineInfoLoaded(WineInfo wineInfo);
 }

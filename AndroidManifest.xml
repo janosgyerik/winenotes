@@ -40,6 +40,11 @@
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
+            android:name=".EditGrapesActivity"
+            android:label="Grape / Cépage"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
             android:name=".EditAromaImpressionsActivity"
             android:label="Aroma Impressions"
             android:theme="@android:style/Theme.Dialog" >
