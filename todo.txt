@@ -2,17 +2,17 @@ version 1
 ---------
 - library-fy
 - wine view
-+ sparkling
 - wine listing page
     - wine icon per different wine type
     - what text to include: name, winery, year, region, overall rating, price, flag, photo
     - order by flag + rating
     - as per ordering of fields, see other apps for reference
 - build initial database and take backup of it to fill it offline
-    - get data from internet
-    - add sample database to repo
     - generate insert script from local initial database
 - build initial database into the app as an asset and test well
+- replace license protected images
+    - launcher
+    - wine icon in wine list
 - port to recipe notes
     - change the main layout inside scrolling area to linear layout
     - margin styles in edit wine
@@ -20,9 +20,6 @@ version 1
     - FileSelectorActivity
     - should reload only changed fields when returning from edit tags
     - shakespeare
-- replace license protected images
-    - launcher
-    - wine icon in wine list
 
 
 release
