@@ -153,7 +153,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
 		regionView = (AutoCompleteTextView) findViewById(R.id.region);
 		AutoCompleteHelper.configureAutoCompleteTextView(getBaseContext(), regionView,
-				helper.getAromaImpressionListCursor());
+				helper.getRegionListCursor());
 
 		//		grapeView = (MultiAutoCompleteTextView) findViewById(R.id.grape);
 

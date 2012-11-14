@@ -48,7 +48,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	WineNotesSQLiteOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
-//		context.deleteDatabase(DATABASE_NAME);
+		//		context.deleteDatabase(DATABASE_NAME);
 
 		sqlCreateStatements = getSqlStatements(context, "sql_create.sql");
 		sqlUpgradeStatements = new SparseArray<List<String>>();
@@ -171,9 +171,9 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		// TODO error handling
 		return true;
 	}
-	
-	
-	
+
+
+
 	public Cursor getWineTypeListCursor() {
 		Log.d(TAG, "get all wine types");
 		Cursor cursor = getReadableDatabase().query(
@@ -192,7 +192,16 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		return cursor;
 	}
 
-	
+	public Cursor getRegionListCursor() {
+		Log.d(TAG, "get all regions");
+		Cursor cursor = getReadableDatabase().query(
+				REGIONS_TABLE_NAME, 
+				new String[]{ BaseColumns._ID, "name", }, 
+				null, null, null, null, "name");
+		return cursor;
+	}
+
+
 
 	public String getOrCreateRegion(String name) {
 		String regionId = getRegionIdByName(name);
@@ -246,8 +255,8 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 
 
 
-	
-	
+
+
 	public String getOrCreateAromaImpression(String name) {
 		String aromaImpressionId = getAromaImpressionIdByName(name);
 		if (aromaImpressionId == null) {
