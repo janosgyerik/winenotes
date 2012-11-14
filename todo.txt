@@ -28,6 +28,7 @@ version 1
     - margin styles in edit wine
     - header color
     - FileSelectorActivity
+    - should reload only changed fields when returning from edit tags
 - replace license protected images
     - launcher
     - wine icon in wine list

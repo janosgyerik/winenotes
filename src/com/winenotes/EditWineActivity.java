@@ -75,10 +75,17 @@ public class EditWineActivity extends AbstractWineActivity {
 	}
 
 	// TODO get list from database
-	static final String[] WINETYPE_CHOICES = new String[] {
-		"Red", "White", "Rose",
-		"Orange", "Gray", "Yellow", "Tawny", "Other",
-	};
+	static final ForeignKey[] WINETYPE_CHOICES;
+//		"Orange", "Gray", "Yellow", "Tawny", "Other",
+	static {
+		List<ForeignKey> choices = new ArrayList<ForeignKey>();
+		choices.add(new ForeignKey(0, "Red"));
+		choices.add(new ForeignKey(1, "White"));
+		choices.add(new ForeignKey(2, "Rose"));
+		choices.add(new ForeignKey(3, "Orange"));
+		choices.add(new ForeignKey(4, "Gray"));
+		WINETYPE_CHOICES = choices.toArray(new ForeignKey[0]);
+	}
 
 	// TODO get list from database
 	static final String[] FLAG_CHOICES = new String[] {
@@ -124,7 +131,7 @@ public class EditWineActivity extends AbstractWineActivity {
 		yearView = (Spinner) findViewById(R.id.year);
 		yearView.setAdapter(yearListAdapter);
 
-		ArrayAdapter<String> wineTypeListAdapter = new ArrayAdapter<String>(this,
+		ArrayAdapter<ForeignKey> wineTypeListAdapter = new ArrayAdapter<ForeignKey>(this,
 				android.R.layout.simple_spinner_item, WINETYPE_CHOICES);
 		wineTypeListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		wineTypeView = (Spinner) findViewById(R.id.wine_type);
@@ -431,7 +438,7 @@ public class EditWineActivity extends AbstractWineActivity {
 	@Override
 	void wineInfoLoaded(WineInfo wineInfo) {
 		setSpinnerValue(yearView, wineInfo.year, YEAR_CHOICES);
-		setSpinnerValue(wineTypeView, wineInfo.wineTypeId, WINETYPE_CHOICES);
+		setSpinnerValue(wineTypeView, 2, WINETYPE_CHOICES);
 		setSpinnerValue(flagView, wineInfo.flag, FLAG_CHOICES);
 	}
 }
