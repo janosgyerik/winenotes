@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import android.app.Activity;
@@ -64,16 +65,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
 	private boolean newWine = false;
 
-	// TODO calculate dynamically from preferences minimum and current year
-	static final int MIN_YEAR = 1997;
-	static final Integer[] YEAR_CHOICES;
-	static {
-		List<Integer> choices = new ArrayList<Integer>();
-		for (int i = 2012; i > MIN_YEAR; --i) {
-			choices.add(i);
-		}
-		YEAR_CHOICES = choices.toArray(new Integer[0]);
-	}
+	private final ForeignKey[] YEAR_CHOICES = new ForeignKey[30];
 
 	private ForeignKey[] WINETYPE_CHOICES;
 
@@ -115,7 +107,14 @@ public class EditWineActivity extends AbstractWineActivity {
 		//    	private EditText wineryNameView;
 		//    	private EditText priceView;
 
-		ArrayAdapter<Integer> yearListAdapter = new ArrayAdapter<Integer>(this,
+		YEAR_CHOICES[0] = new ForeignKey(0, "");
+		int thisYear = Calendar.getInstance().get(Calendar.YEAR);
+		for (int i = 1; i < YEAR_CHOICES.length; ++i) {
+			int year = thisYear - i + 1;
+			YEAR_CHOICES[i] = new ForeignKey(year, String.valueOf(year));
+		}
+
+		ArrayAdapter<ForeignKey> yearListAdapter = new ArrayAdapter<ForeignKey>(this,
 				android.R.layout.simple_spinner_item, YEAR_CHOICES);
 		yearListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		yearView = (Spinner) findViewById(R.id.year);
@@ -204,7 +203,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			int wineryId = 0;//TODO capitalize(wineryNameView.getText().toString());
 			float price = 0;//TODO Float.parseFloat(priceView.getText().toString());
 			int wineTypeId = ((ForeignKey)wineTypeView.getSelectedItem()).refId;
-			int year = (Integer)yearView.getSelectedItem();
+			int year = ((ForeignKey)yearView.getSelectedItem()).refId;
 			int regionId = 0;//TODO
 			float aromaRating = aromaRatingView.getRating();
 			float tasteRating = tasteRatingView.getRating();
