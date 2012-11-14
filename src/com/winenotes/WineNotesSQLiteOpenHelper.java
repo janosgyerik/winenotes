@@ -171,6 +171,19 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		// TODO error handling
 		return true;
 	}
+	
+	
+	
+	public Cursor getWineTypesListCursor() {
+		Log.d(TAG, "get all wine types");
+		Cursor cursor = getReadableDatabase().query(
+				WINETYPES_TABLE_NAME, 
+				new String[]{ BaseColumns._ID, "name", }, 
+				null, null, null, null, "display_order, _id");
+		return cursor;
+	}
+
+	
 
 	public String getOrCreateAromaImpression(String name) {
 		String aromaImpressionId = getAromaImpressionIdByName(name);

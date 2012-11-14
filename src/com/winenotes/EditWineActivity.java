@@ -18,6 +18,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
@@ -74,18 +75,7 @@ public class EditWineActivity extends AbstractWineActivity {
 		YEAR_CHOICES = choices.toArray(new Integer[0]);
 	}
 
-	// TODO get list from database
-	static final ForeignKey[] WINETYPE_CHOICES;
-//		"Orange", "Gray", "Yellow", "Tawny", "Other",
-	static {
-		List<ForeignKey> choices = new ArrayList<ForeignKey>();
-		choices.add(new ForeignKey(0, "Red"));
-		choices.add(new ForeignKey(1, "White"));
-		choices.add(new ForeignKey(2, "Rose"));
-		choices.add(new ForeignKey(3, "Orange"));
-		choices.add(new ForeignKey(4, "Gray"));
-		WINETYPE_CHOICES = choices.toArray(new ForeignKey[0]);
-	}
+	private ForeignKey[] WINETYPE_CHOICES;
 
 	// TODO get list from database
 	static final String[] FLAG_CHOICES = new String[] {
@@ -130,6 +120,15 @@ public class EditWineActivity extends AbstractWineActivity {
 		yearListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		yearView = (Spinner) findViewById(R.id.year);
 		yearView.setAdapter(yearListAdapter);
+
+		Cursor wineTypesListCursor = helper.getWineTypesListCursor();
+		List<ForeignKey> wineTypeChoices = new ArrayList<ForeignKey>();
+		while (wineTypesListCursor.moveToNext()) {
+			int refId = wineTypesListCursor.getInt(0);
+			String name = wineTypesListCursor.getString(1);
+			wineTypeChoices.add(new ForeignKey(refId, name));
+		}
+		WINETYPE_CHOICES = wineTypeChoices.toArray(new ForeignKey[0]);
 
 		ArrayAdapter<ForeignKey> wineTypeListAdapter = new ArrayAdapter<ForeignKey>(this,
 				android.R.layout.simple_spinner_item, WINETYPE_CHOICES);
@@ -203,7 +202,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			String name = capitalize(nameView.getText().toString());
 			int wineryId = 0;//TODO capitalize(wineryNameView.getText().toString());
 			float price = 0;//TODO Float.parseFloat(priceView.getText().toString());
-			int wineTypeId = 0;// TODO
+			int wineTypeId = ((ForeignKey)wineTypeView.getSelectedItem()).refId;
 			int year = (Integer)yearView.getSelectedItem();
 			int regionId = 0;//TODO
 			float aromaRating = aromaRatingView.getRating();
@@ -438,7 +437,7 @@ public class EditWineActivity extends AbstractWineActivity {
 	@Override
 	void wineInfoLoaded(WineInfo wineInfo) {
 		setSpinnerValue(yearView, wineInfo.year, YEAR_CHOICES);
-		setSpinnerValue(wineTypeView, 2, WINETYPE_CHOICES);
-		setSpinnerValue(flagView, wineInfo.flag, FLAG_CHOICES);
+		setSpinnerValue(wineTypeView, wineInfo.wineTypeId, WINETYPE_CHOICES);
+		setSpinnerValue(flagView, wineInfo.flagId, FLAG_CHOICES);
 	}
 }
