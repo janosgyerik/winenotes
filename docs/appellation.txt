@@ -1,0 +1,780 @@
+Agenais
+Ajaccio
+Aloxe-Corton
+Aloxe-Corton 1er Cru
+Alpes-Maritimes
+Alpilles
+Alsace
+Alsace Grand Cru
+Alsace Grand Cru Altenberg de Bergbieten
+Alsace Grand Cru Altenberg de Bergheim
+Alsace Grand Cru Altenberg de Wolxheim
+Alsace Grand Cru Brand
+Alsace Grand Cru Bruderthal
+Alsace Grand Cru Eichberg
+Alsace Grand Cru Engelberg
+Alsace Grand Cru Florimont
+Alsace Grand Cru Frankstein
+Alsace Grand Cru Froehn
+Alsace Grand Cru Fronenberg
+Alsace Grand Cru Furstentum
+Alsace Grand Cru Geisberg
+Alsace Grand Cru Gloeckelberg
+Alsace Grand Cru Goldert
+Alsace Grand Cru Hatschbourg
+Alsace Grand Cru Hengst
+Alsace Grand Cru Kaefferkopf
+Alsace Grand Cru Kanzlerberg
+Alsace Grand Cru Kastelberg
+Alsace Grand Cru Kessler
+Alsace Grand Cru Kirchberg de Barr
+Alsace Grand Cru Kirchberg de Ribeauvillé
+Alsace Grand Cru Kitterlé
+Alsace Grand Cru Mambourg
+Alsace Grand Cru Mandelberg
+Alsace Grand Cru Marckrain
+Alsace Grand Cru Moenchberg
+Alsace Grand Cru Muenchberg
+Alsace Grand Cru Ollwiller
+Alsace Grand Cru Osterberg
+Alsace Grand Cru Pfersigberg
+Alsace Grand Cru Pfingstberg
+Alsace Grand Cru Praelatenberg
+Alsace Grand Cru Rangen
+Alsace Grand Cru Rosacker
+Alsace Grand Cru Saering
+Alsace Grand Cru Schlossberg
+Alsace Grand Cru Schoenenbourg
+Alsace Grand Cru Sommerberg
+Alsace Grand Cru Sonnenglanz
+Alsace Grand Cru Spiegel
+Alsace Grand Cru Sporen
+Alsace Grand Cru Steinert
+Alsace Grand Cru Steingrubler
+Alsace Grand Cru Steinklotz
+Alsace Grand Cru Vorbourg
+Alsace Grand Cru Wiebelsberg
+Alsace Grand Cru Wineck-Schlossberg
+Alsace Grand Cru Winzenberg
+Alsace Grand Cru Zinnkoepfle
+Alsace Grand Cru Zotzenberg
+Anjou
+Anjou Coteaux de la Loire
+Anjou mousseux
+Anjou-Villages
+Anjou-Villages Brissac
+Arbois
+Arbois-Pupillin
+Ardèche
+Armagnac
+Armagnac-Tenarèze
+Atlantique
+Aude
+Auxey-Duresses
+Auxey-Duresses 1er Cru
+Bandol
+Banyuls
+Barsac
+Bas-Armagnac
+Bâtard-Montrachet
+Béarn
+Beaujolais
+Beaujolais Supérieur
+Beaujolais-Villages
+Beaumes de Venise
+Beaune
+Beaune 1er Cru
+Bellet
+Bergerac
+Bergerac sec
+Bienvenues-Bâtard-Montrachet
+Blagny
+Blagny 1er Cru
+Blanche Armagnac
+Blanquette de Limoux
+Blanquette Méthode Ancestrale
+Blaye
+Blaye Côtes de Bordeaux
+Bonnes-Mares
+Bonnezeaux
+Bordeaux
+Bordeaux Clairet
+Bordeaux côtes de Francs
+Bordeaux Haut-Benauge
+Bordeaux rosé
+Bordeaux Sec
+Bordeaux Supérieur
+Bouches-du-Rhone
+Bourgogne
+Bourgogne Aligoté
+Bourgogne Côtes d'Auxerre
+Bourgogne Côtes du Couchois
+Bourgogne Grand Ordinaire
+Bourgogne Hautes Côtes de Beaune
+Bourgogne Hautes Côtes de Nuits
+Bourgogne mousseux
+Bourgogne Ordinaire
+Bourgogne Ordinaire Rosé
+Bourgogne Passe-tout-grains
+Bourgogne Rosé
+Bourgogne Tonnerre
+Bourgueil
+Bouzeron
+Brouilly
+Brulhois
+Bugey
+Buzet
+Buzet
+Cabardès
+Cabernet d'Anjou
+Cabernet de Saumur
+Cadillac
+Cadillac Côtes de Bordeaux
+Cahors
+Calvados du Pays d'Auge
+Canon-fronsac
+Cartagène
+Cassan
+Cassis
+Cassis de Bourgogne
+Castillon Côtes de Bordeaux
+Cerdon
+Cérons
+Cévennes
+Chablis
+Chablis 1er Cru
+Chablis Grand Cru
+Chambertin
+Chambertin-Clos-de-Bèze
+Chambolle-Musigny
+Chambolle-Musigny 1er Cru
+Champagne
+Champagne 1er Cru
+Champagne Grand Cru
+Chapelle-Chambertin Grand Cru
+Charentais
+Charlemagne
+Charmes-Chambertin
+Chassagne-Montrachet
+Chassagne-Montrachet 1er Cru
+Château Chalon
+Château Chalon
+Château-Grillet
+Châteaumeillant
+Châteauneuf du Pape
+Châteauneuf-du-Pape
+Chatillon-en-Diois
+Chaume
+Chénas
+Chevalier-Montrachet
+Cheverny
+Chinon
+Chiroubles
+Chorey-les-Beaune
+Chorey-les-Beaune 1er Cru
+Cidre
+Cité de Carcassonne
+Clairette de Bellegarde
+Clairette de Die
+Clairette de Die Méthode Ancestrale
+Clairette du Languedoc
+Clos de la Roche
+Clos de Tart
+Clos de Vougeot
+Clos des Lambrays
+Clos Saint-Denis
+Cognac
+Collioure
+Comté Tolosan
+Condrieu
+Condrieu
+Corbières
+Corbières-Boutenac
+Cornas
+Corse
+Corse Calvi
+Corse Coteaux du Cap Corse
+Corse Figari
+Corse Porto-Vecchio
+Corse Sartène
+Corton
+Corton Grand Cru
+Corton-Bressandres Grand Cru
+Corton-Charlemagne
+Corton-Renardes Grand Cru
+Costieres de Nimes
+Costieres de Nimes
+Côte de Beaune
+Côte de Beaune-Villages
+Côte de Brouilly
+Côte de Nuits-Villages
+Côte Roannaise
+Côte Roannaise
+Côte Rotie
+Côte Vermeille
+COTEAU DE PIERREVERT
+Coteau Varois en provence
+Coteaux Champenois
+Coteaux d'Aix-en-Provence
+Coteaux d'Ancenis
+Coteaux d'Ensérune
+Coteaux de Bessilles
+Coteaux de Die
+Coteaux de l'Ardèche
+Coteaux de l'Aubance
+Coteaux de l'Auxois
+Coteaux de Narbonne
+Coteaux de Peyriac
+Coteaux de Pierrevert
+Coteaux de Saumur
+Coteaux du Giennois
+Coteaux du Languedoc
+Coteaux du Layon
+Coteaux du Libron
+Coteaux du Libron
+Coteaux du Loir
+Coteaux du Lyonnais
+Coteaux du Pont du Gard
+Coteaux du Quercy
+Coteaux du Tricastin
+Coteaux du Vendômois
+COTEAUX ET TERRASSES DE MONTAUBAN
+Coteaux Varois en Provence
+Côtes Canon-Fronsac
+Côtes Catalanes
+Côtes d'Auvergne
+Côtes d'Auvergne
+Côtes de Bergerac
+Côtes de Bergerac Moëlleux
+Côtes de Blaye
+Côtes de Bordeaux
+Côtes de Bordeaux Cadillac
+Côtes de Bordeaux Castillon
+Côtes de Bordeaux Francs
+Côtes de Bordeaux Saint-Macaire
+Côtes de Bourg
+Côtes de Castillon
+Côtes de Duras
+Côtes de Gascogne
+Côtes de Gien
+Côtes de la Malepère
+Côtes de Millau
+Côtes de Montravel
+Côtes de Provence
+Côtes de Provence
+Côtes de Provence Fréjus
+Côtes de Provence la Londe
+Côtes de Provence Sainte Victoire
+Côtes de Thau
+Côtes de Thongue
+Côtes de Toul
+Côtes du Brian
+Côtes du Bruhlois
+Côtes du Cabardès et de l'Orbiel
+Côtes du Forez
+Côtes du Frontonnais
+Côtes du Jura
+Côtes du Lot
+Côtes du Luberon
+Côtes du Marmandais
+Côtes du Rhône
+Côtes du Rhône Villages
+Côtes du Rhône Villages
+Côtes du Roussillon
+Côtes du Roussillon Les Aspres
+Côtes du Roussillon-Villages
+Côtes du Tarn
+Côtes du Ventoux
+Côtes du Vivarais
+Cour-Cheverny
+Crémant d'Alsace
+Crémant de Bordeaux
+Crémant de Bourgogne
+Crémant de Die
+Crémant de Limoux
+Crémant de Loire
+Crémant du Jura
+Crème de Fruits
+Crème de Fruits Rouge
+Crème de Pêche de Vigne
+Crépy
+Criots-Bâtard-Montrachet
+Crozes-Hermitage
+Duché d'Uzès
+Eaux de vie
+Eaux de Vie d'Alsace
+Alsace Lorraine)
+Aquitaine)
+Bourgogne-Beaujolais)
+Bugey)
+Champagne)
+Languedoc-Roussillon)
+Provence-Corse)
+Savoie)
+Vallée du Rhône)
+Bourgogne-Beaujolais)
+Champagne)
+Languedoc-Roussillon)
+Jura)
+Echezeaux
+Echezeaux Grand Cru
+Entre-Deux-Mers
+Entre-Deux-Mers-Haut-Benauge
+Ermitage
+Faugeres
+Fiefs Vendéens
+Fine Bordeaux
+Fine de la Marne
+Fine du Jura
+Fine Faugeres
+Fitou
+Fixin
+Fixin 1er Cru
+Fleurie
+Floc de Gascogne
+Franche-Comté
+Fronsac
+Frontignan
+Fronton
+Gaillac
+Gaillac doux
+Gaillac mousseux
+Gaillac Premières Côtes
+Gard
+Gers
+Gevrey-Chambertin
+Gevrey-Chambertin 1er Cru
+Gigondas
+Givry
+Givry 1er Cru
+Grand Roussillon
+Grands Echezeaux
+Graves
+Graves de Vayres
+Graves supérieures
+Grignan-les-Adhémar
+Griotte-Chambertin Gran Cru
+Gros Plant du Pays Nantais
+Haut-Armagnac
+Haut-Médoc
+Haut-Montravel
+Haut-Poitou
+Haute Vallée de l'Aude
+Haute Vallée de l'Orb
+Hermitage
+Ile de Beauté
+Irancy
+Irouléguy
+Irouléguy
+Jasnières
+Juliénas
+Jurançon
+Jurançon sec
+Jus de raisin
+L'Etoile
+La Grande Rue
+La Tâche
+Ladoix
+Ladoix 1er Cru
+Lalande-de-Pomerol
+Landes
+Languedoc
+Languedoc
+Latricières-Chambertin
+Le Pays Cathare
+Les Baux-de-Provence
+Libournais
+Limoux
+Liqueurs
+Liqueurs
+Lirac
+Listrac-Médoc
+Lot
+Loupiac
+Luberon
+Lussac-Saint-Emilion
+Mâcon
+Mâcon Supérieur
+Mâcon-Villages
+Macvin du Jura
+Madiran
+Malepère
+Maranges
+Maranges 1er Cru
+Maranges Côte de Beaune
+Marc de Bourgogne
+Marc de Champagne
+Marc de Gigondas
+Marc de Provence
+Marc du Bugey
+Marc du Jura
+Marcillac
+Margaux
+Marsannay
+Marsannay rosé
+Maures
+Maury
+Mazis-Chambertin
+Mazis-Chambertin Grand Cru
+Mazoyères-Chambertin Gran Cru
+Méditerranée
+Méditerranée
+Méditerrannée
+Médoc
+Ménetou Salon
+Mercurey
+Mercurey 1er Cru
+Meursault
+Meursault 1er Cru
+Meursault 1er Cru Blagny
+Minervois
+Minervois la Livinière
+Mirabelle de Lorraine
+Monbazillac
+Mont Caume
+Montagne-Saint-Emilion
+Montagny
+Montagny 1er Cru
+Monthélie
+Monthelie 1er Cru
+Montlouis-sur-Loire
+Montlouis-sur-Loire mousseux
+Montlouis-sur-Loire pétillant
+Montrachet
+Montravel
+Morey-Saint-Denis
+Morey-Saint-Denis 1er Cru
+Morgon
+Morgon Les Charmes
+Moselle
+Moulin à Vent
+Moulis-en-Médoc
+Muscadet
+Muscadet Coteaux-de-la-Loire
+Muscadet Coteaux-de-la-Loire sur Lie
+Muscadet Côtes-de-Grandlieu
+Muscadet Sèvre et Maine sur Lie
+Muscadet Sèvre-et-Maine
+Muscadet sur Lie
+Muscat de Beaumes-de-Venise
+Muscat de Frontignan
+Muscat de Lunel
+Muscat de Mireval
+Muscat de Rivesaltes
+Muscat de Saint-Jean-de-Minervois
+Muscat du cap Corse
+Musigny
+Néac
+Nuits-Saint-Georges
+Nuits-Saint-Georges 1er Cru
+Orléans
+Orléans-Cléry
+Pacherenc du Vic-Bilh
+Palette
+Patrimonio
+Pauillac
+Pays d'Hérault
+Pays d'Oc
+Pays de la Cité de Carcassonne
+Pécharmant
+Périgord
+Pernand-Vergelesses
+Pernand-Vergelesses 1er Cru
+Pessac-Léognan
+Pétillant de Savoie
+Petit Chablis
+Pineau des Charentes
+Pinot-Chardonnay-Mâcon
+Pomerol
+Pommard
+Pommard 1er Cru
+Pommeau de Normandie
+Pouilly-Fuissé
+Pouilly-Fumé
+Pouilly-Loché
+Pouilly-sur-Loire
+Pouilly-Vinzelles
+Premières Côtes de Blaye
+Premières Côtes de Bordeaux
+Puisseguin-Saint-Emilion
+Puligny-Montrachet
+Puligny-Montrachet 1er Cru
+Quarts de Chaume
+Quincy
+Rasteau
+Rasteau VDN
+Ratafia
+Régnié
+Reuilly
+Richebourg
+Rivesaltes
+Rivesaltes Ambré
+Rivesaltes Rancio
+Rivesaltes Tuilé
+La)
+Romanée-Conti
+Romanée-Saint-Vivant
+Rosé d'Anjou
+Rosé de Loire
+Rosé des Riceys
+Rosette
+Roussette de Savoie
+Roussette de Savoie Frangy
+Roussette de Savoie Marestel
+Roussette de Savoie Monterminod
+Roussette de Savoie Monthoux
+Roussette du Bugey
+Roussette du Bugey Anglefort
+Roussette du Bugey Arbignieu
+Roussette du Bugey Chanay
+Roussette du Bugey Lagnieu
+Roussette du Bugey Montagnieu
+Roussette du Bugey Virieu-le-Grand
+Ruchottes-Chambertin Gran Cru
+Rully
+Rully 1er Cru
+Sables du Golfe du Lion
+Saint Bris le Vineux
+Saint Mont
+Saint-Amour
+Saint-Aubin
+Saint-Aubin 1er Cru
+Saint-Bris
+Saint-Chinian
+Saint-Emilion
+Saint-Emilion Grand Cru
+Saint-Emilion Grand Cru Classé
+Saint-Estèphe
+Saint-Georges-Saint-Emilion
+Saint-Joseph
+Saint-Julien
+Saint-Mont
+Saint-Nicolas-de-Bourgueil
+SAINT-PERAY
+Saint-Pourçain
+Saint-Pourçain
+Saint-Romain
+Saint-Romain 1er Cru
+Saint-Véran
+Sainte-Croix-du-Mont
+Sainte-Foy-Bordeaux
+Sancerre
+Santenay
+Santenay 1er Cru
+Saumur
+Saumur Champigny
+Saumur mousseux
+Saumur Puy Notre Dame
+Saussignac
+Sauternes
+Sauvignon de Saint-Bris
+Savennières
+Savigny
+Savigny 1er Cru
+Savigny-les-Beaune
+Savigny-les-Beaune 1er Cru
+Savoie
+Savoie Cru Chignin
+Savoie Cru Chignin-Bergeron
+Savoie Jongieux
+Seyssel
+Seyssel mousseux
+Tarn
+Tavel
+Terrasses-de-Béziers
+Thézac-Perricard
+Touraine
+Touraine Amboise
+Touraine Azay-le-Rideau
+Touraine Mesland
+Touraine mousseux
+Touraine Noble Joue
+Touraine pétillant
+Tursan
+Vacqueyras
+Val de Cesse
+Valencay
+Vallée du Paradis
+Vallée du Torgan
+Var
+Ventoux
+Vicomté d'Aumelas
+Vin de Corse
+Vin de France
+Vin de Frontignan
+VIN DE PAYS CATHARE
+VIN DE PAYS D'AIGUES
+VIN DE PAYS D'ALLOBROGIE
+VIN DE PAYS D'ARGENS
+VIN DE PAYS D'AUDE
+VIN DE PAYS D'HAUTERIVE
+VIN DE PAYS D'OC
+VIN DE PAYS D'URFE
+VIN DE PAYS DE BESSAN
+VIN DE PAYS DE BIGORRE
+VIN DE PAYS DE CASSAN
+VIN DE PAYS DE CAUX
+VIN DE PAYS DE CESSENON
+VIN DE PAYS DE CUCUGNAN
+VIN DE PAYS DE FRANCHE-COMTE
+VIN DE PAYS DE L'AGENAIS
+VIN DE PAYS DE L'AGENAIS
+VIN DE PAYS DE L'AIN
+VIN DE PAYS DE L'ARDECHE
+VIN DE PAYS DE L'ATLANTIQUE
+VIN DE PAYS DE L'AVEYRON
+VIN DE PAYS DE L'HERAULT
+VIN DE PAYS DE L'ILE DE BEAUTE
+VIN DE PAYS DE LA BENOVIE
+VIN DE PAYS DE LA CITE DE CARCASSONNE
+VIN DE PAYS DE LA COTE VERMEILLE
+VIN DE PAYS DE LA DROME
+VIN DE PAYS DE LA HAUTE VALLEE DE L'ORB
+VIN DE PAYS DE LA MEUSE
+VIN DE PAYS DE LA PRINCIPAUTE D'ORANGE
+VIN DE PAYS DE LA SAINTE BAUME
+VIN DE PAYS DE LA VALLEE DU PARADIS
+VIN DE PAYS DE LA VAUNAGE
+VIN DE PAYS DE LA VICOMTE D'AUMELAS
+VIN DE PAYS DE LA VISTRENQUE
+VIN DE PAYS DE LOIRE-ATLANTIQUE
+VIN DE PAYS DE MEDITERRANEE
+VIN DE PAYS DE SAINT-GUILHEM-LE-DESERT
+VIN DE PAYS DE SAONE ET LOIRE
+VIN DE PAYS DE THEZAC-PERRICARD
+VIN DE PAYS DE VAUCLUSE
+VIN DE PAYS DE VAUCLUSE d
+VIN DE PAYS DES ALPES-MARITIMES
+VIN DE PAYS DES ALPILLES
+VIN DE PAYS DES BALMES DAUPHINOISES
+VIN DE PAYS DES BOUCHES DU RHONE
+VIN DE PAYS DES CEVENNES
+VIN DE PAYS DES COLLINES DE LA MOURE
+VIN DE PAYS DES COLLINES RHODANIENNES
+VIN DE PAYS DES COTEAUX CHARITOIS
+VIN DE PAYS DES COTEAUX D'ENSERUNE
+VIN DE PAYS DES COTEAUX DE BARONNIES
+VIN DE PAYS DES COTEAUX DE BESSILLES
+VIN DE PAYS DES COTEAUX DE CEZE
+VIN DE PAYS DES COTEAUX DE COIFFY
+VIN DE PAYS DES COTEAUX DE FONTCAUDE
+VIN DE PAYS DES COTEAUX DE GLANES
+VIN DE PAYS DES COTEAUX DE L'ARDECHE
+VIN DE PAYS DES COTEAUX DE L'AUXOIS
+VIN DE PAYS DES COTEAUX DE LA CABRERISSE
+VIN DE PAYS DES COTEAUX DE LAURENS
+VIN DE PAYS DES COTEAUX DE MIRAMONT
+VIN DE PAYS DES COTEAUX DE MONTELIMAR
+VIN DE PAYS DES COTEAUX DE MURVIEL
+VIN DE PAYS DES COTEAUX DE NARBONNE
+VIN DE PAYS DES COTEAUX DE PEYRIAC
+VIN DE PAYS DES COTEAUX DE TANNAY
+VIN DE PAYS DES COTEAUX DES FENOUILLEDES
+VIN DE PAYS DES COTEAUX DU CHER ET DE L'ARNON
+VIN DE PAYS DES COTEAUX DU GRESIVAUDAN
+VIN DE PAYS DES COTEAUX DU LIBRON
+VIN DE PAYS DES COTEAUX DU LITTORAL AUDOIS
+VIN DE PAYS DES COTEAUX DU PONT DU GARD
+VIN DE PAYS DES COTEAUX DU SALAGOU
+VIN DE PAYS DES COTEAUX DU VERDON
+VIN DE PAYS DES COTEAUX ET TERRASSES DE MONTAUBAN
+VIN DE PAYS DES COTEAUX FLAVIENS
+VIN DE PAYS DES COTES DE CERESSOU
+VIN DE PAYS DES COTES DE GASCOGNE
+VIN DE PAYS DES COTES DE LASTOURS
+VIN DE PAYS DES COTES DE MONTESTRUC
+VIN DE PAYS DES COTES DE PERIGNAN
+VIN DE PAYS DES COTES DE PROUILHE
+VIN DE PAYS DES COTES DE THAU
+VIN DE PAYS DES COTES DE THONGUE
+VIN DE PAYS DES COTES DU BRIAN
+VIN DE PAYS DES COTES DU CONDOMOIS
+VIN DE PAYS DES COTES DU TARN
+VIN DE PAYS DES COTES DU VIDOURLE
+VIN DE PAYS DES GAULES
+VIN DE PAYS DES HAUTS DE BADENS
+VIN DE PAYS DES MAURES
+VIN DE PAYS DES MONTS DE LA GRAGE
+VIN DE PAYS DES PORTES DE  MEDITERRANEE
+VIN DE PAYS DES PORTES DE  MEDITERRANEE
+VIN DE PAYS DES PYRENEES ATLANTIQUES
+VIN DE PAYS DES PYRENEES ORIENTALES
+VIN DE PAYS DES SABLES DE CAMARGUE
+VIN DE PAYS DES SABLES DU GOLFE DU LION
+VIN DE PAYS DES TERROIRS LANDAIS
+VIN DE PAYS DES TERROIRS LANDAIS
+VIN DE PAYS DU BERANGE
+VIN DE PAYS DU BOURBONNAIS
+VIN DE PAYS DU COMTE DE GRIGNAN
+VIN DE PAYS DU COMTE TOLOSAN
+VIN DE PAYS DU GARD
+VIN DE PAYS DU GERS
+VIN DE PAYS DU JARDIN DE LA FRANCE
+VIN DE PAYS DU LOT
+VIN DE PAYS DU MONT BAUDILE
+VIN DE PAYS DU MONT CAUME
+VIN DE PAYS DU PERIGORD
+VIN DE PAYS DU SUD-OUEST
+VIN DE PAYS DU TORGAN
+VIN DE PAYS DU VAL DE CESSE
+VIN DE PAYS DU VAL DE DAGNE
+VIN DE PAYS DU VAL DE LOIRE
+VIN DE PAYS DU VAL DE MONTFERRAND
+VIN DE PAYS DU VAR
+VIN DE PAYS DUCHE D'UZES
+Vin de Savoie
+Vin de Savoie Abymes
+Vin de Savoie Apremont
+Vin de Savoie Arbin
+Vin de Savoie Ayze
+Vin de Savoie Ayze mousseux
+Vin de Savoie Ayze pétillant
+Vin de Savoie Bergeron
+Vin de Savoie Bonneville mousseux
+Vin de Savoie Bonneville pétillant
+Vin de Savoie Charpignat
+Vin de Savoie Chautagne
+Vin de Savoie Chignin
+Vin de Savoie Chignin-Bergeron
+Vin de Savoie Cruet
+Vin de Savoie Jongieux
+Vin de Savoie Marignan
+Vin de Savoie Marignier mousseux
+Vin de Savoie Marignier pétillant
+Vin de Savoie Marin
+Vin de Savoie Montmélian
+Vin de Savoie Mousseux
+Vin de Savoie Pétillant
+Vin de Savoie Ripaille
+Vin de Savoie Saint-Jean-de-la-Porte
+Vin de Savoie Saint-Jeoire-Prieuré
+Vin de Savoie Sainte-Marie d'Alloix
+Vin de Table
+Vin du Bugey
+Vin du Bugey Cerdon
+Vin du Bugey Machuraz
+Vin du Bugey Manicle
+Vin du Bugey Montagnieu
+Vin du Bugey mousseux
+Vin du Bugey pétillant
+Vin du Bugey Virieu-le-Grand
+Vin du Bugey-Cerdon mousseux
+Vin du Bugey-Cerdon pétillant
+Vin du Haut Poitou
+Vin du jura
+Vins d'Entraygues et du Fel
+Vins d'Estaing
+Vins de Lavilledieu
+Vins du Thouarsais
+Vinsobres
+Vinsobres
+Viré-Clessé
+Volnay
+Volnay 1er Cru
+Vosne-Romanée
+Vosne-Romanée 1er Cru
+Vougeot
+Vougeot 1er Cru
+Vouvray
+Vouvray mousseux
+Vouvray pétillant

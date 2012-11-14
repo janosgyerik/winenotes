@@ -1,0 +1,25 @@
+Cabernet Franc
+Cabernet Sauvignon
+Carignan
+Chardonnay
+Chenin Blanc
+Cinsault
+Gamay
+Gewürztraminer
+Grenache
+Grenache Blanc
+Malbec
+Marsanne
+Merlot
+Mourvèdre
+Muscadet
+Petit Verdot
+Pinot Blanc
+Pinot Gris
+Pinot Noir
+Riesling
+Roussanne
+Sauvignon Blanc
+Syrah
+Sémillon
+Viognier
