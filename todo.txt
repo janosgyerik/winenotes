@@ -11,9 +11,8 @@ version 1
     - move save button outside of scrolling area
 - generate insert script from local initial database
 - price
-- replace license protected images
-    - launcher
-    - wine icon in wine list
+- better launcher icon
+- better wine icon in wine list
 - port to recipe notes
     - change the main layout inside scrolling area to linear layout
     - margin styles in edit wine
