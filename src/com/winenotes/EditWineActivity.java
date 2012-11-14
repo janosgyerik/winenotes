@@ -69,10 +69,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
 	private ForeignKey[] WINETYPE_CHOICES;
 
-	// TODO get list from database
-	static final String[] FLAG_CHOICES = new String[] {
-		"-", "Buy", "Maybe", "Never",
-	};
+	private ForeignKey[] FLAG_CHOICES;
 
 
 	@Override
@@ -128,6 +125,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			String name = wineTypesListCursor.getString(1);
 			wineTypeChoices.add(new ForeignKey(refId, name));
 		}
+		wineTypesListCursor.close();
 		WINETYPE_CHOICES = wineTypeChoices.toArray(new ForeignKey[0]);
 
 		ArrayAdapter<ForeignKey> wineTypeListAdapter = new ArrayAdapter<ForeignKey>(this,
@@ -136,7 +134,18 @@ public class EditWineActivity extends AbstractWineActivity {
 		wineTypeView = (Spinner) findViewById(R.id.wine_type);
 		wineTypeView.setAdapter(wineTypeListAdapter);
 
-		ArrayAdapter<String> flagListAdapter = new ArrayAdapter<String>(this,
+		Cursor flagListCursor = helper.getFlagListCursor();
+		List<ForeignKey> flagChoices = new ArrayList<ForeignKey>();
+		flagChoices.add(new ForeignKey(0, ""));
+		while (flagListCursor.moveToNext()) {
+			int refId = flagListCursor.getInt(0);
+			String name = flagListCursor.getString(1);
+			flagChoices.add(new ForeignKey(refId, name));
+		}
+		flagListCursor.close();
+		FLAG_CHOICES = flagChoices.toArray(new ForeignKey[0]);
+
+		ArrayAdapter<ForeignKey> flagListAdapter = new ArrayAdapter<ForeignKey>(this,
 				android.R.layout.simple_spinner_item, FLAG_CHOICES);
 		flagListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		flagView = (Spinner) findViewById(R.id.flag);
@@ -209,7 +218,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			float tasteRating = tasteRatingView.getRating();
 			float aftertasteRating = aftertasteRatingView.getRating();
 			float overallRating = overallRatingView.getRating();
-			int flagId = 0;//TODO
+			int flagId = ((ForeignKey)flagView.getSelectedItem()).refId;
 			String memo = capitalize(memoView.getText().toString());
 
 			// TODO save the grapes: normalize, capitalize

@@ -183,6 +183,15 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		return cursor;
 	}
 
+	public Cursor getFlagListCursor() {
+		Log.d(TAG, "get all flags");
+		Cursor cursor = getReadableDatabase().query(
+				FLAGS_TABLE_NAME, 
+				new String[]{ BaseColumns._ID, "name", }, 
+				null, null, null, null, "display_order, _id");
+		return cursor;
+	}
+
 	
 
 	public String getOrCreateAromaImpression(String name) {
