@@ -90,6 +90,18 @@ $(mdpi_dir)/launcher_%.png: $(src_dir)/launcher_%.png
 	convert -geometry 48x $< $@
 	identify $@
 
+$(hdpi_dir)/bullet_%.png: $(src_dir)/bullet_%.png
+	convert -geometry 50x $< $@
+	identify $@
+
+$(ldpi_dir)/bullet_%.png: $(src_dir)/bullet_%.png
+	convert -geometry 50x $< $@
+	identify $@
+
+$(mdpi_dir)/bullet_%.png: $(src_dir)/bullet_%.png
+	convert -geometry 50x $< $@
+	identify $@
+
 launchpad/icon.png: $(src_dir)/launcher_main.png
 	@mkdir -p $(@D)
 	convert -geometry 14x $< $@
