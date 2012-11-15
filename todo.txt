@@ -4,8 +4,7 @@ version 1
 - wine view
 - wine listing page
     - wine icon per different wine type
-    - what text to include: name, winery, year, region, overall rating, price, flag, photo
-    - order by flag + rating
+    - what text to include: name, year, region, overall rating, price, flag
 - generate insert script from local initial database
 - price
 - better launcher icon
