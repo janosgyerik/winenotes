@@ -6,9 +6,6 @@ version 1
     - wine icon per different wine type
     - what text to include: name, winery, year, region, overall rating, price, flag, photo
     - order by flag + rating
-- save improvement
-    - add save button icon in header
-    - move save button outside of scrolling area
 - generate insert script from local initial database
 - price
 - better launcher icon

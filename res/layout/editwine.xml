@@ -5,10 +5,25 @@
     android:orientation="vertical"
     android:scrollbars="none" >
 
-    <TextView
-        android:id="@+id/name"
-        style="@style/mainHeader"
-        android:text="@string/title_wine" />
+    <RelativeLayout
+        style="@style/mainHeaderWrapper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/mainHeader"
+            android:layout_toLeftOf="@+id/btn_save"
+            android:text="@string/title_wine" />
+
+        <ImageButton
+            android:id="@id/btn_save"
+            style="@style/mainHeaderButton"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/btn_contentDescription"
+            android:src="@drawable/headerbtn_save" />
+    </RelativeLayout>
 
     <!--
          Dirty to hack to avoid auto-focus on the first text field
@@ -288,12 +303,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_save2"
+                style="@style/wineEditingLine"
+                android:text="@string/btn_save_wine" />
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/btn_save"
-        style="@style/wideButton"
-        android:text="@string/btn_save_wine" />
 
 </LinearLayout>

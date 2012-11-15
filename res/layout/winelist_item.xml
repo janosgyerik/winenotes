@@ -13,12 +13,12 @@
 
     <ImageView
         android:id="@+id/bullet"
-        android:contentDescription="@string/bullet_wine"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="5dp"
+        android:contentDescription="@string/bullet_wine"
         android:gravity="center_vertical"
         android:src="@drawable/bullet_redwine" />
 

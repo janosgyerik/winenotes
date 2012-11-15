@@ -31,6 +31,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -207,8 +208,12 @@ public class EditWineActivity extends AbstractWineActivity {
 		View addPhotoButton = findViewById(R.id.btn_add_photo);
 		addPhotoButton.setOnClickListener(new AddPhotoOnClickListener());
 
-		Button save = (Button) findViewById(R.id.btn_save);
-		save.setOnClickListener(new SaveWineOnClickListener());
+		OnClickListener saveWineOnClickListener =
+				new SaveWineOnClickListener();
+		ImageButton save = (ImageButton) findViewById(R.id.btn_save);
+		save.setOnClickListener(saveWineOnClickListener);
+		Button save2 = (Button) findViewById(R.id.btn_save2);
+		save2.setOnClickListener(saveWineOnClickListener);
 
 		loadWineInfo(true);
 	}
