@@ -69,13 +69,12 @@ public class ViewWineActivity extends AbstractWineActivity {
 		}
 		basicInfoView.setVisibility(View.GONE);  // TODO
 
-		if (wineInfo.region != null) {
+		if (wineInfo.region != null && wineInfo.region.length() > 0) {
 			regionView.setText(wineInfo.region);
 		}
 		else {
 			findViewById(R.id.label_region).setVisibility(View.GONE);
 		}
 	}
-
 
 }
