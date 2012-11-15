@@ -133,12 +133,14 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		}
 	}
 
-	public boolean saveWine(String wineId, String name, int wineryId, float price,
+	public boolean saveWine(String wineId, String name, String listingText,
+			int wineryId, float price,
 			int wineTypeId, int year, String regionId,
 			float aromaRating, float tasteRating, float aftertasteRating, float overallRating,
 			int flagId, String memo) {
 		ContentValues values = new ContentValues();
 		values.put("name", name);
+		values.put("listing_text", listingText);
 		values.put("winery_id", wineryId);
 		values.put("price", price);
 		values.put("winetype_id", wineTypeId);
@@ -608,7 +610,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		Log.d(TAG, "get all wines");
 		Cursor cursor = getReadableDatabase().rawQuery(String.format(
 				"SELECT w._id, ifnull(nullif(w.name, ''), '(noname)') name, " +
-						"'' summary, '' listing_text " +
+						"'' summary, listing_text " +
 						"FROM %s w " +
 						"LEFT JOIN %s f ON w.flag_id = f._id " +
 						"ORDER BY ifnull(f.display_order, 100), overall_rating DESC, w.updated_dt DESC",

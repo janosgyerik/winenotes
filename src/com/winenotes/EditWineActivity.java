@@ -235,11 +235,27 @@ public class EditWineActivity extends AbstractWineActivity {
 			int flagId = ((ForeignKey)flagView.getSelectedItem()).refId;
 			String memo = capitalize(memoView.getText().toString());
 
-			//			updateGrapes(grapesView.getText().toString());
+			StringBuffer listingTextBuffer = new StringBuffer();
+			if (wineTypeId > 0) {
+				listingTextBuffer.append(((ForeignKey)wineTypeView.getSelectedItem()).value);
+				listingTextBuffer.append(", ");
+			}
+			if (year > 0) {
+				listingTextBuffer.append("" + year + ", ");
+			}
+			if (regionId.length() > 0) {
+				listingTextBuffer.append(region);
+				listingTextBuffer.append(", ");
+			}
+			Cursor grapesCursor = helper.getWineGrapesCursor(wineId);
+			while (grapesCursor.moveToNext()) {
+				listingTextBuffer.append(grapesCursor.getString(0));
+				listingTextBuffer.append(", ");
+			}
+			String listingText = listingTextBuffer.length() > 2 ? listingTextBuffer.substring(0, listingTextBuffer.length() - 2) : "";
 
-			// TODO save the grapes: normalize, capitalize
-
-			if (helper.saveWine(wineId, name, wineryId, price,
+			if (helper.saveWine(wineId, name, listingText,
+					wineryId, price,
 					wineTypeId, year, regionId,
 					aromaRating, tasteRating, aftertasteRating, overallRating,
 					flagId, memo)) {
