@@ -71,8 +71,7 @@ public class WineFileManager {
 		getSmallPhotoFile(photoFilename).delete();
 	}
 
-	private static String getDatabasePath() {
-		String packageName = "com.winenotes";
+	private static String getDatabasePath(String packageName) {
 		String dbname = "sqlite3.db";
 		return String.format("/data/%s/databases/%s", packageName, dbname);
 	}
@@ -81,12 +80,12 @@ public class WineFileManager {
 		return new File(BACKUPS_DIR, filename);
 	}
 
-	public static boolean backupDatabaseFile() throws IOException {
+	public static boolean backupDatabaseFile(String packageName) throws IOException {
 		String filename = String.format("sqlite3-%s.db", new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()));
-		return backupDatabaseFile(filename);
+		return backupDatabaseFile(filename, packageName);
 	}
 
-	private static boolean backupDatabaseFile(String filename) throws IOException {
+	private static boolean backupDatabaseFile(String filename, String packageName) throws IOException {
 		File data = Environment.getDataDirectory();
 
 		if (BACKUPS_DIR.canWrite()) {
@@ -94,7 +93,7 @@ public class WineFileManager {
 			if (! backupDir.isDirectory()) {
 				backupDir.mkdirs();
 			}
-			File currentDB = new File(data, getDatabasePath());
+			File currentDB = new File(data, getDatabasePath(packageName));
 			File backupFile = new File(backupDir, filename);
 
 			FileChannel src = new FileInputStream(currentDB).getChannel();
@@ -107,10 +106,10 @@ public class WineFileManager {
 		return false;
 	}
 
-	public static boolean restoreDatabaseFile(String filename) throws IOException {
+	public static boolean restoreDatabaseFile(String filename, String packageName) throws IOException {
 		File dataDir = Environment.getDataDirectory();
 
-		File currentFile = new File(dataDir, getDatabasePath());
+		File currentFile = new File(dataDir, getDatabasePath(packageName));
 		File backupFile = new File(BACKUPS_DIR, filename);
 
 		FileChannel src = new FileInputStream(backupFile).getChannel();
@@ -150,7 +149,7 @@ public class WineFileManager {
 	/**
 	 * Update daily database backup, only once a day.
 	 */
-	public static void updateDailyBackup() {
+	public static void updateDailyBackup(String packageName) {
 		Date now = new Date();
 		Date lastModified = null;
 		File backupFile = getBackupFile(DAILY_BACKUPFILE);
@@ -159,7 +158,7 @@ public class WineFileManager {
 		}
 		if (lastModified == null || lastModified.getDay() < now.getDay()) {
 			try {
-				backupDatabaseFile(DAILY_BACKUPFILE);
+				backupDatabaseFile(DAILY_BACKUPFILE, packageName);
 				Log.d(TAG, "Updated daily backup");
 			} catch (IOException e) {
 				e.printStackTrace();

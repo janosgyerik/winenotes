@@ -1,6 +1,5 @@
 version 1
 ---------
-- library-fy
 - duplicate wine
 - wine listing page
     - wine icon per different wine type
@@ -10,6 +9,8 @@ version 1
 - better launcher icon
 - better wine icon in wine list
 - port to recipe notes
+    - library-fy
+    - WineFileManager.getDatabasePath
     - change the main layout inside scrolling area to linear layout
     - margin styles in edit wine
     - header color

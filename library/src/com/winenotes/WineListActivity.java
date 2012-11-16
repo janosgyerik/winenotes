@@ -60,7 +60,7 @@ public class WineListActivity extends ListActivity {
 
 		findViewById(R.id.btn_add_wine).setOnClickListener(new AddWineOnClickListener());
 
-		WineFileManager.updateDailyBackup();
+		WineFileManager.updateDailyBackup(getPackageName());
 	}
 
 	private void initCursor() {
@@ -150,7 +150,7 @@ public class WineListActivity extends ListActivity {
 		int itemId = item.getItemId();
 		if (itemId == R.id.menu_backup) {
 			try {
-				boolean success = WineFileManager.backupDatabaseFile();
+				boolean success = WineFileManager.backupDatabaseFile(getPackageName());
 				if (success) {
 					Toast.makeText(getBaseContext(), R.string.msg_backup_created, Toast.LENGTH_LONG).show();
 				}
@@ -201,7 +201,7 @@ public class WineListActivity extends ListActivity {
 			if (filename != null) {
 				helper.close();
 				try {
-					if (WineFileManager.restoreDatabaseFile(filename)) {
+					if (WineFileManager.restoreDatabaseFile(filename, getPackageName())) {
 						Toast.makeText(getBaseContext(), R.string.msg_restore_success, Toast.LENGTH_LONG).show();
 					}
 					else {
