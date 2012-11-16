@@ -2,9 +2,10 @@ gen
 bin
 ./winenotes/sqlite3.db
 .DS_Store
-./local.properties
-./proguard-project.txt
+local.properties
+proguard-project.txt
 android
 tmp
 libs
 backups
+library/winenotes/sqlite3.db
