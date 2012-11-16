@@ -58,11 +58,13 @@ Alsace Grand Cru Wineck-Schlossberg
 Alsace Grand Cru Winzenberg
 Alsace Grand Cru Zinnkoepfle
 Alsace Grand Cru Zotzenberg
+Alsace Lorraine)
 Anjou
 Anjou Coteaux de la Loire
 Anjou mousseux
 Anjou-Villages
 Anjou-Villages Brissac
+Aquitaine)
 Arbois
 Arbois-Pupillin
 Ardèche
@@ -76,8 +78,6 @@ Bandol
 Banyuls
 Barsac
 Bas-Armagnac
-Bâtard-Montrachet
-Béarn
 Beaujolais
 Beaujolais Supérieur
 Beaujolais-Villages
@@ -91,19 +91,19 @@ Bienvenues-Bâtard-Montrachet
 Blagny
 Blagny 1er Cru
 Blanche Armagnac
-Blanquette de Limoux
 Blanquette Méthode Ancestrale
+Blanquette de Limoux
 Blaye
 Blaye Côtes de Bordeaux
 Bonnes-Mares
 Bonnezeaux
 Bordeaux
 Bordeaux Clairet
-Bordeaux côtes de Francs
 Bordeaux Haut-Benauge
-Bordeaux rosé
 Bordeaux Sec
 Bordeaux Supérieur
+Bordeaux côtes de Francs
+Bordeaux rosé
 Bouches-du-Rhone
 Bourgogne
 Bourgogne Aligoté
@@ -112,19 +112,24 @@ Bourgogne Côtes du Couchois
 Bourgogne Grand Ordinaire
 Bourgogne Hautes Côtes de Beaune
 Bourgogne Hautes Côtes de Nuits
-Bourgogne mousseux
 Bourgogne Ordinaire
 Bourgogne Ordinaire Rosé
 Bourgogne Passe-tout-grains
 Bourgogne Rosé
 Bourgogne Tonnerre
+Bourgogne mousseux
+Bourgogne-Beaujolais)
 Bourgueil
 Bouzeron
 Brouilly
 Brulhois
 Bugey
+Bugey)
 Buzet
-Buzet
+Bâtard-Montrachet
+Béarn
+COTEAU DE PIERREVERT
+COTEAUX ET TERRASSES DE MONTAUBAN
 Cabardès
 Cabernet d'Anjou
 Cabernet de Saumur
@@ -139,8 +144,6 @@ Cassis
 Cassis de Bourgogne
 Castillon Côtes de Bordeaux
 Cerdon
-Cérons
-Cévennes
 Chablis
 Chablis 1er Cru
 Chablis Grand Cru
@@ -151,42 +154,41 @@ Chambolle-Musigny 1er Cru
 Champagne
 Champagne 1er Cru
 Champagne Grand Cru
+Champagne)
 Chapelle-Chambertin Grand Cru
 Charentais
 Charlemagne
 Charmes-Chambertin
 Chassagne-Montrachet
 Chassagne-Montrachet 1er Cru
-Château Chalon
-Château Chalon
-Château-Grillet
-Châteaumeillant
-Châteauneuf du Pape
-Châteauneuf-du-Pape
 Chatillon-en-Diois
 Chaume
-Chénas
 Chevalier-Montrachet
 Cheverny
 Chinon
 Chiroubles
 Chorey-les-Beaune
 Chorey-les-Beaune 1er Cru
+Château Chalon
+Château-Grillet
+Châteaumeillant
+Châteauneuf du Pape
+Châteauneuf-du-Pape
+Chénas
 Cidre
 Cité de Carcassonne
 Clairette de Bellegarde
 Clairette de Die
 Clairette de Die Méthode Ancestrale
 Clairette du Languedoc
-Clos de la Roche
+Clos Saint-Denis
 Clos de Tart
 Clos de Vougeot
+Clos de la Roche
 Clos des Lambrays
-Clos Saint-Denis
 Cognac
 Collioure
 Comté Tolosan
-Condrieu
 Condrieu
 Corbières
 Corbières-Boutenac
@@ -203,34 +205,24 @@ Corton-Bressandres Grand Cru
 Corton-Charlemagne
 Corton-Renardes Grand Cru
 Costieres de Nimes
-Costieres de Nimes
-Côte de Beaune
-Côte de Beaune-Villages
-Côte de Brouilly
-Côte de Nuits-Villages
-Côte Roannaise
-Côte Roannaise
-Côte Rotie
-Côte Vermeille
-COTEAU DE PIERREVERT
 Coteau Varois en provence
 Coteaux Champenois
+Coteaux Varois en Provence
 Coteaux d'Aix-en-Provence
 Coteaux d'Ancenis
 Coteaux d'Ensérune
 Coteaux de Bessilles
 Coteaux de Die
-Coteaux de l'Ardèche
-Coteaux de l'Aubance
-Coteaux de l'Auxois
 Coteaux de Narbonne
 Coteaux de Peyriac
 Coteaux de Pierrevert
 Coteaux de Saumur
+Coteaux de l'Ardèche
+Coteaux de l'Aubance
+Coteaux de l'Auxois
 Coteaux du Giennois
 Coteaux du Languedoc
 Coteaux du Layon
-Coteaux du Libron
 Coteaux du Libron
 Coteaux du Loir
 Coteaux du Lyonnais
@@ -238,11 +230,31 @@ Coteaux du Pont du Gard
 Coteaux du Quercy
 Coteaux du Tricastin
 Coteaux du Vendômois
-COTEAUX ET TERRASSES DE MONTAUBAN
-Coteaux Varois en Provence
+Cour-Cheverny
+Criots-Bâtard-Montrachet
+Crozes-Hermitage
+Crème de Fruits
+Crème de Fruits Rouge
+Crème de Pêche de Vigne
+Crémant d'Alsace
+Crémant de Bordeaux
+Crémant de Bourgogne
+Crémant de Die
+Crémant de Limoux
+Crémant de Loire
+Crémant du Jura
+Crépy
+Cérons
+Cévennes
+Côte Roannaise
+Côte Rotie
+Côte Vermeille
+Côte de Beaune
+Côte de Beaune-Villages
+Côte de Brouilly
+Côte de Nuits-Villages
 Côtes Canon-Fronsac
 Côtes Catalanes
-Côtes d'Auvergne
 Côtes d'Auvergne
 Côtes de Bergerac
 Côtes de Bergerac Moëlleux
@@ -257,17 +269,16 @@ Côtes de Castillon
 Côtes de Duras
 Côtes de Gascogne
 Côtes de Gien
-Côtes de la Malepère
 Côtes de Millau
 Côtes de Montravel
 Côtes de Provence
-Côtes de Provence
 Côtes de Provence Fréjus
-Côtes de Provence la Londe
 Côtes de Provence Sainte Victoire
+Côtes de Provence la Londe
 Côtes de Thau
 Côtes de Thongue
 Côtes de Toul
+Côtes de la Malepère
 Côtes du Brian
 Côtes du Bruhlois
 Côtes du Cabardès et de l'Orbiel
@@ -279,43 +290,15 @@ Côtes du Luberon
 Côtes du Marmandais
 Côtes du Rhône
 Côtes du Rhône Villages
-Côtes du Rhône Villages
 Côtes du Roussillon
 Côtes du Roussillon Les Aspres
 Côtes du Roussillon-Villages
 Côtes du Tarn
 Côtes du Ventoux
 Côtes du Vivarais
-Cour-Cheverny
-Crémant d'Alsace
-Crémant de Bordeaux
-Crémant de Bourgogne
-Crémant de Die
-Crémant de Limoux
-Crémant de Loire
-Crémant du Jura
-Crème de Fruits
-Crème de Fruits Rouge
-Crème de Pêche de Vigne
-Crépy
-Criots-Bâtard-Montrachet
-Crozes-Hermitage
 Duché d'Uzès
-Eaux de vie
 Eaux de Vie d'Alsace
-Alsace Lorraine)
-Aquitaine)
-Bourgogne-Beaujolais)
-Bugey)
-Champagne)
-Languedoc-Roussillon)
-Provence-Corse)
-Savoie)
-Vallée du Rhône)
-Bourgogne-Beaujolais)
-Champagne)
-Languedoc-Roussillon)
-Jura)
+Eaux de vie
 Echezeaux
 Echezeaux Grand Cru
 Entre-Deux-Mers
@@ -324,9 +307,9 @@ Ermitage
 Faugeres
 Fiefs Vendéens
 Fine Bordeaux
+Fine Faugeres
 Fine de la Marne
 Fine du Jura
-Fine Faugeres
 Fitou
 Fixin
 Fixin 1er Cru
@@ -337,9 +320,9 @@ Fronsac
 Frontignan
 Fronton
 Gaillac
+Gaillac Premières Côtes
 Gaillac doux
 Gaillac mousseux
-Gaillac Premières Côtes
 Gard
 Gers
 Gevrey-Chambertin
@@ -356,8 +339,8 @@ Grignan-les-Adhémar
 Griotte-Chambertin Gran Cru
 Gros Plant du Pays Nantais
 Haut-Armagnac
-Haut-Médoc
 Haut-Montravel
+Haut-Médoc
 Haut-Poitou
 Haute Vallée de l'Aude
 Haute Vallée de l'Orb
@@ -365,27 +348,27 @@ Hermitage
 Ile de Beauté
 Irancy
 Irouléguy
-Irouléguy
 Jasnières
 Juliénas
+Jura)
 Jurançon
 Jurançon sec
 Jus de raisin
 L'Etoile
 La Grande Rue
 La Tâche
+La)
 Ladoix
 Ladoix 1er Cru
 Lalande-de-Pomerol
 Landes
 Languedoc
-Languedoc
+Languedoc-Roussillon)
 Latricières-Chambertin
 Le Pays Cathare
 Les Baux-de-Provence
 Libournais
 Limoux
-Liqueurs
 Liqueurs
 Lirac
 Listrac-Médoc
@@ -393,9 +376,6 @@ Lot
 Loupiac
 Luberon
 Lussac-Saint-Emilion
-Mâcon
-Mâcon Supérieur
-Mâcon-Villages
 Macvin du Jura
 Madiran
 Malepère
@@ -417,11 +397,6 @@ Maury
 Mazis-Chambertin
 Mazis-Chambertin Grand Cru
 Mazoyères-Chambertin Gran Cru
-Méditerranée
-Méditerranée
-Méditerrannée
-Médoc
-Ménetou Salon
 Mercurey
 Mercurey 1er Cru
 Meursault
@@ -435,8 +410,8 @@ Mont Caume
 Montagne-Saint-Emilion
 Montagny
 Montagny 1er Cru
-Monthélie
 Monthelie 1er Cru
+Monthélie
 Montlouis-sur-Loire
 Montlouis-sur-Loire mousseux
 Montlouis-sur-Loire pétillant
@@ -464,9 +439,16 @@ Muscat de Rivesaltes
 Muscat de Saint-Jean-de-Minervois
 Muscat du cap Corse
 Musigny
-Néac
+Mâcon
+Mâcon Supérieur
+Mâcon-Villages
+Méditerrannée
+Méditerranée
+Médoc
+Ménetou Salon
 Nuits-Saint-Georges
 Nuits-Saint-Georges 1er Cru
+Néac
 Orléans
 Orléans-Cléry
 Pacherenc du Vic-Bilh
@@ -476,12 +458,9 @@ Pauillac
 Pays d'Hérault
 Pays d'Oc
 Pays de la Cité de Carcassonne
-Pécharmant
-Périgord
 Pernand-Vergelesses
 Pernand-Vergelesses 1er Cru
 Pessac-Léognan
-Pétillant de Savoie
 Petit Chablis
 Pineau des Charentes
 Pinot-Chardonnay-Mâcon
@@ -492,32 +471,34 @@ Pommeau de Normandie
 Pouilly-Fuissé
 Pouilly-Fumé
 Pouilly-Loché
-Pouilly-sur-Loire
 Pouilly-Vinzelles
+Pouilly-sur-Loire
 Premières Côtes de Blaye
 Premières Côtes de Bordeaux
+Provence-Corse)
 Puisseguin-Saint-Emilion
 Puligny-Montrachet
 Puligny-Montrachet 1er Cru
+Pécharmant
+Périgord
+Pétillant de Savoie
 Quarts de Chaume
 Quincy
 Rasteau
 Rasteau VDN
 Ratafia
-Régnié
 Reuilly
 Richebourg
 Rivesaltes
 Rivesaltes Ambré
 Rivesaltes Rancio
 Rivesaltes Tuilé
-La)
 Romanée-Conti
 Romanée-Saint-Vivant
+Rosette
 Rosé d'Anjou
 Rosé de Loire
 Rosé des Riceys
-Rosette
 Roussette de Savoie
 Roussette de Savoie Frangy
 Roussette de Savoie Marestel
@@ -533,6 +514,8 @@ Roussette du Bugey Virieu-le-Grand
 Ruchottes-Chambertin Gran Cru
 Rully
 Rully 1er Cru
+Régnié
+SAINT-PERAY
 Sables du Golfe du Lion
 Saint Bris le Vineux
 Saint Mont
@@ -550,8 +533,6 @@ Saint-Joseph
 Saint-Julien
 Saint-Mont
 Saint-Nicolas-de-Bourgueil
-SAINT-PERAY
-Saint-Pourçain
 Saint-Pourçain
 Saint-Romain
 Saint-Romain 1er Cru
@@ -563,8 +544,8 @@ Santenay
 Santenay 1er Cru
 Saumur
 Saumur Champigny
-Saumur mousseux
 Saumur Puy Notre Dame
+Saumur mousseux
 Saussignac
 Sauternes
 Sauvignon de Saint-Bris
@@ -577,6 +558,7 @@ Savoie
 Savoie Cru Chignin
 Savoie Cru Chignin-Bergeron
 Savoie Jongieux
+Savoie)
 Seyssel
 Seyssel mousseux
 Tarn
@@ -587,21 +569,10 @@ Touraine
 Touraine Amboise
 Touraine Azay-le-Rideau
 Touraine Mesland
-Touraine mousseux
 Touraine Noble Joue
+Touraine mousseux
 Touraine pétillant
 Tursan
-Vacqueyras
-Val de Cesse
-Valencay
-Vallée du Paradis
-Vallée du Torgan
-Var
-Ventoux
-Vicomté d'Aumelas
-Vin de Corse
-Vin de France
-Vin de Frontignan
 VIN DE PAYS CATHARE
 VIN DE PAYS D'AIGUES
 VIN DE PAYS D'ALLOBROGIE
@@ -617,7 +588,6 @@ VIN DE PAYS DE CAUX
 VIN DE PAYS DE CESSENON
 VIN DE PAYS DE CUCUGNAN
 VIN DE PAYS DE FRANCHE-COMTE
-VIN DE PAYS DE L'AGENAIS
 VIN DE PAYS DE L'AGENAIS
 VIN DE PAYS DE L'AIN
 VIN DE PAYS DE L'ARDECHE
@@ -696,12 +666,10 @@ VIN DE PAYS DES HAUTS DE BADENS
 VIN DE PAYS DES MAURES
 VIN DE PAYS DES MONTS DE LA GRAGE
 VIN DE PAYS DES PORTES DE  MEDITERRANEE
-VIN DE PAYS DES PORTES DE  MEDITERRANEE
 VIN DE PAYS DES PYRENEES ATLANTIQUES
 VIN DE PAYS DES PYRENEES ORIENTALES
 VIN DE PAYS DES SABLES DE CAMARGUE
 VIN DE PAYS DES SABLES DU GOLFE DU LION
-VIN DE PAYS DES TERROIRS LANDAIS
 VIN DE PAYS DES TERROIRS LANDAIS
 VIN DE PAYS DU BERANGE
 VIN DE PAYS DU BOURBONNAIS
@@ -722,6 +690,18 @@ VIN DE PAYS DU VAL DE LOIRE
 VIN DE PAYS DU VAL DE MONTFERRAND
 VIN DE PAYS DU VAR
 VIN DE PAYS DUCHE D'UZES
+Vacqueyras
+Val de Cesse
+Valencay
+Vallée du Paradis
+Vallée du Rhône)
+Vallée du Torgan
+Var
+Ventoux
+Vicomté d'Aumelas
+Vin de Corse
+Vin de France
+Vin de Frontignan
 Vin de Savoie
 Vin de Savoie Abymes
 Vin de Savoie Apremont
@@ -755,9 +735,9 @@ Vin du Bugey Cerdon
 Vin du Bugey Machuraz
 Vin du Bugey Manicle
 Vin du Bugey Montagnieu
+Vin du Bugey Virieu-le-Grand
 Vin du Bugey mousseux
 Vin du Bugey pétillant
-Vin du Bugey Virieu-le-Grand
 Vin du Bugey-Cerdon mousseux
 Vin du Bugey-Cerdon pétillant
 Vin du Haut Poitou
@@ -766,7 +746,6 @@ Vins d'Entraygues et du Fel
 Vins d'Estaing
 Vins de Lavilledieu
 Vins du Thouarsais
-Vinsobres
 Vinsobres
 Viré-Clessé
 Volnay
