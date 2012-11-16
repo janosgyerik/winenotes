@@ -3,6 +3,8 @@ package com.winenotes;
 public class WineInfo {
 	String name;
 	
+	String listingText;
+	
 	int wineryId;
 	String wineryName;
 	

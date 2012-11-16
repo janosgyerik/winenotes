@@ -99,6 +99,7 @@ public abstract class AbstractWineActivity extends Activity {
 
 				wineInfo = new WineInfo();
 				wineInfo.name = getStringColumn(wineCursor, "name");
+				wineInfo.listingText = getStringColumn(wineCursor, "listing_text");
 				wineInfo.wineryId = getIntColumn(wineCursor, "winery_id");
 				wineInfo.wineryName = getStringColumn(wineCursor, "winery_name");
 				wineInfo.price = getFloatColumn(wineCursor, "price");
@@ -168,7 +169,7 @@ public abstract class AbstractWineActivity extends Activity {
 					tasteRatingBar.setEnabled(false);
 					aftertasteRatingBar.setEnabled(false);
 					overallRatingBar.setEnabled(false);
-					
+
 					View overallLabel = findViewById(R.id.label_overall);
 					if (haveOverall) {
 						overallLabel.setVisibility(View.VISIBLE);
@@ -200,41 +201,23 @@ public abstract class AbstractWineActivity extends Activity {
 
 
 	protected void updateGrapes(boolean editable) {
-		Cursor grapesCursor = helper.getWineGrapesCursor(wineId);
-		StringBuffer grapesBuffer = new StringBuffer();
-		while (grapesCursor.moveToNext()) {
-			emptyWine = false;
-			String grape = grapesCursor.getString(0);
-			grapesBuffer.append(grape);
-			grapesBuffer.append(", ");
-		}
-		grapesCursor.close();
-		boolean haveGrapes = grapesBuffer.length() > 0;
-
-		TextView grapesView = (TextView) findViewById(R.id.grapes);
-		if (grapesBuffer.length() > 2) {
-			grapesView.setText(grapesBuffer.substring(0, grapesBuffer.length() - 2));
-		}
-		else {
-			grapesView.setText(R.string.label_none);
-		}
-
 		if (editable) {
-		}
-		else {
-			View grapesLabel = findViewById(R.id.label_grapes);
-			if (haveGrapes) {
-				if (haveGrapes) {
-					grapesView.setVisibility(View.VISIBLE);
-				}
-				else {
-					grapesView.setVisibility(View.GONE);
-				}
-				grapesLabel.setVisibility(View.VISIBLE);
+			Cursor grapesCursor = helper.getWineGrapesCursor(wineId);
+			StringBuffer grapesBuffer = new StringBuffer();
+			while (grapesCursor.moveToNext()) {
+				emptyWine = false;
+				String grape = grapesCursor.getString(0);
+				grapesBuffer.append(grape);
+				grapesBuffer.append(", ");
+			}
+			grapesCursor.close();
+
+			TextView grapesView = (TextView) findViewById(R.id.grapes);
+			if (grapesBuffer.length() > 2) {
+				grapesView.setText(grapesBuffer.substring(0, grapesBuffer.length() - 2));
 			}
 			else {
-				grapesLabel.setVisibility(View.GONE);
-				grapesView.setVisibility(View.GONE);
+				grapesView.setText(R.string.label_none);
 			}
 		}
 	}

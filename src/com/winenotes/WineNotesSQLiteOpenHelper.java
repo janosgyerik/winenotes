@@ -624,7 +624,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	public Cursor getWineDetailsCursor(String wineId) {
 		Log.d(TAG, "get wine " + wineId);
 		String sql = String.format(
-				"SELECT w.name, winery_id, f.name winery_name, price, " +
+				"SELECT w.name, listing_text, winery_id, f.name winery_name, price, " +
 						"winetype_id, t.name winetype, year, " +
 						"region_id, r.name region, " +
 						"aroma_rating, taste_rating, aftertaste_rating, overall_rating, " +

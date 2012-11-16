@@ -1,7 +1,7 @@
 version 1
 ---------
 - library-fy
-- wine view
+- duplicate wine
 - wine listing page
     - wine icon per different wine type
     - what text to include: name, year, region, overall rating, price, flag
