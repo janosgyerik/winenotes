@@ -2,7 +2,7 @@
 
 cd $(dirname "$0")
 
-sql_create=../assets/sql_create.sql
+sql_create=../full/assets/sql_create.sql
 
 ./manage.py sql main | sed \
     -e 's/PRIMARY KEY/& AUTOINCREMENT/' \

@@ -6,4 +6,4 @@ proguard-project.txt
 tmp
 libs
 backups
-library/winenotes/sqlite3.db
+./winenotes/sqlite3.db

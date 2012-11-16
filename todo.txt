@@ -1,30 +1,25 @@
 version 1
 ---------
-- duplicate wine
-- wine listing page
-    - wine icon per different wine type
-    - what text to include: name, year, region, overall rating, price
 - generate insert script from local initial database
 - price
+    - view: add to listing_text
+    - edit
+- wine listing page
+    - wine icon per different wine type
+    - text to include: name, year, region, overall rating, price
+- duplicate wine
 - better launcher icon
 - better wine icon in wine list
-- port to recipe notes
-    - library-fy
-    - WineFileManager.getDatabasePath
-    - change the main layout inside scrolling area to linear layout
-    - margin styles in edit wine
-    - header color
-    - FileSelectorActivity
-    - should reload only changed fields when returning from edit tags
-    - shakespeare
 
 
 release
 -------
-- google play page
-- release notes
-- focus on the "WHY"
-- list of features
+- screenshots
+- google play page draft
+    - very basic just to get the page ready in time for the release
+- project page
+    - focus on the "WHY"
+- google play page finalized
 
 
 version 2
