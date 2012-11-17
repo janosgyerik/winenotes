@@ -1,7 +1,5 @@
 version 1
 ---------
-- wine listing page
-    - wine icon per different wine type
 - flag=Never should go after flag=null
 - duplicate wine
 - add 2 sample wines to initial db
@@ -9,7 +7,6 @@ version 1
 - create lite version
 - separate lite and full uploads on website
 - better launcher icon
-- better wine icon in wine list
 
 
 release

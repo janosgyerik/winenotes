@@ -613,7 +613,8 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		Log.d(TAG, "get all wines");
 		Cursor cursor = getReadableDatabase().rawQuery(String.format(
 				"SELECT w._id, ifnull(nullif(w.name, ''), '(noname)') name, " +
-						"listing_text summary, overall_rating rating " +
+						"listing_text summary, overall_rating rating, " +
+						"winetype_id " +
 						"FROM %s w " +
 						"LEFT JOIN %s f ON w.flag_id = f._id " +
 						"ORDER BY ifnull(f.display_order, 100), overall_rating DESC, w.updated_dt DESC",
