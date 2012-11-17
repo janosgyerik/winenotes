@@ -32,18 +32,30 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/rating"
             android:gravity="center_vertical"
             android:paddingLeft="6dip"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/impressions"
+            android:id="@+id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/name"
             android:gravity="center_vertical"
             android:paddingLeft="6dip" />
+
+        <RatingBar
+            android:id="@id/rating"
+            style="@style/smallRatingBar"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="9dip"
+            android:layout_marginTop="9dip"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="1.0" />
     </RelativeLayout>
 
 </LinearLayout>

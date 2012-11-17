@@ -99,10 +99,23 @@
         <item name="android:layout_marginRight">10dp</item>
     </style>
 
+    <dimen name="ratingBarHeight">22dip</dimen>
+    <dimen name="smallRatingBarHeight">11dip</dimen>
+
     <style name="prettyRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/ratingstars</item>
-        <item name="android:minHeight">32dip</item>
-        <item name="android:maxHeight">32dip</item>
+        <item name="android:minHeight">@dimen/ratingBarHeight</item>
+        <item name="android:maxHeight">@dimen/ratingBarHeight</item>
+        <item name="android:layout_height">@dimen/ratingBarHeight</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="smallRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/smallratingstar</item>
+        <item name="android:minHeight">@dimen/smallRatingBarHeight</item>
+        <item name="android:maxHeight">@dimen/smallRatingBarHeight</item>
+        <item name="android:layout_height">@dimen/smallRatingBarHeight</item>
+        <item name="android:layout_width">wrap_content</item>
     </style>
 
     <style name="AutoCompleteTextViewLight" parent="@android:style/Widget.AutoCompleteTextView">
