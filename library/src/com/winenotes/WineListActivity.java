@@ -30,6 +30,8 @@ public class WineListActivity extends ListActivity {
 	private Cursor cursor;
 
 	private static final int FILE_SELECTED = 1;
+	private static final int ADD_WINE_DONE = 2;
+	private static final int VIEW_WINE_DONE = 3;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ public class WineListActivity extends ListActivity {
 	private void initCursor() {
 		helper = new WineNotesSQLiteOpenHelper(this);
 		cursor = helper.getWineListCursor();
+		startManagingCursor(cursor);
 		ListAdapter adapter = new WineListAdapter(this, cursor);
 		setListAdapter(adapter);
 	}
@@ -79,7 +82,7 @@ public class WineListActivity extends ListActivity {
 		@Override
 		public void onClick(View v) {
 			Intent intent = new Intent(WineListActivity.this, EditWineActivity.class);
-			startActivity(intent);
+			startActivityForResult(intent, ADD_WINE_DONE);
 		}
 	}
 
@@ -89,7 +92,7 @@ public class WineListActivity extends ListActivity {
 				long id) {
 			Intent intent = new Intent(WineListActivity.this, ViewWineActivity.class);
 			intent.putExtra(BaseColumns._ID, ((TextView)view.findViewById(R.id._ID)).getText());
-			startActivity(intent);
+			startActivityForResult(intent, VIEW_WINE_DONE);
 		}
 	}
 
@@ -211,6 +214,18 @@ public class WineListActivity extends ListActivity {
 			case FILE_SELECTED:
 				handleRestoreDatabaseResult(data);
 				break;
+			case ADD_WINE_DONE:
+			case VIEW_WINE_DONE:
+				cursor.requery();
+				break;
+			}
+		}
+		else {
+			switch (requestCode) {
+			case ADD_WINE_DONE:
+			case VIEW_WINE_DONE:
+				cursor.requery();
+				break;
 			}
 		}
 	}
@@ -219,6 +234,8 @@ public class WineListActivity extends ListActivity {
 	protected void onDestroy() {
 		Log.d(TAG, "++onDestroy");
 		super.onDestroy();
+		stopManagingCursor(cursor);
+		cursor.close();
 		helper.close();
 	}
 }
