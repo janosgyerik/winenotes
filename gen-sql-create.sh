@@ -15,6 +15,13 @@ sql=full/assets/sql_create.sql
 sqlite3 docs/sqlite3-init.db '.dump main_winetype' | grep INSERT >> $sql
 sqlite3 docs/sqlite3-init.db '.dump main_flag' | grep INSERT >> $sql
 
+# sample wines
+sqlite3 docs/sqlite3-init.db '.dump main_wine' | grep INSERT >> $sql
+sqlite3 docs/sqlite3-init.db '.dump main_winegrape' | grep INSERT >> $sql
+sqlite3 docs/sqlite3-init.db '.dump main_winearomaimpression' | grep INSERT >> $sql
+sqlite3 docs/sqlite3-init.db '.dump main_winetasteimpression' | grep INSERT >> $sql
+sqlite3 docs/sqlite3-init.db '.dump main_wineaftertasteimpression' | grep INSERT >> $sql
+
 cat <<EOF
 # How to connect to a sqlite database on Android
 # Warning: this works only on Android DEV phones and jailbroken phones
