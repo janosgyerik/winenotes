@@ -18,7 +18,7 @@ public class WineListAdapter extends CursorAdapter {
 	private int mRatingIndex;
 
 	public WineListAdapter(Context context, Cursor cursor) {
-		super(context, cursor);
+		super(context, cursor, true);
 
 		mIdIndex = cursor.getColumnIndex("_id");
 		mNameIndex = cursor.getColumnIndex("name");
