@@ -230,6 +230,9 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	 * @return
 	 */
 	private String newRegion(String name) {
+		if (name == null || name.trim().length() == 0) {
+			return null;
+		}
 		ContentValues values = new ContentValues();
 		values.put("name", name);
 		long createdDt = new Date().getTime();
@@ -284,6 +287,9 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	 * @return
 	 */
 	private String newGrape(String name) {
+		if (name == null || name.trim().length() == 0) {
+			return null;
+		}
 		ContentValues values = new ContentValues();
 		values.put("name", name);
 		long createdDt = new Date().getTime();
@@ -380,6 +386,9 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	 * @return
 	 */
 	private String newAromaImpression(String name) {
+		if (name == null || name.trim().length() == 0) {
+			return null;
+		}
 		ContentValues values = new ContentValues();
 		values.put("name", name);
 		long createdDt = new Date().getTime();
@@ -476,6 +485,9 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	 * @return
 	 */
 	private String newTasteImpression(String name) {
+		if (name == null || name.trim().length() == 0) {
+			return null;
+		}
 		ContentValues values = new ContentValues();
 		values.put("name", name);
 		long createdDt = new Date().getTime();
