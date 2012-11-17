@@ -1,7 +1,6 @@
 version 1
 ---------
 - try to benefit from android:inputType
-- rename style.xml to styles.xml
 - wine listing page
     - wine icon per different wine type
     - text to include: name, year, region, overall rating, price
