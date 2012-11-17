@@ -1,13 +1,14 @@
 version 1
 ---------
-- generate insert script from local initial database
+- support for ascii input
+- bug: after edit, listing_text not updated in view
+- bug: listing_text ends with comma (? if no region nor grape?)
 - price
     - view: add to listing_text
     - edit
 - wine listing page
     - wine icon per different wine type
     - text to include: name, year, region, overall rating, price
-- duplicate wine
 - better launcher icon
 - better wine icon in wine list
 
@@ -17,6 +18,7 @@ release
 - screenshots
 - google play page draft
     - very basic just to get the page ready in time for the release
+    - lite and full versions
 - project page
     - focus on the "WHY"
 - google play page finalized
@@ -24,6 +26,7 @@ release
 
 version 2
 ---------
+- duplicate wine
 - next-previous wine with swipe right-left
 - wine editing: cancel wine if empty
     - see recipe notes 178 179

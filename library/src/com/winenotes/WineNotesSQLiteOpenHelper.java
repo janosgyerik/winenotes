@@ -48,7 +48,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	WineNotesSQLiteOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
-		//context.deleteDatabase(DATABASE_NAME);
+		context.deleteDatabase(DATABASE_NAME);
 
 		sqlCreateStatements = getSqlStatements(context, "sql_create.sql");
 		sqlUpgradeStatements = new SparseArray<List<String>>();
@@ -74,7 +74,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		StringBuilder builder = new StringBuilder();
 		while ((line = reader.readLine()) != null) {
 			builder.append(line);
-			if (line.trim().equals(";")) {
+			if (line.trim().endsWith(";")) {
 				statements.add(builder.toString());
 				builder = new StringBuilder();
 			}
@@ -88,15 +88,6 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 			db.execSQL(sql);
 			// TODO check success
 		}
-		// TODO replace with import from an export file
-		// dummy wines
-		//		db.execSQL("insert into main_wine (name, display_name) values ('Steak', 'Steak');");
-
-		// initial ingredients collection
-		//		db.execSQL("insert into main_ingredient (name) values ('Avocado');");
-
-		// initial tags collection
-		//		db.execSQL("insert into main_tag (name) values ('Main');");
 	}
 
 	@Override
