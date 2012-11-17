@@ -1,11 +1,11 @@
 package com.winenotes;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class ViewWineActivity extends AbstractWineActivity {
@@ -13,6 +13,11 @@ public class ViewWineActivity extends AbstractWineActivity {
 	private static final int RETURN_FROM_EDIT = 1;
 
 	private TextView basicInfoView;
+
+	private RatingBar aromaRatingView;
+	private RatingBar tasteRatingView;
+	private RatingBar aftertasteRatingView;
+	private RatingBar overallRatingView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,11 @@ public class ViewWineActivity extends AbstractWineActivity {
 		});
 
 		basicInfoView = (TextView) findViewById(R.id.basic_info);
+
+		aromaRatingView = (RatingBar) findViewById(R.id.rating_aroma);
+		tasteRatingView = (RatingBar) findViewById(R.id.rating_taste);
+		aftertasteRatingView = (RatingBar) findViewById(R.id.rating_aftertaste);
+		overallRatingView = (RatingBar) findViewById(R.id.rating_overall);
 
 		loadWineInfo(false);
 	}
@@ -50,7 +60,23 @@ public class ViewWineActivity extends AbstractWineActivity {
 		}
 		else {
 			basicInfoView.setText(wineInfo.listingText);
-			//basicInfoView.setVisibility(View.VISIBLE);
+			basicInfoView.setVisibility(View.VISIBLE);
+		}
+		
+		updateRatingView(aromaRatingView, wineInfo.aromaRating);
+		updateRatingView(tasteRatingView, wineInfo.tasteRating);
+		updateRatingView(aftertasteRatingView, wineInfo.aftertasteRating);
+		updateRatingView(overallRatingView, wineInfo.overallRating);
+	}
+	
+	private void updateRatingView(RatingBar view, float rating) {
+		if (rating > 0) {
+			int value = (int)rating;
+			view.setNumStars(value);
+			view.setVisibility(View.VISIBLE);
+		}
+		else {
+			view.setVisibility(View.GONE);
 		}
 	}
 }
