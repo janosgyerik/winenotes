@@ -1,7 +1,7 @@
 release
 -------
-- google play page draft
-    - very basic just to get the page ready in time for the release
+- add LITE in the name somewhere
+- google play page initial version very briefly just to get it up there
     - only lite version for now
 - project page
     - focus on the "WHY"
