@@ -9,11 +9,11 @@ sql=full/assets/sql_create.sql
 ./docs/gen-insert.py -t main_region -c name -a ascii_name ./docs/regions.txt >> $sql
 ./docs/gen-insert.py -t main_region -c name -a ascii_name ./docs/appellation.txt >> $sql
 ./docs/gen-insert.py -t main_grape -c name -a ascii_name ./docs/grapes.txt >> $sql
+./docs/gen-insert.py -t main_aromaimpression -c name ./docs/descriptors.txt >> $sql
+./docs/gen-insert.py -t main_tasteimpression -c name ./docs/descriptors.txt >> $sql
 
 sqlite3 docs/sqlite3-init.db '.dump main_winetype' | grep INSERT >> $sql
 sqlite3 docs/sqlite3-init.db '.dump main_flag' | grep INSERT >> $sql
-sqlite3 docs/sqlite3-init.db '.dump main_aromaimpression' | grep INSERT >> $sql
-sqlite3 docs/sqlite3-init.db '.dump main_tasteimpression' | grep INSERT >> $sql
 
 cat <<EOF
 # How to connect to a sqlite database on Android

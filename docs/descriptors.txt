@@ -1,8 +1,11 @@
 Accessible
+Acacia
 Acidic
 Aftertaste
 Aggressive
 Alcoholic
+Almond
+Apple
 Aroma
 Astringent
 Austere
@@ -10,6 +13,7 @@ Autolytic
 Baked
 Balanced
 Barnyard
+Berries
 Big
 Biscuity
 Bite
@@ -21,6 +25,7 @@ Bright
 Buttery
 Cassis
 Cedarwood
+Character
 Charming
 Cheesy
 Chewy
@@ -46,8 +51,10 @@ Corked
 Creamy
 Crisp
 Crust
+Deep
 Definition
 Delicate
+Delicious
 Depth
 Dirty
 Dried up
@@ -71,8 +78,9 @@ Flat
 Fleshy
 Foxy
 Fresh
-Fruit
+Fruity
 Full
+Gentle
 Grapey
 Grassy
 Green
@@ -84,25 +92,31 @@ Herbaceous
 Hollow
 Hot
 Inky
+Intense
+Interesting
 Jammy
 Lean
 Leathery
 Legs
 Lemony
+Light
 Lightstruck
 Linalool
 Liquorice
 Liveliness
 Luscious
+Mandarin
 Mature
 Mean
 Meaty
 Mellow
+Mild
 Midpalate
 Minerality
 Musky
 Nervy
 Nose
+Nuts
 Oaky
 Oily
 Old
@@ -114,10 +128,12 @@ Peak
 Peppery
 Perfume
 Petrolly
+Pleasant
 Plummy
 Polished
 Powerful
 Prickly
+Pungent
 Racy
 Reticent
 Rich
@@ -130,10 +146,12 @@ Short
 Smokey
 Smooth
 Soft
+Sophisticated
 Sour
 Soy Sauce
 Spicy
 Stalky
+Strong
 Structure
 Supple
 Sweet
@@ -141,6 +159,7 @@ Tannic
 Tar
 Tart
 Texture
+Thick
 Thin
 Tight
 Toasty
@@ -148,6 +167,7 @@ Transparency
 Typicity
 Undertone
 Unoaked
+Unpleasant
 Upfront
 Vanilla
 Vegetal
@@ -155,6 +175,9 @@ Vivid
 Voluptuous
 Warm
 Watery
+Whole
+Woody
+Wow
 Yeasty
 Young
 Zesty
