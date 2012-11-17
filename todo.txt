@@ -1,7 +1,6 @@
 version 1
 ---------
-- flag=Never should go after flag=null
-- duplicate wine
+- add regions
 - add 2 sample wines to initial db
 - take screenshots
 - create lite version
@@ -21,15 +20,11 @@ release
 
 version 2
 ---------
+- duplicate wine
 - next-previous wine with swipe right-left
 - wine editing: cancel wine if empty
     - see recipe notes 178 179
-- improved wine list
-    - do not show title if does not exist
-    - use first photo
 - install "Android Compatibility package" and rewrite queries
-- optimization
-    - rewrite parts inside ScrollView with RelativeLayout
 
 
 version 3

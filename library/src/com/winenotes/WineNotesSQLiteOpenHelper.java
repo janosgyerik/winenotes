@@ -617,7 +617,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 						"winetype_id " +
 						"FROM %s w " +
 						"LEFT JOIN %s f ON w.flag_id = f._id " +
-						"ORDER BY ifnull(f.display_order, 100), overall_rating DESC, w.updated_dt DESC",
+						"ORDER BY ifnull(f.display_order, 99), overall_rating DESC, w.updated_dt DESC",
 						WINES_TABLE_NAME,
 						FLAGS_TABLE_NAME
 				),
