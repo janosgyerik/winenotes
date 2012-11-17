@@ -16,22 +16,28 @@ public abstract class AutoCompleteHelper {
 		// TODO store id too
 		ArrayList<String> autoCompleteList = new ArrayList<String>();
 		int columnIndex = autoCompleteListCursor.getColumnIndex(columnName);
-		int asciiColumnIndex = asciiColumnName == null ? 0 : autoCompleteListCursor.getColumnIndex(asciiColumnName);
-		while (autoCompleteListCursor.moveToNext()) {
-			String name = autoCompleteListCursor.getString(columnIndex);
-			autoCompleteList.add(name);
-			if (asciiColumnName != null) {
+		if (asciiColumnName != null) {
+			int asciiColumnIndex = autoCompleteListCursor.getColumnIndex(asciiColumnName);
+			while (autoCompleteListCursor.moveToNext()) {
+				String name = autoCompleteListCursor.getString(columnIndex);
+				autoCompleteList.add(name);
 				String asciiName = autoCompleteListCursor.getString(asciiColumnIndex);
 				if (!name.equals(asciiName)) {
 					autoCompleteList.add(asciiName);
 				}
 			}
 		}
+		else {
+			while (autoCompleteListCursor.moveToNext()) {
+				String name = autoCompleteListCursor.getString(columnIndex);
+				autoCompleteList.add(name);
+			}
+		}
 		autoCompleteListCursor.close();
 
 		ArrayAdapter<String> itemsAutoCompleteAdapter = new ArrayAdapter<String>(context,
 				android.R.layout.simple_dropdown_item_1line, autoCompleteList);
-		
+
 		autoCompleteTextView.setAdapter(itemsAutoCompleteAdapter);
 		if (autoCompleteTextView instanceof MultiAutoCompleteTextView) {
 			((MultiAutoCompleteTextView)autoCompleteTextView)
