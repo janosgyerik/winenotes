@@ -147,8 +147,6 @@
                     <RatingBar
                         android:id="@+id/rating_aroma"
                         style="@style/ratingBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="25dp"
                         android:numStars="5"
@@ -189,8 +187,6 @@
                     <RatingBar
                         android:id="@+id/rating_taste"
                         style="@style/ratingBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="25dp"
                         android:numStars="5"
@@ -231,8 +227,6 @@
                     <RatingBar
                         android:id="@+id/rating_aftertaste"
                         style="@style/ratingBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="25dp"
                         android:numStars="5"
@@ -273,8 +267,6 @@
                     <RatingBar
                         android:id="@+id/rating_overall"
                         style="@style/ratingBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="25dp"
                         android:numStars="5"

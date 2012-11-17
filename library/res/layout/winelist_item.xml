@@ -54,7 +54,6 @@
             android:layout_marginRight="9dip"
             android:layout_marginTop="9dip"
             android:isIndicator="true"
-            android:numStars="5"
             android:stepSize="1.0" />
     </RelativeLayout>
 
