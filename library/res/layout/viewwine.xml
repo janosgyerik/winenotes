@@ -51,10 +51,12 @@
 
                 <RatingBar
                     android:id="@id/rating_aroma"
-                    style="@style/ratingBar"
+                    style="@style/smallRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dip"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:stepSize="1.0" />
 
@@ -80,10 +82,12 @@
 
                 <RatingBar
                     android:id="@id/rating_taste"
-                    style="@style/ratingBar"
+                    style="@style/smallRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dip"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:stepSize="1.0" />
 
@@ -109,10 +113,12 @@
 
                 <RatingBar
                     android:id="@id/rating_aftertaste"
-                    style="@style/ratingBar"
+                    style="@style/smallRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dip"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:stepSize="1.0" />
 
@@ -138,10 +144,12 @@
 
                 <RatingBar
                     android:id="@id/rating_overall"
-                    style="@style/ratingBar"
+                    style="@style/smallRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dip"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:stepSize="1.0" />
             </RelativeLayout>
