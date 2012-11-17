@@ -76,7 +76,7 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 				String name = itemsCursor.getString(columnIndex);
 				itemsAutoCompleteList.add(name);
 				String asciiName = itemsCursor.getString(asciiColumnIndex);
-				if (!name.equals(asciiName)) {
+				if (asciiName != null && !name.equals(asciiName)) {
 					itemsAutoCompleteList.add(asciiName);
 				}
 			}

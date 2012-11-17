@@ -22,7 +22,7 @@ public abstract class AutoCompleteHelper {
 				String name = autoCompleteListCursor.getString(columnIndex);
 				autoCompleteList.add(name);
 				String asciiName = autoCompleteListCursor.getString(asciiColumnIndex);
-				if (!name.equals(asciiName)) {
+				if (asciiName != null && !name.equals(asciiName)) {
 					autoCompleteList.add(asciiName);
 				}
 			}
