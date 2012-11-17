@@ -11,7 +11,8 @@ class WineType(models.Model):
 
 
 class Region(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=80)
+    ascii_name = models.CharField(max_length=80)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
     updated_dt = models.DateTimeField(default=datetime.now)
@@ -25,7 +26,8 @@ class Flag(models.Model):
 
 
 class Winery(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=80)
+    ascii_name = models.CharField(max_length=80)
     lat = models.FloatField()
     lon = models.FloatField()
     address = models.TextField()
@@ -38,6 +40,7 @@ class Winery(models.Model):
 
 class Wine(models.Model):
     name = models.CharField(max_length=80)
+    ascii_name = models.CharField(max_length=80)
     winery = models.ForeignKey(Winery)
     summary = models.TextField()
     listing_text = models.TextField()
@@ -59,6 +62,7 @@ class Wine(models.Model):
 
 class Grape(models.Model):
     name = models.CharField(max_length=80, unique=True)
+    ascii_name = models.CharField(max_length=80, unique=True)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
     updated_dt = models.DateTimeField(default=datetime.now)

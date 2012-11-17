@@ -8,7 +8,8 @@ CREATE TABLE "main_winetype" (
 ;
 CREATE TABLE "main_region" (
     "_id" integer NULL PRIMARY KEY AUTOINCREMENT,
-    "name" varchar(20) NULL,
+    "name" varchar(80) NULL,
+    "ascii_name" varchar(80) NULL,
     "display_order" integer NULL,
     "created_dt" datetime NULL,
     "updated_dt" datetime NULL
@@ -24,7 +25,8 @@ CREATE TABLE "main_flag" (
 ;
 CREATE TABLE "main_winery" (
     "_id" integer NULL PRIMARY KEY AUTOINCREMENT,
-    "name" varchar(20) NULL,
+    "name" varchar(80) NULL,
+    "ascii_name" varchar(80) NULL,
     "lat" real NULL,
     "lon" real NULL,
     "address" text NULL,
@@ -38,6 +40,7 @@ CREATE TABLE "main_winery" (
 CREATE TABLE "main_wine" (
     "_id" integer NULL PRIMARY KEY AUTOINCREMENT,
     "name" varchar(80) NULL,
+    "ascii_name" varchar(80) NULL,
     "winery_id" integer NULL REFERENCES "main_winery" ("_id"),
     "summary" text NULL,
     "listing_text" text NULL,
@@ -60,6 +63,7 @@ CREATE TABLE "main_wine" (
 CREATE TABLE "main_grape" (
     "_id" integer NULL PRIMARY KEY AUTOINCREMENT,
     "name" varchar(80) NULL UNIQUE,
+    "ascii_name" varchar(80) NULL UNIQUE,
     "display_order" integer NULL,
     "created_dt" datetime NULL,
     "updated_dt" datetime NULL
