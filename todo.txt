@@ -1,12 +1,13 @@
 version 1
 ---------
-- try to benefit from android:inputType
 - wine listing page
     - wine icon per different wine type
-    - text to include: name, year, region, overall rating, price
+    - name
+    - listing_text
+    - rating
 - add 2 sample wines to initial db
 - create lite version
-- separate lite and full on website
+- separate lite and full uploads on website
 - better launcher icon
 - better wine icon in wine list
 

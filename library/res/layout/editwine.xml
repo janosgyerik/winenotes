@@ -47,6 +47,7 @@
                 android:id="@+id/name_edit"
                 style="@style/wineEditingLine"
                 android:hint="@string/hint_name"
+                android:inputType="textCapSentences"
                 android:singleLine="true" />
 
             <LinearLayout
@@ -76,6 +77,7 @@
                 android:id="@+id/region"
                 style="@style/wineEditingLine"
                 android:hint="@string/hint_region"
+                android:inputType="textCapSentences"
                 android:singleLine="true" />
 
             <RelativeLayout
