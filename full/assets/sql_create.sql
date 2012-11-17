@@ -722,7 +722,7 @@ INSERT INTO "main_winetype" VALUES(8,'Whisky',40,NULL,NULL);
 INSERT INTO "main_winetype" VALUES(9,'Other',90,NULL,NULL);
 INSERT INTO "main_flag" VALUES(1,'Buy',30,NULL,NULL);
 INSERT INTO "main_flag" VALUES(2,'Maybe',50,NULL,NULL);
-INSERT INTO "main_flag" VALUES(3,'Never',70,NULL,NULL);
+INSERT INTO "main_flag" VALUES(3,'Never',100,NULL,NULL);
 INSERT INTO "main_aromaimpression" VALUES(3,'Accessible',NULL,NULL,NULL);
 INSERT INTO "main_aromaimpression" VALUES(4,'Acidic',NULL,NULL,NULL);
 INSERT INTO "main_aromaimpression" VALUES(5,'Aftertaste',NULL,NULL,NULL);
