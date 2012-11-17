@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -40,6 +41,8 @@ public class EditWineActivity extends AbstractWineActivity {
 
 	private static final String TAG = EditWineActivity.class.getSimpleName();
 
+	private static final String CURRENCY = "Û";  // TODO
+
 	private static final int RETURN_FROM_EDIT_GRAPES = 1;
 	private static final int RETURN_FROM_EDIT_AROMA = 2;
 	private static final int RETURN_FROM_EDIT_TASTE = 3;
@@ -48,11 +51,10 @@ public class EditWineActivity extends AbstractWineActivity {
 
 	private static final String PHOTO_INFO_FILE = "photoInfo.bin";
 
-	private static final String OUT_DELETED = "DELETED";
+	//private static final String OUT_DELETED = "DELETED";
 
 	private EditText nameView;
-	private EditText wineryNameView;
-	//	private EditText priceView;
+	private EditText priceView;
 	private Spinner wineTypeView;
 	private Spinner yearView;
 	private Spinner flagView;
@@ -99,9 +101,6 @@ public class EditWineActivity extends AbstractWineActivity {
 		}
 
 		nameView = (EditText) findViewById(R.id.name_edit);
-
-		//    	private EditText wineryNameView;
-		//    	private EditText priceView;
 
 		YEAR_CHOICES[0] = new ForeignKey(0, "");
 		int thisYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -153,6 +152,8 @@ public class EditWineActivity extends AbstractWineActivity {
 		regionView = (AutoCompleteTextView) findViewById(R.id.region);
 		AutoCompleteHelper.configureAutoCompleteTextView(getBaseContext(), regionView,
 				helper.getRegionListCursor(), "name", "ascii_name");
+
+		priceView = (EditText) findViewById(R.id.price);
 
 		aromaRatingView = (RatingBar) findViewById(R.id.rating_aroma);
 		tasteRatingView = (RatingBar) findViewById(R.id.rating_taste);
@@ -221,7 +222,7 @@ public class EditWineActivity extends AbstractWineActivity {
 		public void onClick(View view) {
 			String name = capitalize(nameView.getText().toString());
 			int wineryId = 0;//TODO capitalize(wineryNameView.getText().toString());
-			float price = 0;//TODO Float.parseFloat(priceView.getText().toString());
+			float price = inputToFloat(priceView.getText().toString());
 			int wineTypeId = ((ForeignKey)wineTypeView.getSelectedItem()).refId;
 			int year = ((ForeignKey)yearView.getSelectedItem()).refId;
 			String region = capitalize(regionView.getText().toString());
@@ -240,6 +241,10 @@ public class EditWineActivity extends AbstractWineActivity {
 			}
 			if (year > 0) {
 				listingTextBuffer.append("" + year + ", ");
+			}
+			if (price > 0) {
+				String priceStr = floatToString(price);
+				listingTextBuffer.append(priceStr + CURRENCY + ", ");
 			}
 			if (regionId != null) {
 				listingTextBuffer.append(region);
@@ -271,6 +276,20 @@ public class EditWineActivity extends AbstractWineActivity {
 		if (name == null || name.trim().length() < 1) return null;
 		name = name.trim();
 		return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+	}
+
+	static float inputToFloat(String input) {
+		try {
+			return Float.parseFloat(input.trim());
+		}
+		catch (Exception e) {
+			return 0;
+		}
+	}
+
+	static String floatToString(float value) {
+		String stringValue = new DecimalFormat("#.##").format(value);
+		return stringValue.equals("0") ? "" : stringValue;
 	}
 
 	private void handleReturnFromEditGrapes(Intent data) {
@@ -496,5 +515,6 @@ public class EditWineActivity extends AbstractWineActivity {
 		setSpinnerValue(wineTypeView, wineInfo.wineTypeId, WINETYPE_CHOICES);
 		setSpinnerValue(flagView, wineInfo.flagId, FLAG_CHOICES);
 		regionView.setText(wineInfo.region);
+		priceView.setText(floatToString(wineInfo.price));
 	}
 }

@@ -70,6 +70,7 @@
     <string name="btn_contentDescription">[btn]</string>
     <string name="label_grapes">Grape / Cépage</string>
     <string name="label_region">Region / Appellation</string>
+    <string name="label_price">Price</string>
     <string name="label_aroma">Aroma</string>
     <string name="label_taste">Taste</string>
     <string name="label_aftertaste">Aftertaste</string>

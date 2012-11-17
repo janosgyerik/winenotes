@@ -1,13 +1,14 @@
 version 1
 ---------
-- bug: after edit, listing_text not updated in view
-- price
-    - view: add to listing_text
-    - edit
+- increase margin of buttons next to ratings
+- try to benefit from android:inputType
+- rename style.xml to styles.xml
 - wine listing page
     - wine icon per different wine type
     - text to include: name, year, region, overall rating, price
 - add 2 sample wines to initial db
+- create lite version
+- separate lite and full on website
 - better launcher icon
 - better wine icon in wine list
 
@@ -17,7 +18,7 @@ release
 - screenshots
 - google play page draft
     - very basic just to get the page ready in time for the release
-    - lite and full versions
+    - only lite version for now
 - project page
     - focus on the "WHY"
 - google play page finalized
