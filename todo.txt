@@ -2,10 +2,10 @@ version 1
 ---------
 - wine listing page
     - wine icon per different wine type
-    - name
-    - listing_text
-    - rating
+- flag=Never should go after flag=null
+- duplicate wine
 - add 2 sample wines to initial db
+- take screenshots
 - create lite version
 - separate lite and full uploads on website
 - better launcher icon
@@ -14,7 +14,6 @@ version 1
 
 release
 -------
-- screenshots
 - google play page draft
     - very basic just to get the page ready in time for the release
     - only lite version for now
@@ -25,7 +24,6 @@ release
 
 version 2
 ---------
-- duplicate wine
 - next-previous wine with swipe right-left
 - wine editing: cancel wine if empty
     - see recipe notes 178 179

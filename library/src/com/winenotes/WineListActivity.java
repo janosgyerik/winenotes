@@ -19,7 +19,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListAdapter;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,18 +65,7 @@ public class WineListActivity extends ListActivity {
 	private void initCursor() {
 		helper = new WineNotesSQLiteOpenHelper(this);
 		cursor = helper.getWineListCursor();
-		startManagingCursor(cursor);
-		ListAdapter adapter = new SimpleCursorAdapter(
-				this, // Context.
-				R.layout.winelist_item,
-				cursor,
-				new String[] { 
-						BaseColumns._ID, "name", "listing_text",
-				}, // column names in the query ...
-				new int[] { 
-						R.id._ID, R.id.name, R.id.impressions,
-				}
-				); // ... view ids to bind to
+		ListAdapter adapter = new WineListAdapter(this, cursor);
 		setListAdapter(adapter);
 	}
 
