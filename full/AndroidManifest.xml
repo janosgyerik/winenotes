@@ -16,7 +16,7 @@
     <application
         android:name="com.winenotes.WineNotesApplication"
         android:icon="@drawable/launcher_main"
-        android:label="@string/app_name"
+        android:label="Wines"
         android:theme="@style/Theme.Light.NoTitleBar" >
         <activity
             android:name="com.winenotes.WineListActivity"
