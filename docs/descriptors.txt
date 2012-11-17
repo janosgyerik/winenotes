@@ -18,7 +18,10 @@ Big
 Biscuity
 Bite
 Bitter
+Black pepper
+Blackberry
 Blowzy
+Blueberry
 Body
 Bouquet
 Bright
@@ -40,6 +43,7 @@ Cloves
 Cloying
 Coarse
 Coconut
+Coffee
 Compact
 Complete
 Complex
@@ -48,6 +52,7 @@ Concoction
 Connected
 Cooked
 Corked
+Cranberry
 Creamy
 Crisp
 Crust
@@ -63,6 +68,7 @@ Earthy
 Easy
 Edgy
 Elegant
+Exotic
 Expansive
 Expressive
 Extracted
@@ -76,6 +82,7 @@ Firm
 Flabby
 Flat
 Fleshy
+Floral
 Foxy
 Fresh
 Fruity
@@ -84,6 +91,7 @@ Gentle
 Grapey
 Grassy
 Green
+Green pepper
 Gutsy
 Hard
 Harsh
@@ -99,6 +107,7 @@ Lean
 Leathery
 Legs
 Lemony
+Licorice
 Light
 Lightstruck
 Linalool
@@ -109,8 +118,11 @@ Mandarin
 Mature
 Mean
 Meaty
+Medium
+Mediocre
 Mellow
 Mild
+Milky
 Midpalate
 Minerality
 Musky
@@ -120,6 +132,7 @@ Nuts
 Oaky
 Oily
 Old
+Olive
 Opulent
 Oxidized
 Oxidative
@@ -135,6 +148,7 @@ Powerful
 Prickly
 Pungent
 Racy
+Raspberry
 Reticent
 Rich
 Robust
@@ -143,6 +157,7 @@ Sassy
 Sharp
 Sherrylike
 Short
+Silky
 Smokey
 Smooth
 Soft
@@ -163,6 +178,7 @@ Thick
 Thin
 Tight
 Toasty
+Tobacco
 Transparency
 Typicity
 Undertone
