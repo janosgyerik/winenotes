@@ -146,7 +146,7 @@
 
                     <RatingBar
                         android:id="@+id/rating_aroma"
-                        style="@style/prettyRatingBar"
+                        style="@style/ratingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -188,7 +188,7 @@
 
                     <RatingBar
                         android:id="@+id/rating_taste"
-                        style="@style/prettyRatingBar"
+                        style="@style/ratingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -230,7 +230,7 @@
 
                     <RatingBar
                         android:id="@+id/rating_aftertaste"
-                        style="@style/prettyRatingBar"
+                        style="@style/ratingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -272,7 +272,7 @@
 
                     <RatingBar
                         android:id="@+id/rating_overall"
-                        style="@style/prettyRatingBar"
+                        style="@style/ratingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
