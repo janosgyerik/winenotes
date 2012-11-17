@@ -1,6 +1,5 @@
 version 1
 ---------
-- increase margin of buttons next to ratings
 - try to benefit from android:inputType
 - rename style.xml to styles.xml
 - wine listing page

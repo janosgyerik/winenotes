@@ -140,15 +140,15 @@
                     <TextView
                         android:id="@+id/label_aroma"
                         style="@style/wineViewLabel"
-                        android:layout_toLeftOf="@+id/rating_aroma"
                         android:text="@string/label_aroma" />
 
                     <RatingBar
-                        android:id="@id/rating_aroma"
+                        android:id="@+id/rating_aroma"
                         style="@style/prettyRatingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
                         android:numStars="5"
                         android:stepSize="1.0" />
 
@@ -182,15 +182,15 @@
                     <TextView
                         android:id="@+id/label_taste"
                         style="@style/wineViewLabel"
-                        android:layout_toLeftOf="@+id/rating_taste"
                         android:text="@string/label_taste" />
 
                     <RatingBar
-                        android:id="@id/rating_taste"
+                        android:id="@+id/rating_taste"
                         style="@style/prettyRatingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
                         android:numStars="5"
                         android:stepSize="1.0" />
 
@@ -224,15 +224,15 @@
                     <TextView
                         android:id="@+id/label_aftertaste"
                         style="@style/wineViewLabel"
-                        android:layout_toLeftOf="@+id/rating_aftertaste"
                         android:text="@string/label_aftertaste" />
 
                     <RatingBar
-                        android:id="@id/rating_aftertaste"
+                        android:id="@+id/rating_aftertaste"
                         style="@style/prettyRatingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
                         android:numStars="5"
                         android:stepSize="1.0" />
 
@@ -266,15 +266,15 @@
                     <TextView
                         android:id="@+id/label_overall"
                         style="@style/wineViewLabel"
-                        android:layout_toLeftOf="@+id/rating_overall"
                         android:text="@string/label_overall" />
 
                     <RatingBar
-                        android:id="@id/rating_overall"
+                        android:id="@+id/rating_overall"
                         style="@style/prettyRatingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
                         android:numStars="5"
                         android:stepSize="1.0" />
 
