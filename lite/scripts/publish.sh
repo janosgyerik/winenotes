@@ -17,7 +17,7 @@
 #
 
 remote_host=janoscom
-remote_dir=webapps/janosgyerik.com/apps/winenotes-full
+remote_dir=webapps/janosgyerik.com/apps/winenotes-lite
 
 cd $(dirname "$0"); . config.sh; cd ..
 

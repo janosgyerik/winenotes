@@ -1,11 +1,3 @@
-version 1
----------
-- take screenshots
-- create lite version
-- separate lite and full uploads on website
-- better launcher icon
-
-
 release
 -------
 - google play page draft
