@@ -227,7 +227,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			int wineTypeId = ((ForeignKey)wineTypeView.getSelectedItem()).refId;
 			int year = ((ForeignKey)yearView.getSelectedItem()).refId;
 			String region = capitalize(regionView.getText().toString());
-			String regionId = helper.getOrCreateRegion(region);
+			String regionId = region == null ? null : helper.getOrCreateRegion(region);
 			float aromaRating = aromaRatingView.getRating();
 			float tasteRating = tasteRatingView.getRating();
 			float aftertasteRating = aftertasteRatingView.getRating();
@@ -243,7 +243,7 @@ public class EditWineActivity extends AbstractWineActivity {
 			if (year > 0) {
 				listingTextBuffer.append("" + year + ", ");
 			}
-			if (regionId.length() > 0) {
+			if (regionId != null) {
 				listingTextBuffer.append(region);
 				listingTextBuffer.append(", ");
 			}
@@ -270,7 +270,7 @@ public class EditWineActivity extends AbstractWineActivity {
 	}
 
 	static String capitalize(String name) {
-		if (name == null || name.trim().length() < 1) return name;
+		if (name == null || name.trim().length() < 1) return null;
 		name = name.trim();
 		return Character.toUpperCase(name.charAt(0)) + name.substring(1);
 	}

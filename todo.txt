@@ -1,13 +1,13 @@
 version 1
 ---------
 - bug: after edit, listing_text not updated in view
-- bug: listing_text ends with comma (? if no region nor grape?)
 - price
     - view: add to listing_text
     - edit
 - wine listing page
     - wine icon per different wine type
     - text to include: name, year, region, overall rating, price
+- add 2 sample wines to initial db
 - better launcher icon
 - better wine icon in wine list
 
