@@ -6,6 +6,7 @@ sql=full/assets/sql_create.sql
 
 ./winenotes/gen-sql-create.sh > $sql
 
+./docs/gen-insert.py -t main_region -c name -a ascii_name ./docs/regions.txt >> $sql
 ./docs/gen-insert.py -t main_region -c name -a ascii_name ./docs/appellation.txt >> $sql
 ./docs/gen-insert.py -t main_grape -c name -a ascii_name ./docs/grapes.txt >> $sql
 

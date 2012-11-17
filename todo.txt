@@ -1,6 +1,5 @@
 version 1
 ---------
-- add regions
 - add 2 sample wines to initial db
 - take screenshots
 - create lite version

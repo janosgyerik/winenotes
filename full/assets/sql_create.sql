@@ -161,6 +161,15 @@ CREATE TABLE "main_favoritewine" (
     "updated_dt" datetime NULL
 )
 ;
+INSERT INTO main_region (name, ascii_name) VALUES ('Bordelais-Aquitaine', 'Bordelais-Aquitaine');
+INSERT INTO main_region (name, ascii_name) VALUES ('Bourgogne-Beaujolais', 'Bourgogne-Beaujolais');
+INSERT INTO main_region (name, ascii_name) VALUES ('Charentes - Poitou', 'Charentes - Poitou');
+INSERT INTO main_region (name, ascii_name) VALUES ('Jura - Savoie', 'Jura - Savoie');
+INSERT INTO main_region (name, ascii_name) VALUES ('Languedoc Roussillon', 'Languedoc Roussillon');
+INSERT INTO main_region (name, ascii_name) VALUES ('Provence-Corse', 'Provence-Corse');
+INSERT INTO main_region (name, ascii_name) VALUES ('Sud-Ouest-Armagnac', 'Sud-Ouest-Armagnac');
+INSERT INTO main_region (name, ascii_name) VALUES ('Val de Loire - Vendée', 'Val de Loire - Vendee');
+INSERT INTO main_region (name, ascii_name) VALUES ('Vallée du Rhône', 'Vallee du Rhone');
 INSERT INTO main_region (name, ascii_name) VALUES ('Ajaccio', 'Ajaccio');
 INSERT INTO main_region (name, ascii_name) VALUES ('Allobrogie', 'Allobrogie');
 INSERT INTO main_region (name, ascii_name) VALUES ('Aloxe-Corton', 'Aloxe-Corton');
