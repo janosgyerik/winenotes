@@ -1,6 +1,5 @@
 version 1
 ---------
-- support for ascii input
 - bug: after edit, listing_text not updated in view
 - bug: listing_text ends with comma (? if no region nor grape?)
 - price

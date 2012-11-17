@@ -43,4 +43,9 @@ public class EditGrapesActivity extends AbstractEditWineItemsActivity {
 	boolean removeWineItem(String itemId) {
 		return helper.removeWineGrape(wineId, itemId);
 	}
+
+	@Override
+	boolean hasAsciiName() {
+		return true;
+	}
 }

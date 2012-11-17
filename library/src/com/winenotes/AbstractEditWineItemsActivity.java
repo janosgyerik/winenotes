@@ -37,6 +37,7 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 
 	abstract int getContentViewId();
 
+	abstract boolean hasAsciiName();
 	abstract Cursor getAutoCompleteListCursor();
 	abstract Cursor getItemListCursor();
 
@@ -44,7 +45,7 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 	abstract boolean addWineItem(String itemId);
 	abstract String getItemIdByName(String name);
 	abstract boolean removeWineItem(String itemId);
-	
+
 	protected String getHint() {
 		return this.getString(R.string.hint_impressions);
 	}
@@ -67,11 +68,25 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 
 		// TODO store id too
 		ArrayList<String> itemsAutoCompleteList = new ArrayList<String>();
-		{
+		if (hasAsciiName()) {
 			Cursor itemsCursor = getAutoCompleteListCursor();
-			int i = itemsCursor.getColumnIndex("name");
+			int columnIndex = itemsCursor.getColumnIndex("name");
+			int asciiColumnIndex = itemsCursor.getColumnIndex("ascii_name");
 			while (itemsCursor.moveToNext()) {
-				itemsAutoCompleteList.add(itemsCursor.getString(i));
+				String name = itemsCursor.getString(columnIndex);
+				itemsAutoCompleteList.add(name);
+				String asciiName = itemsCursor.getString(asciiColumnIndex);
+				if (!name.equals(asciiName)) {
+					itemsAutoCompleteList.add(asciiName);
+				}
+			}
+			itemsCursor.close();
+		}
+		else {
+			Cursor itemsCursor = getAutoCompleteListCursor();
+			int columnIndex = itemsCursor.getColumnIndex("name");
+			while (itemsCursor.moveToNext()) {
+				itemsAutoCompleteList.add(itemsCursor.getString(columnIndex));
 			}
 			itemsCursor.close();
 		}

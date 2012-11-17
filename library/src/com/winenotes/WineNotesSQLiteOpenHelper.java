@@ -48,7 +48,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	WineNotesSQLiteOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
-		context.deleteDatabase(DATABASE_NAME);
+		//context.deleteDatabase(DATABASE_NAME);
 
 		sqlCreateStatements = getSqlStatements(context, "sql_create.sql");
 		sqlUpgradeStatements = new SparseArray<List<String>>();
@@ -189,7 +189,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		Log.d(TAG, "get all regions");
 		Cursor cursor = getReadableDatabase().query(
 				REGIONS_TABLE_NAME, 
-				new String[]{ BaseColumns._ID, "name", }, 
+				new String[]{ BaseColumns._ID, "name", "ascii_name", }, 
 				null, null, null, null, "name");
 		return cursor;
 	}
@@ -214,8 +214,8 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		Cursor cursor = getReadableDatabase().query(
 				REGIONS_TABLE_NAME, 
 				new String[] { BaseColumns._ID }, 
-				"name = ?", 
-				new String[] { name }, 
+				"name = ? OR ascii_name = ?", 
+				new String[] { name, name }, 
 				null, null, null, "1");
 		if (cursor.moveToNext()) {
 			regionId = cursor.getString(0);
@@ -268,8 +268,8 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		Cursor cursor = getReadableDatabase().query(
 				GRAPES_TABLE_NAME, 
 				new String[] { BaseColumns._ID }, 
-				"name = ?", 
-				new String[] { name }, 
+				"name = ? OR ascii_name = ?", 
+				new String[] { name, name }, 
 				null, null, null, "1");
 		if (cursor.moveToNext()) {
 			grapeId = cursor.getString(0);
@@ -326,7 +326,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 		Log.d(TAG, "get all grapes");
 		Cursor cursor = getReadableDatabase().query(
 				GRAPES_TABLE_NAME, 
-				new String[]{ BaseColumns._ID, "name", }, 
+				new String[]{ BaseColumns._ID, "name", "ascii_name", }, 
 				null, null, null, null, "name");
 		return cursor;
 	}
@@ -342,10 +342,10 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 				);
 		return cursor;
 	}
-	
-	
-	
-	
+
+
+
+
 	public String getOrCreateAromaImpression(String name) {
 		String aromaImpressionId = getAromaImpressionIdByName(name);
 		if (aromaImpressionId == null) {
@@ -607,8 +607,8 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 						"ORDER BY ifnull(f.display_order, 100), overall_rating DESC, w.updated_dt DESC",
 						WINES_TABLE_NAME,
 						FLAGS_TABLE_NAME
-						),
-						null);
+				),
+				null);
 		return cursor;
 	}
 

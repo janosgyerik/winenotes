@@ -12,19 +12,20 @@ public abstract class AutoCompleteHelper {
 
 	public static void configureAutoCompleteTextView(Context context,
 			AutoCompleteTextView autoCompleteTextView,
-			Cursor autoCompleteListCursor) {
-		configureAutoCompleteTextView(context, autoCompleteTextView,
-				autoCompleteListCursor, "name");
-	}
-	
-	public static void configureAutoCompleteTextView(Context context,
-			AutoCompleteTextView autoCompleteTextView,
-			Cursor autoCompleteListCursor, String columnName) {
+			Cursor autoCompleteListCursor, String columnName, String asciiColumnName) {
 		// TODO store id too
 		ArrayList<String> autoCompleteList = new ArrayList<String>();
 		int columnIndex = autoCompleteListCursor.getColumnIndex(columnName);
+		int asciiColumnIndex = asciiColumnName == null ? 0 : autoCompleteListCursor.getColumnIndex(asciiColumnName);
 		while (autoCompleteListCursor.moveToNext()) {
-			autoCompleteList.add(autoCompleteListCursor.getString(columnIndex));
+			String name = autoCompleteListCursor.getString(columnIndex);
+			autoCompleteList.add(name);
+			if (asciiColumnName != null) {
+				String asciiName = autoCompleteListCursor.getString(asciiColumnIndex);
+				if (!name.equals(asciiName)) {
+					autoCompleteList.add(asciiName);
+				}
+			}
 		}
 		autoCompleteListCursor.close();
 

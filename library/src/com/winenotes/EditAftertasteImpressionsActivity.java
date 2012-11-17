@@ -38,4 +38,9 @@ public class EditAftertasteImpressionsActivity extends AbstractEditWineItemsActi
 	boolean removeWineItem(String itemId) {
 		return helper.removeWineAftertasteImpression(wineId, itemId);
 	}
+
+	@Override
+	boolean hasAsciiName() {
+		return false;
+	}
 }
