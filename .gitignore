@@ -1,0 +1,14 @@
+.DS_Store
+bin
+gen
+target
+tmp
+*.pyc
+local.properties
+winenotes-full/keys/
+winenotes-lite/keys/
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
