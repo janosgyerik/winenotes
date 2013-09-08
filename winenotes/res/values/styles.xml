@@ -144,4 +144,22 @@
         <item name="android:dropDownItemStyle">@style/Widget.DropDownItemLight</item>
     </style>
 
+    <style name="dialogContent">
+        <item name="android:background">#ffffff</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="dialogTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#cccccc</item>
+    </style>
+
+    <style name="Theme.Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowTitleStyle">@style/dialogTitle</item>
+        <item name="android:windowTitleSize">35sp</item>
+        <item name="android:textColorPrimary">#616161</item>
+        <item name="android:textColorSecondary">#616161</item>
+    </style>
 </resources>

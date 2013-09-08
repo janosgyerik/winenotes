@@ -1,12 +1,13 @@
 next
 ----
+- bug: for grape, it shows message "No impressions..."
 - review and revise google play page
     - simple and clear
     - focus on the "WHY"
     - link to github
     - similar to manyquiz
-- use light theme for tag editor like in manyquiz
 - redo menu icons for dark bg
+- use [plus] and [check] image buttons in impression editor
 - option to email notes in multiple formats
     - human-friendly
     - csv
