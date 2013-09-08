@@ -4,11 +4,11 @@ import android.database.Cursor;
 
 import com.winenotes.R;
 
-public class EditTasteImpressionsActivity extends EditWineItemsBaseActivity {
+public class EditTasteImpressionsActivity extends EditTagsActivity {
 
     @Override
     int getContentViewId() {
-        return R.layout.editimpressions;
+        return R.layout.edittags;
     }
 
     @Override

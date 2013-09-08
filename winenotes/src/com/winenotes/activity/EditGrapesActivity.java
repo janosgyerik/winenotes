@@ -4,7 +4,7 @@ import android.database.Cursor;
 
 import com.winenotes.R;
 
-public class EditGrapesActivity extends EditWineItemsBaseActivity {
+public class EditGrapesActivity extends EditTagsActivity {
 
     @Override
     protected String getHint() {
@@ -13,7 +13,7 @@ public class EditGrapesActivity extends EditWineItemsBaseActivity {
 
     @Override
     int getContentViewId() {
-        return R.layout.editimpressions;
+        return R.layout.edittags;
     }
 
     @Override

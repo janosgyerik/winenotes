@@ -293,7 +293,7 @@ public class EditWineActivity extends AbstractWineActivity {
     private void handleReturnFromEditGrapes(Intent data) {
         Bundle extras = data.getExtras();
         if (extras != null) {
-            boolean isChanged = extras.getBoolean(EditWineItemsBaseActivity.OUT_CHANGED);
+            boolean isChanged = extras.getBoolean(EditTagsActivity.OUT_CHANGED);
             if (isChanged) {
                 Log.i(TAG, "grapes have changed -> reloading");
                 updateGrapes(true);
@@ -306,7 +306,7 @@ public class EditWineActivity extends AbstractWineActivity {
     private void handleReturnFromEditAroma(Intent data) {
         Bundle extras = data.getExtras();
         if (extras != null) {
-            boolean isChanged = extras.getBoolean(EditWineItemsBaseActivity.OUT_CHANGED);
+            boolean isChanged = extras.getBoolean(EditTagsActivity.OUT_CHANGED);
             if (isChanged) {
                 Log.i(TAG, "aroma impressions have changed -> reloading");
                 updateAroma(true);
@@ -319,7 +319,7 @@ public class EditWineActivity extends AbstractWineActivity {
     private void handleReturnFromEditTaste(Intent data) {
         Bundle extras = data.getExtras();
         if (extras != null) {
-            boolean isChanged = extras.getBoolean(EditWineItemsBaseActivity.OUT_CHANGED);
+            boolean isChanged = extras.getBoolean(EditTagsActivity.OUT_CHANGED);
             if (isChanged) {
                 Log.i(TAG, "taste impressions have changed -> reloading");
                 updateTaste(true);
@@ -332,7 +332,7 @@ public class EditWineActivity extends AbstractWineActivity {
     private void handleReturnFromEditAftertaste(Intent data) {
         Bundle extras = data.getExtras();
         if (extras != null) {
-            boolean isChanged = extras.getBoolean(EditWineItemsBaseActivity.OUT_CHANGED);
+            boolean isChanged = extras.getBoolean(EditTagsActivity.OUT_CHANGED);
             if (isChanged) {
                 Log.i(TAG, "aftertaste impressions have changed -> reloading");
                 updateAftertaste(true);

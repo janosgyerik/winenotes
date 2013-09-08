@@ -22,9 +22,9 @@ import com.winenotes.db.WineNotesSQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-public abstract class EditWineItemsBaseActivity extends ListActivity {
+public abstract class EditTagsActivity extends ListActivity {
 
-    private static final String TAG = EditWineItemsBaseActivity.class.getSimpleName();
+    private static final String TAG = EditTagsActivity.class.getSimpleName();
 
     public static final String OUT_CHANGED = "CHANGED";
 
