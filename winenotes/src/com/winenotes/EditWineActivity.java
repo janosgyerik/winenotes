@@ -41,7 +41,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
 	private static final String TAG = EditWineActivity.class.getSimpleName();
 
-	private static final String CURRENCY = "Û";  // TODO
+	private static final String CURRENCY = "EUR";  // TODO
 
 	private static final int RETURN_FROM_EDIT_GRAPES = 1;
 	private static final int RETURN_FROM_EDIT_AROMA = 2;
