@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal"
-    android:padding="10dp" >
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="horizontal"
+              android:padding="10dp">
 
     <TextView
-        android:id="@+id/_ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+            android:id="@+id/_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
 
     <ImageView
-        android:id="@+id/bullet"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="5dp"
-        android:contentDescription="@string/bullet_wine"
-        android:gravity="center_vertical"
-        android:src="@drawable/bullet_redwine" />
+            android:id="@+id/bullet"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/bullet_wine"
+            android:gravity="center_vertical"
+            android:src="@drawable/bullet_redwine"/>
 
     <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="?android:attr/listPreferredItemHeight" >
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="?android:attr/listPreferredItemHeight">
 
         <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/rating"
-            android:gravity="center_vertical"
-            android:paddingLeft="6dip"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold" />
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/rating"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dip"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/summary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/name"
-            android:gravity="center_vertical"
-            android:paddingLeft="6dip" />
+                android:id="@+id/summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dip"/>
 
         <RatingBar
-            android:id="@id/rating"
-            style="@style/smallRatingBar"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="9dip"
-            android:layout_marginTop="9dip"
-            android:isIndicator="true"
-            android:stepSize="1.0" />
+                android:id="@id/rating"
+                style="@style/smallRatingBar"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="9dip"
+                android:layout_marginTop="9dip"
+                android:isIndicator="true"
+                android:stepSize="1.0"/>
     </RelativeLayout>
 
 </LinearLayout>
