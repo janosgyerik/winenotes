@@ -6,48 +6,48 @@ import com.winenotes.R;
 
 public class EditGrapesActivity extends AbstractEditWineItemsActivity {
 
-	@Override
-	protected String getHint() {
-		return this.getString(R.string.hint_grape);
-	}
-	
-	@Override
-	int getContentViewId() {
-		return R.layout.editimpressions;
-	}
+    @Override
+    protected String getHint() {
+        return this.getString(R.string.hint_grape);
+    }
 
-	@Override
-	Cursor getAutoCompleteListCursor() {
-		return helper.getGrapeListCursor();
-	}
+    @Override
+    int getContentViewId() {
+        return R.layout.editimpressions;
+    }
 
-	@Override
-	Cursor getItemListCursor() {
-		return helper.getWineGrapesCursor(wineId);
-	}
+    @Override
+    Cursor getAutoCompleteListCursor() {
+        return helper.getGrapeListCursor();
+    }
 
-	@Override
-	String getOrCreateItem(String name) {
-		return helper.getOrCreateGrape(name);
-	}
+    @Override
+    Cursor getItemListCursor() {
+        return helper.getWineGrapesCursor(wineId);
+    }
 
-	@Override
-	boolean addWineItem(String itemId) {
-		return helper.addWineGrape(wineId, itemId);
-	}
+    @Override
+    String getOrCreateItem(String name) {
+        return helper.getOrCreateGrape(name);
+    }
 
-	@Override
-	String getItemIdByName(String name) {
-		return helper.getGrapeIdByName(name);
-	}
+    @Override
+    boolean addWineItem(String itemId) {
+        return helper.addWineGrape(wineId, itemId);
+    }
 
-	@Override
-	boolean removeWineItem(String itemId) {
-		return helper.removeWineGrape(wineId, itemId);
-	}
+    @Override
+    String getItemIdByName(String name) {
+        return helper.getGrapeIdByName(name);
+    }
 
-	@Override
-	boolean hasAsciiName() {
-		return true;
-	}
+    @Override
+    boolean removeWineItem(String itemId) {
+        return helper.removeWineGrape(wineId, itemId);
+    }
+
+    @Override
+    boolean hasAsciiName() {
+        return true;
+    }
 }
