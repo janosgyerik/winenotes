@@ -2,11 +2,8 @@ package com.winenotes.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -127,7 +124,7 @@ public class EditWineActivity extends AbstractWineActivity {
             wineTypeChoices.add(new ForeignKey(refId, name));
         }
         wineTypeListCursor.close();
-        WINETYPE_CHOICES = wineTypeChoices.toArray(new ForeignKey[0]);
+        WINETYPE_CHOICES = wineTypeChoices.toArray(new ForeignKey[wineTypeChoices.size()]);
 
         ArrayAdapter<ForeignKey> wineTypeListAdapter = new ArrayAdapter<ForeignKey>(this,
                 android.R.layout.simple_spinner_item, WINETYPE_CHOICES);
@@ -144,7 +141,7 @@ public class EditWineActivity extends AbstractWineActivity {
             flagChoices.add(new ForeignKey(refId, name));
         }
         flagListCursor.close();
-        FLAG_CHOICES = flagChoices.toArray(new ForeignKey[0]);
+        FLAG_CHOICES = flagChoices.toArray(new ForeignKey[flagChoices.size()]);
 
         ArrayAdapter<ForeignKey> flagListAdapter = new ArrayAdapter<ForeignKey>(this,
                 android.R.layout.simple_spinner_item, FLAG_CHOICES);
@@ -237,28 +234,28 @@ public class EditWineActivity extends AbstractWineActivity {
             int flagId = ((ForeignKey) flagView.getSelectedItem()).refId;
             String memo = capitalize(memoView.getText().toString());
 
-            StringBuffer listingTextBuffer = new StringBuffer();
+            StringBuilder builder = new StringBuilder();
             if (wineTypeId > 0) {
-                listingTextBuffer.append(((ForeignKey) wineTypeView.getSelectedItem()).value);
-                listingTextBuffer.append(", ");
+                builder.append(((ForeignKey) wineTypeView.getSelectedItem()).value);
+                builder.append(", ");
             }
             if (year > 0) {
-                listingTextBuffer.append("" + year + ", ");
+                builder.append(year).append(", ");
             }
             if (price > 0) {
                 String priceStr = floatToString(price);
-                listingTextBuffer.append(priceStr + EURO + ", ");
+                builder.append(priceStr).append(EURO).append(", ");
             }
             if (regionId != null) {
-                listingTextBuffer.append(region);
-                listingTextBuffer.append(", ");
+                builder.append(region);
+                builder.append(", ");
             }
             Cursor grapesCursor = helper.getWineGrapesCursor(wineId);
             while (grapesCursor.moveToNext()) {
-                listingTextBuffer.append(grapesCursor.getString(0));
-                listingTextBuffer.append(", ");
+                builder.append(grapesCursor.getString(0));
+                builder.append(", ");
             }
-            String listingText = listingTextBuffer.length() > 2 ? listingTextBuffer.substring(0, listingTextBuffer.length() - 2) : "";
+            String listingText = builder.length() > 2 ? builder.substring(0, builder.length() - 2) : "";
 
             if (helper.saveWine(wineId, name, listingText,
                     wineryId, price,
@@ -369,7 +366,7 @@ public class EditWineActivity extends AbstractWineActivity {
                 case RETURN_FROM_ADD_PHOTO:
                     Log.i(TAG, "OK take photo");
                     deletePhotoInfo();
-                    handleSmallCameraPhoto(data);
+                    handleSmallCameraPhoto();
                     break;
                 default:
                     Log.i(TAG, "OK ???");
@@ -430,19 +427,11 @@ public class EditWineActivity extends AbstractWineActivity {
         }
     }
 
-    public static boolean isIntentAvailable(Context context, String action) {
-        final PackageManager packageManager = context.getPackageManager();
-        final Intent intent = new Intent(action);
-        List<ResolveInfo> list =
-                packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        return list.size() > 0;
-    }
-
     private void addPhotoToWine(String photoFilename) {
         helper.addWinePhoto(wineId, photoFilename);
     }
 
-    private void handleSmallCameraPhoto(Intent intent) {
+    private void handleSmallCameraPhoto() {
         if (photoFile != null && photoFile.isFile()) {
             deletePhotoInfo();
             Log.d(TAG, "adding photo: " + photoFile);
