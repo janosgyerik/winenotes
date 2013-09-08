@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winenotes.R;
+import com.winenotes.application.WineNotesApplication;
 import com.winenotes.db.WineNotesSQLiteOpenHelper;
 import com.winenotes.tools.FileSelectorActivity;
 import com.winenotes.tools.WineFileManager;
@@ -37,6 +38,12 @@ public class WineListActivity extends ListActivity {
 	private static final int FILE_SELECTED = 1;
 	private static final int ADD_WINE_DONE = 2;
 	private static final int VIEW_WINE_DONE = 3;
+
+    protected void checkAndSetupForLiteVersion() {
+        if (((WineNotesApplication) this.getApplication()).isLiteVersion()) {
+            findViewById(R.id.lite_watermark).setVisibility(View.VISIBLE);
+        }
+    }
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,8 @@ public class WineListActivity extends ListActivity {
 		}
 
 		setContentView(R.layout.winelist);
+
+        checkAndSetupForLiteVersion();
 
 		initCursor();
 

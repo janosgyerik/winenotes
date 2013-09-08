@@ -20,7 +20,7 @@
                 android:id="@+id/lite_watermark"
                 style="@style/liteWatermark"
                 android:layout_toRightOf="@id/title"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
         <ImageButton
                 android:id="@+id/btn_add_wine"
