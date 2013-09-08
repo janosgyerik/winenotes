@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -9,6 +9,8 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.winenotes.R;
 
 public class WineListAdapter extends CursorAdapter {
 

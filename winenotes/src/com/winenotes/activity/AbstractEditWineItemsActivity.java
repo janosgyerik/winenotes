@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 import java.util.ArrayList;
 
@@ -19,6 +19,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
+
+import com.winenotes.R;
+import com.winenotes.db.WineNotesSQLiteOpenHelper;
 
 public abstract class AbstractEditWineItemsActivity extends ListActivity {
 

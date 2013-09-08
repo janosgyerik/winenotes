@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.tools;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -18,6 +18,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 
+import com.winenotes.R;
+
 public class FileSelectorActivity extends ListActivity {
 
 	private static final String TAG = FileSelectorActivity.class.getSimpleName();
@@ -32,7 +34,7 @@ public class FileSelectorActivity extends ListActivity {
 	public static final String ORDER_ABC = "ABC";
 	public static final String ORDER_ZYX = "ZYX";
 
-	protected static final String OUT_FILENAME = "filename";
+	public static final String OUT_FILENAME = "filename";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.winenotes.R;
 
 public class ViewWineActivity extends AbstractWineActivity {
 

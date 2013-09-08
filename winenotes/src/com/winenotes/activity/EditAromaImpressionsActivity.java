@@ -1,8 +1,10 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 import android.database.Cursor;
 
-public class EditAftertasteImpressionsActivity extends AbstractEditWineItemsActivity {
+import com.winenotes.R;
+
+public class EditAromaImpressionsActivity extends AbstractEditWineItemsActivity {
 
 	@Override
 	int getContentViewId() {
@@ -11,32 +13,32 @@ public class EditAftertasteImpressionsActivity extends AbstractEditWineItemsActi
 
 	@Override
 	Cursor getAutoCompleteListCursor() {
-		return helper.getTasteImpressionListCursor();
+		return helper.getAromaImpressionListCursor();
 	}
 
 	@Override
 	Cursor getItemListCursor() {
-		return helper.getWineAftertasteImpressionsCursor(wineId);
+		return helper.getWineAromaImpressionsCursor(wineId);
 	}
 
 	@Override
 	String getOrCreateItem(String name) {
-		return helper.getOrCreateTasteImpression(name);
+		return helper.getOrCreateAromaImpression(name);
 	}
 
 	@Override
 	boolean addWineItem(String itemId) {
-		return helper.addWineAftertasteImpression(wineId, itemId);
+		return helper.addWineAromaImpression(wineId, itemId);
 	}
 
 	@Override
 	String getItemIdByName(String name) {
-		return helper.getTasteImpressionIdByName(name);
+		return helper.getAromaImpressionIdByName(name);
 	}
 
 	@Override
 	boolean removeWineItem(String itemId) {
-		return helper.removeWineAftertasteImpression(wineId, itemId);
+		return helper.removeWineAromaImpression(wineId, itemId);
 	}
 
 	@Override

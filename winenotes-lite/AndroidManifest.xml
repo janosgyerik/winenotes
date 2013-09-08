@@ -14,12 +14,12 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <application
-        android:name="com.winenotes.WineNotesApplication"
+        android:name="com.winenotes.application.WineNotesApplication"
         android:icon="@drawable/launcher_main"
         android:label="Wines Notes"
         android:theme="@style/Theme.Light.NoTitleBar" >
         <activity
-            android:name="com.winenotes.WineListActivity"
+            android:name="com.winenotes.activity.WineListActivity"
             android:label="Wines" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,35 +28,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.winenotes.EditWineActivity"
+            android:name="com.winenotes.activity.EditWineActivity"
             android:label="Edit wine" >
         </activity>
         <activity
-            android:name="com.winenotes.ViewWineActivity"
+            android:name="com.winenotes.activity.ViewWineActivity"
             android:label="Wine" >
         </activity>
         <activity
-            android:name="com.winenotes.FileSelectorActivity"
+            android:name="com.winenotes.tools.FileSelectorActivity"
             android:label="File Selector"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name="com.winenotes.EditGrapesActivity"
+            android:name="com.winenotes.activity.EditGrapesActivity"
             android:label="Grape / Cépage"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name="com.winenotes.EditAromaImpressionsActivity"
+            android:name="com.winenotes.activity.EditAromaImpressionsActivity"
             android:label="Aroma Impressions"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name="com.winenotes.EditTasteImpressionsActivity"
+            android:name="com.winenotes.activity.EditTasteImpressionsActivity"
             android:label="Taste Impressions"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name="com.winenotes.EditAftertasteImpressionsActivity"
+            android:name="com.winenotes.activity.EditAftertasteImpressionsActivity"
             android:label="Aftertaste Impressions"
             android:theme="@android:style/Theme.Dialog" >
         </activity>

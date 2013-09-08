@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 public class WineInfo {
 	String name;

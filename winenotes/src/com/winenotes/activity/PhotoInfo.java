@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 import java.io.File;
 import java.io.Serializable;

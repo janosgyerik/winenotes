@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 import java.io.IOException;
 
@@ -21,6 +21,11 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.winenotes.R;
+import com.winenotes.db.WineNotesSQLiteOpenHelper;
+import com.winenotes.tools.FileSelectorActivity;
+import com.winenotes.tools.WineFileManager;
 
 public class WineListActivity extends ListActivity {
 

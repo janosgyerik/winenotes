@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.application;
 
 import android.app.Application;
 

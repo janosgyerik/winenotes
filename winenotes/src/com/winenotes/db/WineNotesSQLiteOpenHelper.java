@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.db;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -45,7 +45,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
 	private List<String> sqlCreateStatements;
 	private SparseArray<List<String>> sqlUpgradeStatements;
 
-	WineNotesSQLiteOpenHelper(Context context) {
+	public WineNotesSQLiteOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
 		//context.deleteDatabase(DATABASE_NAME);

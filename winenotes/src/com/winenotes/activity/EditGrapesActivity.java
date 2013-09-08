@@ -1,6 +1,8 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 import android.database.Cursor;
+
+import com.winenotes.R;
 
 public class EditGrapesActivity extends AbstractEditWineItemsActivity {
 

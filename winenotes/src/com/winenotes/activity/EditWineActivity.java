@@ -1,4 +1,4 @@
-package com.winenotes;
+package com.winenotes.activity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -36,6 +36,9 @@ import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.winenotes.R;
+import com.winenotes.tools.WineFileManager;
 
 public class EditWineActivity extends AbstractWineActivity {
 
@@ -458,7 +461,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
 	private void savePhotoInfo() {
 		try {
-			FileOutputStream fos = openFileOutput(PHOTO_INFO_FILE, Context.MODE_PRIVATE);
+			FileOutputStream fos = openFileOutput(PHOTO_INFO_FILE, MODE_PRIVATE);
 			PhotoInfo info = new PhotoInfo();
 			info.wineId = wineId;
 			info.photoFile = photoFile;
