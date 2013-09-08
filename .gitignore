@@ -11,5 +11,6 @@ winenotes-lite/keys/
 #*.iml
 #*.ipr
 #*.iws
-.idea/workspace.xml
+# some files are added though, on purpose
+.idea
 out
