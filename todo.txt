@@ -1,15 +1,10 @@
-release
--------
-- add LITE in the name somewhere
-- google play page initial version very briefly just to get it up there
-    - only lite version for now
-- project page
-    - focus on the "WHY"
-- google play page finalized
-
-
 next
 ----
+- review and revise google play page
+    - simple and clear
+    - focus on the "WHY"
+    - link to github
+    - similar to manyquiz
 - use light theme for tag editor like in manyquiz
 - redo menu icons for dark bg
 - option to email notes in multiple formats
@@ -34,6 +29,10 @@ next
 - clean up other deprecated calls
 - currency selector
 - default currency setting
+- error: 9-patch image malformed
+    btn_default_normal.9.png
+    btn_default_pressed.9.png
+    btn_default_selected.9.png
 
 
 version 2

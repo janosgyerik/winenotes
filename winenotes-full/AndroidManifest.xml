@@ -14,7 +14,8 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <application
-        android:name="com.winenotes.application.WineNotesApplication"
+        android:name="com.winenotes.application.WineNotesFullApplication"
+        android:allowBackup="false"
         android:icon="@drawable/launcher_main"
         android:label="Wines Notes"
         android:theme="@style/Theme.Light.NoTitleBar" >
