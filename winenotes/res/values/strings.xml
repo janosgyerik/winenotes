@@ -76,4 +76,6 @@
     <string name="label_aftertaste">Aftertaste</string>
     <string name="label_overall">Overall</string>
 
+    <string name="tag_add">[add]</string>
+
 </resources>

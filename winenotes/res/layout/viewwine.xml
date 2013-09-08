@@ -14,6 +14,7 @@
         <TextView
             android:id="@+id/name"
             style="@style/mainHeader"
+            android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@+id/btn_edit"
             android:text="@string/title_wine" />
 

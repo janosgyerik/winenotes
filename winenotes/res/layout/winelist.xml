@@ -11,15 +11,23 @@
         android:orientation="vertical" >
 
         <TextView
-            style="@style/mainHeader"
-            android:layout_toLeftOf="@+id/btn_add_wine"
-            android:text="@string/title_winelist" />
+                android:id="@+id/title"
+                style="@style/mainHeader"
+                android:layout_alignParentLeft="true"
+                android:text="@string/title_winelist" />
+
+        <TextView
+                android:id="@+id/lite_watermark"
+                style="@style/liteWatermark"
+                android:layout_toRightOf="@id/title"
+                android:visibility="visible" />
 
         <ImageButton
-            android:id="@id/btn_add_wine"
-            style="@style/mainHeaderButton"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/headerbtn_plus" />
+                android:id="@+id/btn_add_wine"
+                style="@style/mainHeaderButton"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/headerbtn_plus"
+                android:contentDescription="@string/tag_add"/>
     </RelativeLayout>
 
     <ListView
