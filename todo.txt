@@ -26,6 +26,8 @@ next
     - cursor.requery
     - stopManagingCursor
     - startManagingCursor
+    http://developer.android.com/reference/android/app/Activity.html
+    This method was deprecated in API level 11. Use the new CursorLoader class with LoaderManager instead; this is also available on older platforms through the Android compatibility package.
 - clean up other deprecated calls
 - currency selector
 - default currency setting

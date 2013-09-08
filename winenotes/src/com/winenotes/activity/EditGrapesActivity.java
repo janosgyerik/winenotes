@@ -4,7 +4,7 @@ import android.database.Cursor;
 
 import com.winenotes.R;
 
-public class EditGrapesActivity extends AbstractEditWineItemsActivity {
+public class EditGrapesActivity extends EditWineItemsBaseActivity {
 
     @Override
     protected String getHint() {

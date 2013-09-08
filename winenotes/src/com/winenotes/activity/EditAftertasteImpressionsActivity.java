@@ -4,7 +4,7 @@ import android.database.Cursor;
 
 import com.winenotes.R;
 
-public class EditAftertasteImpressionsActivity extends AbstractEditWineItemsActivity {
+public class EditAftertasteImpressionsActivity extends EditWineItemsBaseActivity {
 
     @Override
     int getContentViewId() {
