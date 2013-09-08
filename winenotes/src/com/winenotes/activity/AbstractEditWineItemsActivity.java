@@ -13,7 +13,6 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
@@ -34,7 +33,6 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 
     private MultiAutoCompleteTextView inputView;
     private ArrayAdapter<String> itemListAdapter;
-    private ListView itemListView;
 
     private boolean isChanged;
 
@@ -69,8 +67,6 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             wineId = extras.getString(BaseColumns._ID);
-        } else {
-            //			wineId = "44";
         }
 
         // TODO store id too
@@ -81,10 +77,12 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
             int asciiColumnIndex = itemsCursor.getColumnIndex("ascii_name");
             while (itemsCursor.moveToNext()) {
                 String name = itemsCursor.getString(columnIndex);
-                itemsAutoCompleteList.add(name);
-                String asciiName = itemsCursor.getString(asciiColumnIndex);
-                if (asciiName != null && !name.equals(asciiName)) {
-                    itemsAutoCompleteList.add(asciiName);
+                if (name != null) {
+                    itemsAutoCompleteList.add(name);
+                    String asciiName = itemsCursor.getString(asciiColumnIndex);
+                    if (asciiName != null && !name.equals(asciiName)) {
+                        itemsAutoCompleteList.add(asciiName);
+                    }
                 }
             }
             itemsCursor.close();
@@ -106,7 +104,7 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
 
         itemListAdapter =
                 new ArrayAdapter<String>(this, R.layout.impressionslist_item);
-        itemListView = (ListView) findViewById(android.R.id.list);
+        ListView itemListView = (ListView) findViewById(android.R.id.list);
         itemListView.setAdapter(itemListAdapter);
         itemListView.setOnItemLongClickListener(new ItemListOnItemLongClickListener());
 
@@ -147,11 +145,11 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
     private void addItems() {
         String items = inputView.getText().toString().trim();
         if (items.length() > 0) {
-            StringBuffer itemsListMsgBuffer = new StringBuffer();
+            StringBuilder builder = new StringBuilder();
             for (String item : items.split(",")) {
                 item = EditWineActivity.capitalize(item);
-                itemsListMsgBuffer.append(item);
-                itemsListMsgBuffer.append(", ");
+                builder.append(item);
+                builder.append(", ");
                 String itemId = getOrCreateItem(item);
                 if (itemId != null
                         && addWineItem(itemId)) {
@@ -160,7 +158,7 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
                 }
             }
             inputView.setText("");
-            String itemsListMsg = itemsListMsgBuffer.substring(0, itemsListMsgBuffer.lastIndexOf(","));
+            String itemsListMsg = builder.substring(0, builder.lastIndexOf(","));
             Toast.makeText(getApplicationContext(), "Added " + itemsListMsg, Toast.LENGTH_SHORT).show();
         }
     }
