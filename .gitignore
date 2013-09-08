@@ -8,7 +8,7 @@ local.properties
 winenotes-full/keys/
 winenotes-lite/keys/
 # Intellij project files
-*.iml
-*.ipr
-*.iws
-.idea/
+#*.iml
+#*.ipr
+#*.iws
+#.idea/

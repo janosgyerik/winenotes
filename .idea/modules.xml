@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/winenotes/winenotes.iml" filepath="$PROJECT_DIR$/winenotes/winenotes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/winenotes-full/winenotes-full.iml" filepath="$PROJECT_DIR$/winenotes-full/winenotes-full.iml" />
+      <module fileurl="file://$PROJECT_DIR$/winenotes-lite/winenotes-lite.iml" filepath="$PROJECT_DIR$/winenotes-lite/winenotes-lite.iml" />
+    </modules>
+  </component>
+</project>
+
