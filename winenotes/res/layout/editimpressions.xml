@@ -11,17 +11,19 @@
             android:paddingRight="5dp"
             android:paddingTop="5dp">
 
-        <Button
+        <ImageButton
                 android:id="@+id/btn_done"
                 style="@style/customButton"
                 android:layout_alignParentRight="true"
-                android:text="@string/btn_done"/>
+                android:src="@drawable/headerbtn_save"
+                android:contentDescription="@string/alt_done"/>
 
-        <Button
+        <ImageButton
                 android:id="@+id/btn_add"
                 style="@style/customButton"
                 android:layout_toLeftOf="@id/btn_done"
-                android:text="@string/btn_add"/>
+                android:src="@drawable/headerbtn_plus"
+                android:contentDescription="@string/alt_add"/>
 
         <MultiAutoCompleteTextView
                 android:id="@+id/input"

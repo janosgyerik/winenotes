@@ -110,10 +110,10 @@ public abstract class AbstractEditWineItemsActivity extends ListActivity {
         itemListView.setAdapter(itemListAdapter);
         itemListView.setOnItemLongClickListener(new ItemListOnItemLongClickListener());
 
-        Button addItemButton = (Button) findViewById(R.id.btn_add);
+        View addItemButton = findViewById(R.id.btn_add);
         addItemButton.setOnClickListener(new AddItemOnClickListener());
 
-        Button doneButton = (Button) findViewById(R.id.btn_done);
+        View doneButton = findViewById(R.id.btn_done);
         doneButton.setOnClickListener(new DoneOnClickListener());
 
         Cursor itemsCursor = getItemListCursor();

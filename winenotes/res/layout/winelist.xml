@@ -27,7 +27,7 @@
                 style="@style/mainHeaderButton"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/headerbtn_plus"
-                android:contentDescription="@string/tag_add"/>
+                android:contentDescription="@string/alt_add"/>
     </RelativeLayout>
 
     <ListView

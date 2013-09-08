@@ -31,6 +31,8 @@ next
 - currency selector
 - default currency setting
 - error: 9-patch image malformed
+    "No marked region found along edge."
+    "Found along top edge."
     btn_default_normal.9.png
     btn_default_pressed.9.png
     btn_default_selected.9.png
