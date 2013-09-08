@@ -44,7 +44,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
     private static final String TAG = EditWineActivity.class.getSimpleName();
 
-    private static final String CURRENCY = "EUR";  // TODO
+    private static final String EURO = "€";  // TODO
 
     private static final int RETURN_FROM_EDIT_GRAPES = 1;
     private static final int RETURN_FROM_EDIT_AROMA = 2;
@@ -247,7 +247,7 @@ public class EditWineActivity extends AbstractWineActivity {
             }
             if (price > 0) {
                 String priceStr = floatToString(price);
-                listingTextBuffer.append(priceStr + CURRENCY + ", ");
+                listingTextBuffer.append(priceStr + EURO + ", ");
             }
             if (regionId != null) {
                 listingTextBuffer.append(region);

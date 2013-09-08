@@ -7,7 +7,6 @@ next
     - link to github
     - similar to manyquiz
 - redo menu icons for dark bg
-- use [plus] and [check] image buttons in impression editor
 - option to email notes in multiple formats
     - human-friendly
     - csv
