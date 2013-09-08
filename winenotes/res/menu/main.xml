@@ -11,9 +11,4 @@
         android:icon="@drawable/menu_restore"
         android:title="@string/menu_restore"/>
 
-    <item
-        android:id="@+id/menu_quit"
-        android:icon="@drawable/menu_quit"
-        android:title="@string/menu_quit"/>
-
 </menu>

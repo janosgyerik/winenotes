@@ -8,6 +8,23 @@ release
 - google play page finalized
 
 
+next
+----
+- currency selector
+- default currency setting
+- use light theme for tag editor like in manyquiz
+- redo menu icons for dark bg
+- option to email notes in multiple formats
+    - human-friendly
+    - csv
+    - json
+- clean up db related deprecated calls in WineListActivity and others
+    - cursor.requery
+    - stopManagingCursor
+    - startManagingCursor
+- clean up other deprecated calls
+
+
 version 2
 ---------
 - duplicate wine
