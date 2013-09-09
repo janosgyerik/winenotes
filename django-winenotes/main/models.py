@@ -45,6 +45,7 @@ class Wine(models.Model):
     summary = models.TextField()
     listing_text = models.TextField()
     price = models.FloatField()
+    currency = models.CharField(max_length=3)
     winetype = models.ForeignKey(WineType)
     year = models.IntegerField()
     region = models.ForeignKey(Region)
