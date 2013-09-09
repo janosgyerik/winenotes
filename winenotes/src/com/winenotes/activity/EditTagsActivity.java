@@ -2,6 +2,7 @@ package com.winenotes.activity;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -132,6 +133,7 @@ public abstract class EditTagsActivity extends ListActivity {
         setListAdapter(itemListAdapter);
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Log.d(TAG, "onKeyDown");
@@ -167,7 +169,10 @@ public abstract class EditTagsActivity extends ListActivity {
             }
             inputView.setText("");
             String itemsListMsg = builder.substring(0, builder.lastIndexOf(","));
-            Toast.makeText(getApplicationContext(), "Added " + itemsListMsg, Toast.LENGTH_SHORT).show();
+            Context context = getApplicationContext();
+            if (context != null) {
+                Toast.makeText(context, "Added " + itemsListMsg, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
