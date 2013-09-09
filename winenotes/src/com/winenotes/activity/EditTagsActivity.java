@@ -112,7 +112,7 @@ public abstract class EditTagsActivity extends ListActivity {
         emptyText.setText(getEmptyText());
 
         itemListAdapter =
-                new ArrayAdapter<String>(this, R.layout.impressionslist_item);
+                new ArrayAdapter<String>(this, R.layout.tagslist_item);
         ListView itemListView = (ListView) findViewById(android.R.id.list);
         itemListView.setAdapter(itemListAdapter);
         itemListView.setOnItemLongClickListener(new ItemListOnItemLongClickListener());
