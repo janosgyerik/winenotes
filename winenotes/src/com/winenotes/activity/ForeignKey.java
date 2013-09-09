@@ -17,9 +17,6 @@ public class ForeignKey {
 
     @Override
     public boolean equals(Object otherValue) {
-        if (otherValue instanceof Integer) {
-            return refId.equals(otherValue);
-        }
-        return false;
+        return otherValue instanceof Integer && refId.equals(otherValue);
     }
 }
