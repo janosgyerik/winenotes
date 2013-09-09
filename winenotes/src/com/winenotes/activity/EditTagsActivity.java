@@ -151,7 +151,7 @@ public abstract class EditTagsActivity extends ListActivity {
     }
 
     private void addItems() {
-        String items = inputView.getText().toString().trim();
+        String items = String.valueOf(inputView.getText()).trim();
         if (items.length() > 0) {
             StringBuilder builder = new StringBuilder();
             for (String item : items.split(",")) {
