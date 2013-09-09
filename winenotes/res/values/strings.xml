@@ -75,8 +75,9 @@
     </string>
     <string name="prompt_year">Year / Millésime</string>
     <string name="prompt_wine_type">Type of wine</string>
-    <string name="prompt_flag">To buy or not to buy?</string>
-    <string name="btn_contentDescription">[btn]</string>
+    <string name="prompt_flag">Flag?</string>
+    <string name="prompt_currency">Currency</string>
+
     <string name="label_grapes">Grape / Cépage</string>
     <string name="label_region">Region / Appellation</string>
     <string name="label_price">Price</string>
@@ -85,6 +86,7 @@
     <string name="label_aftertaste">Aftertaste</string>
     <string name="label_overall">Overall</string>
 
+    <string name="btn_contentDescription">[btn]</string>
     <string name="alt_add">[add]</string>
     <string name="alt_done">[done]</string>
 

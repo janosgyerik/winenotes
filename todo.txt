@@ -1,13 +1,13 @@
 next
 ----
 - currency selector
-- default currency setting
-- review and revise google play page
-    - simple and clear
-    - focus on the "WHY"
-    - link to github
-    - similar to manyquiz
+    - min 3 digits for price, expand as necessary
+    - default currency: USD, from values.xml
+    - default currency setting
+- minor: delete btn_contentDescription
+- minor: change heading background color, using a brand color
 - redo menu icons for dark bg
+- make all dialogs bright theme
 - option to email notes in multiple formats
     - human-friendly
     - csv
@@ -31,12 +31,15 @@ next
     This method was deprecated in API level 11. Use the new CursorLoader class with LoaderManager instead; this is also available on older platforms through the Android compatibility package.
 - clean up other deprecated calls
 - use something more intuitive than a pulldown without label for selecting wine type
+    - default type: red
+    - default year: current
 - error: 9-patch image malformed
     "No marked region found along edge."
     "Found along top edge."
     btn_default_normal.9.png
     btn_default_pressed.9.png
     btn_default_selected.9.png
+- eliminate all warnings
 
 
 version 2

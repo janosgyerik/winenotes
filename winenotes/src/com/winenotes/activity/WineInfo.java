@@ -9,6 +9,7 @@ public class WineInfo {
     String wineryName;
 
     float price;
+    Currency currency;
 
     int wineTypeId;
     String wineType;

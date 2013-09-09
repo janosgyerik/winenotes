@@ -23,7 +23,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String TAG = WineNotesSQLiteOpenHelper.class.getSimpleName();
 
     private static final String DATABASE_NAME = "sqlite3.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // lists
     private static final String WINES_TABLE_NAME = "main_wine";
@@ -48,11 +48,9 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
     public WineNotesSQLiteOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
-        //context.deleteDatabase(DATABASE_NAME);
-
         sqlCreateStatements = getSqlStatements(context, "sql_create.sql");
         sqlUpgradeStatements = new SparseArray<List<String>>();
-        //		sqlUpgradeStatements.put(2, getSqlStatements(context, "sql_upgrade2.sql"));
+        sqlUpgradeStatements.put(2, getSqlStatements(context, "sql_upgrade2.sql"));
     }
 
     private List<String> getSqlStatements(Context context, String assetName) {
@@ -125,7 +123,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
     }
 
     public boolean saveWine(String wineId, String name, String listingText,
-                            int wineryId, float price,
+                            int wineryId, float price, String currency,
                             int wineTypeId, int year, String regionId,
                             float aromaRating, float tasteRating, float aftertasteRating, float overallRating,
                             int flagId, String memo) {
@@ -134,6 +132,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
         values.put("listing_text", listingText);
         values.put("winery_id", wineryId);
         values.put("price", price);
+        values.put("currency", currency);
         values.put("winetype_id", wineTypeId);
         values.put("year", year);
         values.put("region_id", regionId);
@@ -619,7 +618,8 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
     public Cursor getWineDetailsCursor(String wineId) {
         Log.d(TAG, "get wine " + wineId);
         String sql = String.format(
-                "SELECT w.name, listing_text, winery_id, f.name winery_name, price, " +
+                "SELECT w.name, listing_text, winery_id, f.name winery_name, " +
+                        "price, currency, " +
                         "winetype_id, t.name winetype, year, " +
                         "region_id, r.name region, " +
                         "aroma_rating, taste_rating, aftertaste_rating, overall_rating, " +

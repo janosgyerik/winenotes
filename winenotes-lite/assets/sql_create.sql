@@ -45,6 +45,7 @@ CREATE TABLE "main_wine" (
     "summary" text NULL,
     "listing_text" text NULL,
     "price" real NULL,
+    "currency" varchar(3) NULL,
     "winetype_id" integer NULL REFERENCES "main_winetype" ("_id"),
     "year" integer NULL,
     "region_id" integer NULL REFERENCES "main_region" ("_id"),

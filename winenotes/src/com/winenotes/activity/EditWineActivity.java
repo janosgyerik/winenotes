@@ -41,8 +41,6 @@ public class EditWineActivity extends AbstractWineActivity {
 
     private static final String TAG = EditWineActivity.class.getSimpleName();
 
-    private static final String EURO = "€";  // TODO
-
     private static final int RETURN_FROM_EDIT_GRAPES = 1;
     private static final int RETURN_FROM_EDIT_AROMA = 2;
     private static final int RETURN_FROM_EDIT_TASTE = 3;
@@ -55,6 +53,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
     private EditText nameView;
     private EditText priceView;
+    private Spinner currencyView;
     private Spinner wineTypeView;
     private Spinner yearView;
     private Spinner flagView;
@@ -72,6 +71,16 @@ public class EditWineActivity extends AbstractWineActivity {
     private ForeignKey[] WINETYPE_CHOICES;
 
     private ForeignKey[] FLAG_CHOICES;
+
+    private Currency[] CURRENCY_CHOICES = new Currency[] {
+            Currency.fromKey("USD"),
+            Currency.fromKey("EUR"),
+            Currency.fromKey("GBP"),
+            Currency.fromKey("JPY"),
+            Currency.fromKey("HKD"),
+            Currency.fromKey("BRL"),
+            Currency.fromKey("HUF"),
+    };
 
 
     @Override
@@ -155,6 +164,12 @@ public class EditWineActivity extends AbstractWineActivity {
 
         priceView = (EditText) findViewById(R.id.price);
 
+        ArrayAdapter<Currency> currencyListAdapter = new ArrayAdapter<Currency>(this,
+                android.R.layout.simple_spinner_item, CURRENCY_CHOICES);
+        currencyListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        currencyView = (Spinner) findViewById(R.id.currency);
+        currencyView.setAdapter(currencyListAdapter);
+
         aromaRatingView = (RatingBar) findViewById(R.id.rating_aroma);
         tasteRatingView = (RatingBar) findViewById(R.id.rating_taste);
         aftertasteRatingView = (RatingBar) findViewById(R.id.rating_aftertaste);
@@ -223,6 +238,7 @@ public class EditWineActivity extends AbstractWineActivity {
             String name = capitalize(nameView.getText().toString());
             int wineryId = 0;//TODO capitalize(wineryNameView.getText().toString());
             float price = inputToFloat(priceView.getText().toString());
+            Currency currency = (Currency) currencyView.getSelectedItem();
             int wineTypeId = ((ForeignKey) wineTypeView.getSelectedItem()).refId;
             int year = ((ForeignKey) yearView.getSelectedItem()).refId;
             String region = capitalize(regionView.getText().toString());
@@ -242,9 +258,12 @@ public class EditWineActivity extends AbstractWineActivity {
             if (year > 0) {
                 builder.append(year).append(", ");
             }
+            if (currency == null) {
+                currency = Currency.fromKey("USD");
+            }
             if (price > 0) {
-                String priceStr = floatToString(price);
-                builder.append(priceStr).append(EURO).append(", ");
+                String priceStr = currency.format(price);
+                builder.append(priceStr).append(", ");
             }
             if (regionId != null) {
                 builder.append(region);
@@ -258,7 +277,7 @@ public class EditWineActivity extends AbstractWineActivity {
             String listingText = builder.length() > 2 ? builder.substring(0, builder.length() - 2) : "";
 
             if (helper.saveWine(wineId, name, listingText,
-                    wineryId, price,
+                    wineryId, price, currency.key,
                     wineTypeId, year, regionId,
                     aromaRating, tasteRating, aftertasteRating, overallRating,
                     flagId, memo)) {
@@ -283,11 +302,6 @@ public class EditWineActivity extends AbstractWineActivity {
         } catch (Exception e) {
             return 0;
         }
-    }
-
-    static String floatToString(float value) {
-        String stringValue = new DecimalFormat("#.##").format(value);
-        return stringValue.equals("0") ? "" : stringValue;
     }
 
     private void handleReturnFromEditGrapes(Intent data) {
@@ -499,6 +513,7 @@ public class EditWineActivity extends AbstractWineActivity {
         setSpinnerValue(wineTypeView, wineInfo.wineTypeId, WINETYPE_CHOICES);
         setSpinnerValue(flagView, wineInfo.flagId, FLAG_CHOICES);
         regionView.setText(wineInfo.region);
-        priceView.setText(floatToString(wineInfo.price));
+        priceView.setText(wineInfo.currency.stringValue(wineInfo.price));
+        setSpinnerValue(currencyView, wineInfo.currency, CURRENCY_CHOICES);
     }
 }

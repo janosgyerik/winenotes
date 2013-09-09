@@ -88,6 +88,11 @@ public abstract class AbstractWineActivity extends Activity {
         return cursor.getInt(columnIndex);
     }
 
+    private Currency getCurrencyColumn(Cursor cursor, String columnName) {
+        int columnIndex = cursor.getColumnIndex(columnName);
+        return Currency.fromKey(cursor.getString(columnIndex));
+    }
+
     private WineInfo wineInfo = new WineInfo();
 
     protected void loadWineInfo(boolean editable) {
@@ -102,6 +107,7 @@ public abstract class AbstractWineActivity extends Activity {
                 wineInfo.wineryId = getIntColumn(wineCursor, "winery_id");
                 wineInfo.wineryName = getStringColumn(wineCursor, "winery_name");
                 wineInfo.price = getFloatColumn(wineCursor, "price");
+                wineInfo.currency = getCurrencyColumn(wineCursor, "currency");
                 wineInfo.wineTypeId = getIntColumn(wineCursor, "winetype_id");
                 wineInfo.wineType = getStringColumn(wineCursor, "winetype");
                 wineInfo.year = getIntColumn(wineCursor, "year");
