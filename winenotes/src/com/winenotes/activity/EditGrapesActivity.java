@@ -12,6 +12,11 @@ public class EditGrapesActivity extends EditTagsActivity {
     }
 
     @Override
+    protected String getEmptyText() {
+        return this.getString(R.string.msg_no_grapes);
+    }
+
+    @Override
     int getContentViewId() {
         return R.layout.edittags;
     }

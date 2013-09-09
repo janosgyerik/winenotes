@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winenotes.R;
@@ -54,6 +55,10 @@ public abstract class EditTagsActivity extends ListActivity {
 
     protected String getHint() {
         return this.getString(R.string.hint_impressions);
+    }
+
+    protected String getEmptyText() {
+        return this.getString(R.string.msg_no_impressions);
     }
 
     @Override
@@ -101,6 +106,9 @@ public abstract class EditTagsActivity extends ListActivity {
         inputView.setAdapter(itemsAutoCompleteAdapter);
         inputView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         inputView.setHint(getHint());
+
+        TextView emptyText = (TextView) findViewById(android.R.id.empty);
+        emptyText.setText(getEmptyText());
 
         itemListAdapter =
                 new ArrayAdapter<String>(this, R.layout.impressionslist_item);

@@ -21,7 +21,12 @@
     <string name="note_entering_impressions">Hint: you can add many at once,
         separated by comma.
     </string>
-    <string name="msg_no_impressions">No impressions. Use the input box above to add some!</string>
+    <string name="msg_no_impressions">Use the input box above to add your "impressions".
+        Common qualifiers are built-in, auto-completion helps you enter them easily.
+        New terms that you enter are automatically added to the auto-completion list.</string>
+    <string name="msg_no_grapes">Use the input box above to add grape names.
+        Common names are built-in, auto-completion helps you enter them easily.
+        New names that you enter are automatically added to the auto-completion list.</string>
     <string name="hint_memo"></string>
     <string name="label_memo">Memo</string>
     <string name="msg_updated_wine">Updated wine</string>

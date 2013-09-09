@@ -1,6 +1,7 @@
 next
 ----
-- bug: for grape, it shows message "No impressions..."
+- currency selector
+- default currency setting
 - review and revise google play page
     - simple and clear
     - focus on the "WHY"
@@ -29,8 +30,7 @@ next
     http://developer.android.com/reference/android/app/Activity.html
     This method was deprecated in API level 11. Use the new CursorLoader class with LoaderManager instead; this is also available on older platforms through the Android compatibility package.
 - clean up other deprecated calls
-- currency selector
-- default currency setting
+- use something more intuitive than a pulldown without label for selecting wine type
 - error: 9-patch image malformed
     "No marked region found along edge."
     "Found along top edge."
