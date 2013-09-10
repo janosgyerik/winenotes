@@ -159,7 +159,6 @@
     <style name="Theme.Dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowTitleStyle">@style/dialogTitle</item>
         <item name="android:windowTitleSize">35sp</item>
-        <item name="android:textColorPrimary">#616161</item>
-        <item name="android:textColorSecondary">#616161</item>
+        <item name="android:textColor">#616161</item>
     </style>
 </resources>
