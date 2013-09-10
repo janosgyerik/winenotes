@@ -1,8 +1,5 @@
 next
 ----
-- currency selector
-    - default currency: USD, from values.xml
-    - default currency setting
 - minor: delete btn_contentDescription
 - minor: change heading background color, using a brand color
 - redo menu icons for dark bg

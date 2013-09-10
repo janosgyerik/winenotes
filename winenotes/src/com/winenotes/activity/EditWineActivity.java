@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -32,7 +34,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -80,6 +81,7 @@ public class EditWineActivity extends AbstractWineActivity {
             Currency.fromKey("HKD"),
             Currency.fromKey("BRL"),
             Currency.fromKey("HUF"),
+            Currency.fromKey("RUB"),
     };
 
 
@@ -236,7 +238,7 @@ public class EditWineActivity extends AbstractWineActivity {
         @Override
         public void onClick(View view) {
             String name = capitalize(nameView.getText().toString());
-            int wineryId = 0;//TODO capitalize(wineryNameView.getText().toString());
+            int wineryId = 0;  //TODO capitalize(wineryNameView.getText().toString());
             float price = inputToFloat(priceView.getText().toString());
             Currency currency = (Currency) currencyView.getSelectedItem();
             int wineTypeId = ((ForeignKey) wineTypeView.getSelectedItem()).refId;
@@ -250,6 +252,13 @@ public class EditWineActivity extends AbstractWineActivity {
             int flagId = ((ForeignKey) flagView.getSelectedItem()).refId;
             String memo = capitalize(memoView.getText().toString());
 
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(EditWineActivity.this);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString(getString(R.string.key_default_currency), currency.key);
+            editor.commit();
+            Log.d(TAG, "save key = " + getString(R.string.key_default_currency));
+            Log.d(TAG, "save value = " + currency.key);
+
             StringBuilder builder = new StringBuilder();
             if (wineTypeId > 0) {
                 builder.append(((ForeignKey) wineTypeView.getSelectedItem()).value);
@@ -257,9 +266,6 @@ public class EditWineActivity extends AbstractWineActivity {
             }
             if (year > 0) {
                 builder.append(year).append(", ");
-            }
-            if (currency == null) {
-                currency = Currency.fromKey("USD");
             }
             if (price > 0) {
                 String priceStr = currency.format(price);
@@ -514,6 +520,13 @@ public class EditWineActivity extends AbstractWineActivity {
         setSpinnerValue(flagView, wineInfo.flagId, FLAG_CHOICES);
         regionView.setText(wineInfo.region);
         priceView.setText(wineInfo.currency.stringValue(wineInfo.price));
-        setSpinnerValue(currencyView, wineInfo.currency, CURRENCY_CHOICES);
+        if (newWine) {
+            String defaultCurrencyKey = PreferenceManager.getDefaultSharedPreferences(this).getString(
+                    getString(R.string.key_default_currency), Currency.DEFAULT_CURRENCY_KEY);
+            Currency defaultCurrency = Currency.fromKey(defaultCurrencyKey);
+            setSpinnerValue(currencyView, defaultCurrency, CURRENCY_CHOICES);
+        } else {
+            setSpinnerValue(currencyView, wineInfo.currency, CURRENCY_CHOICES);
+        }
     }
 }

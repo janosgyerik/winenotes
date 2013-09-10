@@ -4,6 +4,9 @@ import java.text.DecimalFormat;
 
 public class Currency {
 
+    // Important: must be the same value as R.string.default_currency
+    protected static final String DEFAULT_CURRENCY_KEY = "USD";
+
     final String key;
     final String symbol;
     final boolean prefixed;
@@ -48,7 +51,7 @@ public class Currency {
 
     public static Currency fromKey(String key) {
         if (key == null) {
-            return fromKey("USD");
+            return fromKey(DEFAULT_CURRENCY_KEY);
         }
         if (key.equals("EUR")) {
             return new Currency(key, "€");
@@ -67,6 +70,9 @@ public class Currency {
         }
         if (key.equals("HUF")) {
             return new Currency(key, "Ft", false);
+        }
+        if (key.equals("RUB")) {
+            return new Currency(key, "руб", false);
         }
         return new Currency(key, "$");
     }

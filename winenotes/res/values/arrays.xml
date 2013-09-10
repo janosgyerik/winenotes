@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="currency_entries">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>JPY</item>
+        <item>HKD</item>
+        <item>BRL</item>
+        <item>HUF</item>
+        <item>RUB</item>
+    </string-array>
+    <string-array name="currency_values">
+        <item>$</item>
+        <item>€</item>
+        <item>£"</item>
+        <item>¥</item>
+        <item>HK$</item>
+        <item>R$</item>
+        <item>Ft</item>
+        <item>руб</item>
+    </string-array>
+
+</resources>

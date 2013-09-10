@@ -90,4 +90,10 @@
     <string name="alt_add">[add]</string>
     <string name="alt_done">[done]</string>
 
+    <string name="default_currency">USD</string>
+    <string name="dialog_title_default_currency">Default currency</string>
+    <string name="key_default_currency">currency</string>
+    <string name="summary_default_currency">Default currency</string>
+    <string name="title_default_currency">Default currency</string>
+
 </resources>
