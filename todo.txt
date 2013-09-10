@@ -1,7 +1,6 @@
 next
 ----
 - currency selector
-    - min 3 digits for price, expand as necessary
     - default currency: USD, from values.xml
     - default currency setting
 - minor: delete btn_contentDescription
