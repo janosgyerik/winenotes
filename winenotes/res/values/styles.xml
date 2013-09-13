@@ -24,7 +24,7 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <color name="headerBackgroundColor">#634d40</color>
+    <color name="headerBackgroundColor">#c8232c</color>
 
     <style name="mainHeaderWrapper">
         <item name="android:layout_width">fill_parent</item>
