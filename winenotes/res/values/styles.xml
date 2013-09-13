@@ -57,7 +57,7 @@
 
     <style name="liteWatermark" parent="mainHeaderElement">
         <item name="android:text">(LITE)</item>
-        <item name="android:textColor">#aaaaaa</item>
+        <item name="android:textColor">#70ffffff</item>
     </style>
 
     <style name="mainContent">
