@@ -7,6 +7,13 @@ release
     http://developer.android.com/reference/android/app/Activity.html
     This method was deprecated in API level 11. Use the new CursorLoader class with LoaderManager instead; this is also available on older platforms through the Android compatibility package.
 - clean up other deprecated calls
+- error: 9-patch image malformed
+    "No marked region found along edge."
+    "Found along top edge."
+    btn_default_normal.9.png
+    btn_default_pressed.9.png
+    btn_default_selected.9.png
+- eliminate all warnings
 
 
 next
