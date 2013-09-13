@@ -1,6 +1,5 @@
 release
 -------
-- minor: delete btn_contentDescription
 - minor: change heading background color, using a brand color
 - clean up db related deprecated calls in WineListActivity and others
     - cursor.requery

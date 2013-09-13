@@ -22,7 +22,7 @@
             android:id="@id/btn_save"
             style="@style/mainHeaderButton"
             android:layout_alignParentRight="true"
-            android:contentDescription="@string/btn_contentDescription"
+            android:contentDescription="@string/alt_save"
             android:src="@drawable/headerbtn_save" />
     </RelativeLayout>
 
@@ -108,7 +108,7 @@
                     android:id="@id/btn_edit_grapes"
                     style="@style/wineViewButton"
                     android:layout_alignParentRight="true"
-                    android:contentDescription="@string/btn_contentDescription"
+                    android:contentDescription="@string/alt_edit"
                     android:src="@drawable/btn_edit"
                     android:text="@string/btn_edit" />
             </RelativeLayout>
@@ -177,7 +177,7 @@
                     android:id="@id/btn_edit_aroma"
                     style="@style/wineViewButton"
                     android:layout_alignParentRight="true"
-                    android:contentDescription="@string/btn_contentDescription"
+                    android:contentDescription="@string/alt_edit"
                     android:src="@drawable/btn_edit"
                     android:text="@string/btn_edit" />
             </RelativeLayout>
@@ -217,7 +217,7 @@
                     android:id="@id/btn_edit_taste"
                     style="@style/wineViewButton"
                     android:layout_alignParentRight="true"
-                    android:contentDescription="@string/btn_contentDescription"
+                    android:contentDescription="@string/alt_edit"
                     android:src="@drawable/btn_edit"
                     android:text="@string/btn_edit" />
             </RelativeLayout>
@@ -257,7 +257,7 @@
                     android:id="@id/btn_edit_aftertaste"
                     style="@style/wineViewButton"
                     android:layout_alignParentRight="true"
-                    android:contentDescription="@string/btn_contentDescription"
+                    android:contentDescription="@string/alt_edit"
                     android:src="@drawable/btn_edit"
                     android:text="@string/btn_edit" />
             </RelativeLayout>
@@ -297,7 +297,7 @@
                     android:id="@id/btn_edit_overall"
                     style="@style/wineViewButton"
                     android:layout_alignParentRight="true"
-                    android:contentDescription="@string/btn_contentDescription"
+                    android:contentDescription="@string/alt_edit"
                     android:src="@drawable/btn_edit"
                     android:text="@string/btn_edit"
                     android:visibility="invisible" />
