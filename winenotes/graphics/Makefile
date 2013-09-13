@@ -78,6 +78,18 @@ $(mdpi_dir)/headerbtn_%.png: $(src_dir)/headerbtn_%.png
 	convert -geometry 24x $< $@
 	identify $@
 
+$(hdpi_dir)/tagbtn_%.png: $(src_dir)/tagbtn_%.png
+	convert -geometry 24x $< $@
+	identify $@
+
+$(ldpi_dir)/tagbtn_%.png: $(src_dir)/tagbtn_%.png
+	convert -geometry 12x $< $@
+	identify $@
+
+$(mdpi_dir)/tagbtn_%.png: $(src_dir)/tagbtn_%.png
+	convert -geometry 18x $< $@
+	identify $@
+
 $(hdpi_dir)/launcher_%.png: $(src_dir)/launcher_%.png
 	convert -geometry 72x $< $@
 	identify $@

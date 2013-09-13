@@ -15,14 +15,14 @@
                 android:id="@+id/btn_done"
                 style="@style/customButton"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/headerbtn_save"
+                android:src="@drawable/tagbtn_done"
                 android:contentDescription="@string/alt_done"/>
 
         <ImageButton
                 android:id="@+id/btn_add"
                 style="@style/customButton"
                 android:layout_toLeftOf="@id/btn_done"
-                android:src="@drawable/headerbtn_plus"
+                android:src="@drawable/tagbtn_plus"
                 android:contentDescription="@string/alt_add"/>
 
         <MultiAutoCompleteTextView
