@@ -1,23 +1,7 @@
 release
 -------
-- clean up db related deprecated calls in WineListActivity and others
-    - cursor.requery
-    - stopManagingCursor
-    - startManagingCursor
-    http://developer.android.com/reference/android/app/Activity.html
-    This method was deprecated in API level 11. Use the new CursorLoader class with LoaderManager instead; this is also available on older platforms through the Android compatibility package.
-- clean up other deprecated calls
-- error: 9-patch image malformed
-    "No marked region found along edge."
-    "Found along top edge."
-    btn_default_normal.9.png
-    btn_default_pressed.9.png
-    btn_default_selected.9.png
-- eliminate all warnings
-
-
-next
-----
+- do not create empty wine
+- fix the photo rotation bug
 - redo menu icons for dark bg
 - make all dialogs bright theme
 - option to email notes in multiple formats
@@ -35,12 +19,25 @@ next
     aftertaste impressions
     memo
     custom tags
-- use something more intuitive than a pulldown without label for selecting wine type
-    - default type: red
-    - default year: current
 
 
-version 2
+cleaning
+--------
+- clean up db related deprecated calls in WineListActivity and others
+    - cursor.requery
+    - stopManagingCursor
+    - startManagingCursor
+    http://developer.android.com/reference/android/app/Activity.html
+    This method was deprecated in API level 11. Use the new CursorLoader class with LoaderManager instead; this is also available on older platforms through the Android compatibility package.
+- error: 9-patch image malformed
+    "No marked region found along edge."
+    "Found along top edge."
+    btn_default_normal.9.png
+    btn_default_pressed.9.png
+    btn_default_selected.9.png
+
+
+next next
 ---------
 - duplicate wine
 - next-previous wine with swipe right-left
@@ -49,8 +46,8 @@ version 2
 - install "Android Compatibility package" and rewrite queries
 
 
-version 3
----------
+next next next
+--------------
 - clean up file paths in WineFileManager
     - a.getDatabasePath("sqlite3.db") -> /data/data/com.winenotes/databases/sqlite3.db
     - a.getPackageCodePath -> /data/app/com.winenotes.apk

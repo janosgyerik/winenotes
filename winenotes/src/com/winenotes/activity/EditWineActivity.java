@@ -113,10 +113,9 @@ public class EditWineActivity extends AbstractWineActivity {
 
         nameView = (EditText) findViewById(R.id.name_edit);
 
-        YEAR_CHOICES[0] = new ForeignKey(0, "");
         int thisYear = Calendar.getInstance().get(Calendar.YEAR);
-        for (int i = 1; i < YEAR_CHOICES.length; ++i) {
-            int year = thisYear - i + 1;
+        for (int i = 0; i < YEAR_CHOICES.length; ++i) {
+            int year = thisYear - i;
             YEAR_CHOICES[i] = new ForeignKey(year, String.valueOf(year));
         }
 
@@ -128,7 +127,6 @@ public class EditWineActivity extends AbstractWineActivity {
 
         Cursor wineTypeListCursor = helper.getWineTypeListCursor();
         List<ForeignKey> wineTypeChoices = new ArrayList<ForeignKey>();
-        wineTypeChoices.add(new ForeignKey(0, ""));
         while (wineTypeListCursor.moveToNext()) {
             int refId = wineTypeListCursor.getInt(0);
             String name = wineTypeListCursor.getString(1);
