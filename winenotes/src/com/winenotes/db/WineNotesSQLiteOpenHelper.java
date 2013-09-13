@@ -48,6 +48,8 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
     public WineNotesSQLiteOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
+        //context.deleteDatabase(DATABASE_NAME);
+
         sqlCreateStatements = getSqlStatements(context, "sql_create.sql");
         sqlUpgradeStatements = new SparseArray<List<String>>();
         sqlUpgradeStatements.put(2, getSqlStatements(context, "sql_upgrade2.sql"));
