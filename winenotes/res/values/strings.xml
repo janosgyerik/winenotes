@@ -27,8 +27,8 @@
     <string name="msg_no_grapes">Use the input box above to add grape names.
         Common names are built-in, auto-completion helps you enter them easily.
         New names that you enter are automatically added to the auto-completion list.</string>
-    <string name="hint_memo"></string>
     <string name="label_memo">Memo</string>
+    <string name="hint_memo">Enter your notes, if any…</string>
     <string name="msg_updated_wine">Updated wine</string>
     <string name="msg_created_wine">Added wine</string>
     <string name="error_update_wine">Could not update wine</string>
