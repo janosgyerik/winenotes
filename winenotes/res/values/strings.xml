@@ -6,7 +6,9 @@
         or not writable, and this app cannot work properly like that.
         This may be improved in an upcoming version.
     </string>
+    
     <string name="title_winelist">Wines</string>
+    <string name="title_edit_wine">Edit wine</string>
     <string name="title_delete_wine">Delete wine</string>
     <string name="title_delete_photo">Delete photo</string>
     <string name="title_delete_file">Delete file</string>
@@ -14,6 +16,12 @@
     <string name="title_wine">Wine</string>
     <string name="title_noname_wine">Wine</string>
     <string name="title_wine_details">Wine</string>
+    <string name="title_file_selector">File Selector</string>
+    <string name="title_edit_grapes">Grape / Cépage</string>
+    <string name="title_edit_aroma">Aroma Impressions</string>
+    <string name="title_edit_taste">Taste Impressions</string>
+    <string name="title_edit_aftertaste">Aftertaste Impressions</string>
+
     <string name="hint_name">Name of the wine</string>
     <string name="hint_region">Region / appellation</string>
     <string name="hint_grape">Merlot, Grenache, &#8230;</string>
