@@ -1,41 +1,15 @@
 package com.winenotes;
 
+import com.winenotes.tools.StringTools;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class TitleCaseFullTest {
 
-    /**
-     * Convert to title case. Also fix non-title characters: convert to lowercase.
-     *
-     * rue de l'armorique => Rue De L'Armorique
-     * mont saint-michel => Mont Saint-Michel
-     * HELLO => Hello
-     *
-     * @param input to convert
-     * @return input converted to "title case" like in python
-     */
     static String toTitleCaseFull(String input) {
-        StringBuilder titleCase = new StringBuilder();
-        boolean nextTitleCase = true;
-
-        for (char c : input.toCharArray()) {
-            if (Character.isLetter(c)) {
-                if (nextTitleCase) {
-                    c = Character.toTitleCase(c);
-                    nextTitleCase = false;
-                } else {
-                    c = Character.toLowerCase(c);
-                }
-            } else {
-                nextTitleCase = !Character.isDigit(c);
-            }
-
-            titleCase.append(c);
-        }
-
-        return titleCase.toString();
+        return StringTools.toTitleCaseFull(input);
     }
 
     @Test
