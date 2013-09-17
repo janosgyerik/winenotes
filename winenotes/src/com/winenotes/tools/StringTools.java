@@ -76,7 +76,7 @@ public class StringTools {
         return Character.toUpperCase(input.charAt(0)) + input.substring(1);
     }
 
-    public static String toFrenchTitleCaseFull(String input) {
+    public static String toTitleCaseFullFrench(String input) {
         String input2 = toTitleCaseFull(input);
         if (input2 == null) {
             return null;
