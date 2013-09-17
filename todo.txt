@@ -1,6 +1,8 @@
 release
 -------
-- return to view wine after creating new
+- headerbtn to delete wine
+- indicate in list if has aroma/* rating or tag
+- indicate in list the flag
 
 
 release

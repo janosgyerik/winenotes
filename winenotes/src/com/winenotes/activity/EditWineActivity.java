@@ -75,7 +75,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
     private ForeignKey[] FLAG_CHOICES;
 
-    private Currency[] CURRENCY_CHOICES = new Currency[] {
+    private Currency[] CURRENCY_CHOICES = new Currency[]{
             Currency.fromKey("USD"),
             Currency.fromKey("EUR"),
             Currency.fromKey("GBP"),
@@ -287,8 +287,14 @@ public class EditWineActivity extends AbstractWineActivity {
                     wineTypeId, year, regionId,
                     aromaRating, tasteRating, aftertasteRating, overallRating,
                     flagId, memo)) {
-                int msgId = newWine ? R.string.msg_created_wine : R.string.msg_updated_wine;
-                Toast.makeText(getApplicationContext(), msgId, Toast.LENGTH_SHORT).show();
+                if (newWine) {
+                    Toast.makeText(getApplicationContext(), R.string.msg_created_wine, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(EditWineActivity.this, ViewWineActivity.class);
+                    intent.putExtra(BaseColumns._ID, wineId);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.msg_updated_wine, Toast.LENGTH_SHORT).show();
+                }
                 finish();
             } else {
                 Toast.makeText(getApplicationContext(), R.string.error_update_wine, Toast.LENGTH_SHORT).show();
@@ -525,7 +531,7 @@ public class EditWineActivity extends AbstractWineActivity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         Log.d(TAG, "onKeyDown");
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getRepeatCount() == 0) {
