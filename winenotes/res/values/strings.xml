@@ -27,7 +27,7 @@
     <string name="hint_grape">Merlot, Grenache, &#8230;</string>
     <string name="hint_impressions">Fruity, Sweet, &#8230;</string>
     <string name="note_entering_impressions">Hint: you can add many at once,
-        separated by comma.
+        separated by commas. Long-tap to delete an item.
     </string>
     <string name="msg_no_impressions">Use the input box above to add your "impressions".
         Common qualifiers are built-in, autocompletion helps you enter them easily.

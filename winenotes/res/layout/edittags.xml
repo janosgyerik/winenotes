@@ -44,7 +44,7 @@
             android:paddingRight="10dp"
             android:paddingTop="0dp"
             android:text="@string/note_entering_impressions"
-            android:textSize="11sp"/>
+            android:textSize="12sp"/>
 
     <ListView
             android:id="@android:id/list"
