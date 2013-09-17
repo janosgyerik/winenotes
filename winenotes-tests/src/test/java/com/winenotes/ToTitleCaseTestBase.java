@@ -5,10 +5,16 @@ import com.winenotes.tools.StringTools;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public abstract class ToTitleCaseTestBase {
 
     abstract String toTitle(String input);
+
+    @Test
+    public void testNullInput() {
+        assertNull(toTitle(null));
+    }
 
     @Test
     public void testSingleWord() {
