@@ -1,7 +1,12 @@
 release
 -------
-- do not create empty wine
+- return to view wine after creating new
+
+
+release
+-------
 - fix the photo rotation bug
+- add pulldown for tag and grape and region selectors
 - redo menu icons for dark bg
 - make all dialogs bright theme
 - option to email notes in multiple formats

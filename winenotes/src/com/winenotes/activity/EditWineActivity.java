@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -521,5 +522,19 @@ public class EditWineActivity extends AbstractWineActivity {
         } else {
             setSpinnerValue(currencyView, wineInfo.currency, CURRENCY_CHOICES);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        Log.d(TAG, "onKeyDown");
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            if (newWine) {
+                helper.deleteWine(wineId);
+                finish();
+            }
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 }
