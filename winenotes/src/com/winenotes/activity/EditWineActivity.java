@@ -24,6 +24,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.winenotes.R;
+import com.winenotes.tools.StringTools;
 import com.winenotes.tools.WineFileManager;
 
 import java.io.ByteArrayOutputStream;
@@ -235,20 +236,20 @@ public class EditWineActivity extends AbstractWineActivity {
     class SaveWineOnClickListener implements OnClickListener {
         @Override
         public void onClick(View view) {
-            String name = capitalize(nameView.getText().toString());
+            String name = StringTools.toTitleCase(nameView.getText().toString());
             int wineryId = 0;  //TODO capitalize(wineryNameView.getText().toString());
             float price = inputToFloat(priceView.getText().toString());
             Currency currency = (Currency) currencyView.getSelectedItem();
             int wineTypeId = ((ForeignKey) wineTypeView.getSelectedItem()).refId;
             int year = ((ForeignKey) yearView.getSelectedItem()).refId;
-            String region = capitalize(regionView.getText().toString());
+            String region = StringTools.toTitleCaseFull(regionView.getText().toString());
             String regionId = region == null ? null : helper.getOrCreateRegion(region);
             float aromaRating = aromaRatingView.getRating();
             float tasteRating = tasteRatingView.getRating();
             float aftertasteRating = aftertasteRatingView.getRating();
             float overallRating = overallRatingView.getRating();
             int flagId = ((ForeignKey) flagView.getSelectedItem()).refId;
-            String memo = capitalize(memoView.getText().toString());
+            String memo = StringTools.capitalize(memoView.getText().toString());
 
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(EditWineActivity.this);
             SharedPreferences.Editor editor = settings.edit();
@@ -292,12 +293,6 @@ public class EditWineActivity extends AbstractWineActivity {
                 Toast.makeText(getApplicationContext(), R.string.error_update_wine, Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    static String capitalize(String name) {
-        if (name == null || name.trim().length() < 1) return null;
-        name = name.trim();
-        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
     }
 
     static float inputToFloat(String input) {

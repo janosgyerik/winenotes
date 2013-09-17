@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.winenotes.R;
 import com.winenotes.db.WineNotesSQLiteOpenHelper;
+import com.winenotes.tools.StringTools;
 
 import java.util.ArrayList;
 
@@ -157,7 +158,7 @@ public abstract class EditTagsActivity extends ListActivity {
         if (items.length() > 0) {
             StringBuilder builder = new StringBuilder();
             for (String item : items.split(",")) {
-                item = EditWineActivity.capitalize(item);
+                item = StringTools.toTitleCaseFull(item);
                 builder.append(item);
                 builder.append(", ");
                 String itemId = getOrCreateItem(item);

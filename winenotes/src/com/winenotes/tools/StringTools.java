@@ -4,7 +4,7 @@ public class StringTools {
 
     /**
      * Convert to title case. Also fix non-title characters: convert to lowercase.
-     *
+     * <p/>
      * rue de l'armorique => Rue De L'Armorique
      * mont saint-michel => Mont Saint-Michel
      * HELLO => Hello
@@ -13,6 +13,9 @@ public class StringTools {
      * @return input converted to "title case" like in python
      */
     public static String toTitleCaseFull(String input) {
+        if (input == null || input.trim().length() < 1) return null;
+        input = input.trim();
+
         StringBuilder titleCase = new StringBuilder();
         boolean nextTitleCase = true;
 
@@ -36,7 +39,7 @@ public class StringTools {
 
     /**
      * Convert to title case. Do not touch non-title characters.
-     *
+     * <p/>
      * rue de l'armorique => Rue De L'Armorique
      * mont saint-michel => Mont Saint-Michel
      * HELLO => Hello
@@ -45,6 +48,9 @@ public class StringTools {
      * @return input converted to "title case" like in python
      */
     public static String toTitleCase(String input) {
+        if (input == null || input.trim().length() < 1) return null;
+        input = input.trim();
+
         StringBuilder titleCase = new StringBuilder();
         boolean nextTitleCase = true;
 
@@ -62,5 +68,11 @@ public class StringTools {
         }
 
         return titleCase.toString();
+    }
+
+    public static String capitalize(String input) {
+        if (input == null || input.trim().length() < 1) return null;
+        input = input.trim();
+        return Character.toUpperCase(input.charAt(0)) + input.substring(1);
     }
 }
