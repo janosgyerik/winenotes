@@ -76,6 +76,14 @@ public class StringTools {
         return Character.toUpperCase(input.charAt(0)) + input.substring(1);
     }
 
+    public static String toTitleCaseFrench(String input) {
+        String input2 = toTitleCase(input);
+        if (input2 == null) {
+            return null;
+        }
+        return input2.replaceAll("(?<=\\b[DL]) ", "'");
+    }
+
     public static String toTitleCaseFullFrench(String input) {
         String input2 = toTitleCaseFull(input);
         if (input2 == null) {
