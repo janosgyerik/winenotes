@@ -236,7 +236,7 @@ public class EditWineActivity extends AbstractWineActivity {
     class SaveWineOnClickListener implements OnClickListener {
         @Override
         public void onClick(View view) {
-            String name = StringTools.toTitleCase(nameView.getText().toString());
+            String name = StringTools.toTitleCaseFrench(nameView.getText().toString());
             int wineryId = 0;  //TODO capitalize(wineryNameView.getText().toString());
             float price = inputToFloat(priceView.getText().toString());
             Currency currency = (Currency) currencyView.getSelectedItem();

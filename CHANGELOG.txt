@@ -6,4 +6,6 @@ v1.1 -- work in progress
 * Removed the pointless Quit menu option
 * Replaced the text buttons with image buttons in tag editor dialogs
 * Fixed the EURO sign
+* Now you can select the currency
 * Last currency used is remembered and used as default in new wines
+* Automatically capitalize wine names
