@@ -1,6 +1,5 @@
 release
 -------
-- headerbtn to delete wine
 - indicate in list if has aroma/* rating or tag
 - indicate in list the flag
 

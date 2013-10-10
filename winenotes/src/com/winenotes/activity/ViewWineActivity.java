@@ -1,5 +1,7 @@
 package com.winenotes.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.BaseColumns;
@@ -7,8 +9,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.winenotes.R;
+import com.winenotes.tools.WineFileManager;
 
 public class ViewWineActivity extends AbstractWineActivity {
 
@@ -33,6 +37,36 @@ public class ViewWineActivity extends AbstractWineActivity {
                 Intent intent = new Intent(ViewWineActivity.this, EditWineActivity.class);
                 intent.putExtra(BaseColumns._ID, wineId);
                 startActivityForResult(intent, RETURN_FROM_EDIT);
+            }
+        });
+
+        View deleteButton = findViewById(R.id.btn_delete);
+        deleteButton.setOnClickListener(new OnClickListener() {
+            private void deleteWine() {
+                if (helper.deleteWine(wineId)) {
+                    WineFileManager.deleteWinePhotos(wineId);
+                    Toast.makeText(getBaseContext(), R.string.msg_wine_deleted, Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            }
+
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(ViewWineActivity.this)
+                        .setTitle(R.string.title_delete_wine)
+                        .setMessage(R.string.confirm_are_you_sure)
+                        .setCancelable(true)
+                        .setPositiveButton(R.string.btn_yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                deleteWine();
+                            }
+                        })
+                        .setNegativeButton(R.string.btn_cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
             }
         });
 

@@ -15,8 +15,15 @@
                 android:id="@+id/name"
                 style="@style/mainHeader"
                 android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/btn_edit"
+                android:layout_toLeftOf="@+id/btn_delete"
                 android:text="@string/title_wine"/>
+
+        <ImageButton
+            android:id="@id/btn_delete"
+            style="@style/mainHeaderButton"
+            android:layout_toLeftOf="@+id/btn_edit"
+            android:contentDescription="@string/alt_delete"
+            android:src="@drawable/headerbtn_delete"/>
 
         <ImageButton
                 android:id="@id/btn_edit"

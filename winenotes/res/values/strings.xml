@@ -97,6 +97,7 @@
     <string name="alt_add">[add]</string>
     <string name="alt_edit">[edit]</string>
     <string name="alt_save">[save]</string>
+    <string name="alt_delete">[delete]</string>
     <string name="alt_done">[done]</string>
 
     <string name="default_currency">USD</string>
