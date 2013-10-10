@@ -145,7 +145,6 @@ public class EditWineActivity extends AbstractWineActivity {
 
         Cursor flagListCursor = helper.getFlagListCursor();
         List<ForeignKey> flagChoices = new ArrayList<ForeignKey>();
-        flagChoices.add(new ForeignKey(0, ""));
         while (flagListCursor.moveToNext()) {
             int refId = flagListCursor.getInt(0);
             String name = flagListCursor.getString(1);
