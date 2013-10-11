@@ -54,7 +54,7 @@ public class Currency {
             return fromKey(DEFAULT_CURRENCY_KEY);
         }
         if (key.equals("EUR")) {
-            return new Currency(key, "€");
+            return new Currency(key, "€", false);
         }
         if (key.equals("GBP")) {
             return new Currency(key, "£");
