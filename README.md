@@ -29,7 +29,7 @@ feel free to drop me a line, and I'll try to make it happen.
 Project homepage: https://github.com/janosgyerik/WineNotes
 
 
-New in version 1.2
+New in version 1.3
 ------------------
 * Show long currency names in currency selector dropdown
 * Euro sign should come after amount, NOT before like dollar
@@ -37,7 +37,7 @@ New in version 1.2
 * Added more flag options
 
 
-New in version 1.1
+New in version 1.2
 ------------------
 * Fixed the broken EURO sign
 * Now you can select the currency
