@@ -50,9 +50,10 @@ eval "set -- $args"  # save arguments in $@. Use "$@" in for loops, not $@
 #test $# = 0 && usage
 
 
-cd $(dirname "$0"); . config.sh; cd ..
+cd $(dirname "$0")/..
 
 projectname=$(grep project.name build.xml | head -n 1 | sed -e 's/.*project name="\([^"]*\)".*/\1/')
+projectname=WineNotes
 
 devicename=$(adb get-serialno)
 mkdir -p backups/$devicename
