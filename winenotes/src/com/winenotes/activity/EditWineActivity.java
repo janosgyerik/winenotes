@@ -75,17 +75,6 @@ public class EditWineActivity extends AbstractWineActivity {
 
     private ForeignKey[] FLAG_CHOICES;
 
-    private Currency[] CURRENCY_CHOICES = new Currency[]{
-            Currency.fromKey("USD"),
-            Currency.fromKey("EUR"),
-            Currency.fromKey("GBP"),
-            Currency.fromKey("JPY"),
-            Currency.fromKey("HKD"),
-            Currency.fromKey("BRL"),
-            Currency.fromKey("HUF"),
-            Currency.fromKey("RUB"),
-    };
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -165,9 +154,7 @@ public class EditWineActivity extends AbstractWineActivity {
 
         priceView = (EditText) findViewById(R.id.price);
 
-        ArrayAdapter<Currency> currencyListAdapter = new ArrayAdapter<Currency>(this,
-                android.R.layout.simple_spinner_item, CURRENCY_CHOICES);
-        currencyListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<Currency> currencyListAdapter = new CurrencyAdapter(this);
         currencyView = (Spinner) findViewById(R.id.currency);
         currencyView.setAdapter(currencyListAdapter);
 
@@ -523,9 +510,9 @@ public class EditWineActivity extends AbstractWineActivity {
             String defaultCurrencyKey = PreferenceManager.getDefaultSharedPreferences(this).getString(
                     getString(R.string.key_default_currency), Currency.DEFAULT_CURRENCY_KEY);
             Currency defaultCurrency = Currency.fromKey(defaultCurrencyKey);
-            setSpinnerValue(currencyView, defaultCurrency, CURRENCY_CHOICES);
+            setSpinnerValue(currencyView, defaultCurrency, CurrencyAdapter.CURRENCY_CHOICES);
         } else {
-            setSpinnerValue(currencyView, wineInfo.currency, CURRENCY_CHOICES);
+            setSpinnerValue(currencyView, wineInfo.currency, CurrencyAdapter.CURRENCY_CHOICES);
         }
     }
 

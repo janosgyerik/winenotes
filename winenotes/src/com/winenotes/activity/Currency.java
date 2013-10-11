@@ -9,21 +9,23 @@ public class Currency {
 
     final String key;
     final String symbol;
+    final String longName;
     final boolean prefixed;
 
-    public Currency(String key, String symbol, boolean prefixed) {
+    public Currency(String key, String symbol, String longName, boolean prefixed) {
         this.key = key;
         this.symbol = symbol;
+        this.longName = longName;
         this.prefixed = prefixed;
     }
 
-    public Currency(String key, String symbol) {
-        this(key, symbol, true);
+    public Currency(String key, String symbol, String longName) {
+        this(key, symbol, longName, true);
     }
 
     @Override
     public String toString() {
-        return symbol;
+        return String.format("%s (%s, %s)", symbol, key, longName);
     }
 
     @Override
@@ -54,26 +56,26 @@ public class Currency {
             return fromKey(DEFAULT_CURRENCY_KEY);
         }
         if (key.equals("EUR")) {
-            return new Currency(key, "€", false);
+            return new Currency(key, "€", "Euro", false);
         }
         if (key.equals("GBP")) {
-            return new Currency(key, "£");
+            return new Currency(key, "£", "Pound sterling");
         }
         if (key.equals("JPY") || key.equals("CNY")) {
-            return new Currency(key, "¥");
+            return new Currency(key, "¥", "CNY, Yen");
         }
         if (key.equals("HKD")) {
-            return new Currency(key, "HK$");
+            return new Currency(key, "HK$", "Hong Kong dollar");
         }
         if (key.equals("BRL")) {
-            return new Currency(key, "R$");
+            return new Currency(key, "R$", "Brazilian real");
         }
         if (key.equals("HUF")) {
-            return new Currency(key, "Ft", false);
+            return new Currency(key, "Ft", "Hungarian forint", false);
         }
         if (key.equals("RUB")) {
-            return new Currency(key, "руб", false);
+            return new Currency(key, "руб", "Russian rouble", false);
         }
-        return new Currency(key, "$");
+        return new Currency(key, "$", "Dollar");
     }
 }
