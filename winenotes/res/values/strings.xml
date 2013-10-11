@@ -82,7 +82,7 @@
         Unfortunately you cannot take photos :(
     </string>
     <string name="prompt_year">Year / Millésime</string>
-    <string name="prompt_wine_type">Type of wine</string>
+    <string name="prompt_drink_type">Type</string>
     <string name="prompt_flag">Flag?</string>
     <string name="prompt_currency">Currency</string>
 
