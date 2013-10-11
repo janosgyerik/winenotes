@@ -29,6 +29,14 @@ feel free to drop me a line, and I'll try to make it happen.
 Project homepage: https://github.com/janosgyerik/WineNotes
 
 
+New in version 1.2
+------------------
+* Show long currency names in currency selector dropdown
+* Euro sign should come after amount, NOT before like dollar
+* Added button to delete wine
+* Added more flag options
+
+
 New in version 1.1
 ------------------
 * Fixed the broken EURO sign
