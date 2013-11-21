@@ -1,0 +1,5 @@
+// projectname: winenotes
+//include ':winenotes-common'
+include ':winenotes'
+include ':winenotes-lite'
+//include ':winenotes-full'
