@@ -6,7 +6,6 @@ release
 
 improve build script
 --------------------
-- take project name from somewhere else... maybe settings.gradle
 --install
 --uninstall
 --start adb shell am start -n com.winenotes.lite/com.winenotes.activity.WineListActivity

@@ -81,13 +81,18 @@ list() {
     ls -ltr */build/apk/*-{release,debug*}.apk 2>/dev/null
 }
 
-cd $(dirname "$0")/..
+dirname=$(dirname "$0")
+config=$dirname/config.sh
+test -f "$config" && . "$config"
+cd "$dirname"/..
 
-gradle=./gradlew
-gradle=gradle
+if test -f gradlew; then
+    gradle=./gradlew
+else
+    gradle=gradle
+fi
 
-#projectname=$(ls *.iml | head -n 1 | sed -e s/.iml$//)
-projectname=winenotes
+projectname=$(grep ^include settings.gradle | head -n 1 | sed -e 's/.*://' -e 's/.$//')
 
 test $build = on || tasks=clean
 test $# -gt 0 || tasks="$tasks"
