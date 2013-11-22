@@ -4,12 +4,6 @@ release
 - indicate in list the flag
 
 
-cleanup
--------
-- buttons
-- review setup
-
-
 improve build script
 --------------------
 - take project name from somewhere else... maybe settings.gradle

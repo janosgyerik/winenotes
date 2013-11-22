@@ -1,6 +1,7 @@
-WineNotes
-=========
-TODO
+Setup
+=====
+These are the exact steps to build the app using Android Studio
+or Gradle.
 
 
 Setup in Android Studio
@@ -69,8 +70,7 @@ Setup in Android Studio
 8. Edit the run configurations
 
         1. Go to **Run | Edit Configurations...**
-           There should be 4 run configurations already: programming-lite,
-           programming-full, computers-lite, computers-full
+           There should be a run configurations already: winenotes-lite
 
         2. Edit each configuration, change **Target Device** to *USB device*
            Note: the emulator is useless anyway. Usually it's so slow it's
@@ -82,7 +82,7 @@ Setup in Android Studio
    the signing key used by your Android Studio.
    An easy way to uninstall is with the command:
 
-        adb uninstall com.manyquiz.programming.lite
+        adb uninstall com.winenotes.lite
 
    Actually, modern versions of Android Studio should offer to uninstall.
 
@@ -117,7 +117,7 @@ Creating a run configuration in Android Studio
 
 2. Select **Android Application** from the list and click on the + icon
 
-3. Give it a name, for example "programming-lite"
+3. Give it a name, for example "winenotes-lite"
 
 4. Adjust the settings:
 
@@ -146,71 +146,31 @@ Building in Eclipse
 -------------------
 1. Import the following projects:
 
-        * manyquiz/ -- common quiz logic and layouts
+        * winenotes/ -- common logic and layouts
 
-        * programming/ -- logic and layouts for Programming Quiz
+        * winenotes-lite/ -- the Wine Notes LITE application
 
-        * programming-lite/ -- the Programming Quiz LITE application
-
-2. Run the Programming Quiz LITE project as Android application
+2. Run the Wine Notes LITE project as Android application
 
 
 Project layout
 --------------
-+ manyquiz/
++ winenotes/
 
     An Android Library project that contains most of the
-    functionality and layout elements of the quiz.
+    functionality and layout elements.
 
-+ programming/
-
-    An Android Library project that contains common
-    logic in the Programming Quiz.
-    Pretty much empty for now.
-
-+ programming-lite/
++ winenotes-lite/
 
     An Android Application project that corresponds to the
-    Programming Quiz LITE application on Google Play.
-    It depends on the "manyquiz" and "programming" projects.
+    Wine Notes LITE application on Google Play.
+    It depends on the "winenotes" project.
     Pretty much empty for now.
 
-+ django-quiz/
++ django-winenotes/
 
     A Django project to make it easier to edit the database
     of questions.
-
-
-Adding more questions
----------------------
-The questions in the Android app are stored in a SQLite database.
-
-The `django-quiz` project is to make editing the database a little
-bit easier, but it's still quite complicated.
-
-You can edit the questions and update in the application by
-following these steps:
-
-0. Follow the First-time setup steps in `django-quiz/README.txt`
-
-1. Edit the questions in the file `django-quiz/export/programming.txt`
-
-2. Import the questions into Django:
-
-        cd django-quiz
-        ./manage-programming.sh importq export/programming.txt
-
-3. Generate the SQL statements for the `programming-lite` project:
-
-        ./programming-lite/scripts/gen-sql-create.sh
-
-4. Refresh the project in Eclipse or Android Studio
-
-5. Increment `QuizSQLiteOpenHelper.DATABASE_VERSION`
-
-6. Rebuild and run the project
-
-7. Revert the `QuizSQLiteOpenHelper.DATABASE_VERSION` change
 
 
 Gradle
@@ -222,6 +182,3 @@ Gradle
 - Tips for Android Studio: http://developer.android.com/sdk/installing/studio-tips.html
 
 
-Creating a new quiz clone
--------------------------
-TODO
