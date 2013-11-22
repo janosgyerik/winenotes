@@ -142,17 +142,6 @@ To build the debug apk, run in the project root:
         ./gradlew assembleDebug
 
 
-Building in Eclipse
--------------------
-1. Import the following projects:
-
-        * winenotes/ -- common logic and layouts
-
-        * winenotes-lite/ -- the Wine Notes LITE application
-
-2. Run the Wine Notes LITE project as Android application
-
-
 Project layout
 --------------
 + winenotes/
