@@ -2,6 +2,7 @@
 .DS_Store
 tmp
 backups
+scripts/config.sh
 
 # Eclipse, Ant, Maven
 bin
