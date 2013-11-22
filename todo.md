@@ -1,7 +1,23 @@
 release
 -------
-- indicate in list if has aroma/* rating or tag
+- indicate in list if has aroma/taste/... rating or tag
 - indicate in list the flag
+
+
+cleanup
+-------
+- buttons
+- review setup
+
+
+improve build script
+--------------------
+- take project name from somewhere else... maybe settings.gradle
+--install
+--uninstall
+--start adb shell am start -n com.winenotes.lite/com.winenotes.activity.WineListActivity
+--lite, --full
+--backup
 
 
 release
