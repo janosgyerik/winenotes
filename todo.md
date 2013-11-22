@@ -4,13 +4,12 @@ release
 - indicate in list the flag
 
 
-improve build script
---------------------
---install
---uninstall
---start adb shell am start -n com.winenotes.lite/com.winenotes.activity.WineListActivity
---lite, --full
---backup
+next
+----
+- improve build script
+    - backup
+    - uninstall
+    - start
 
 
 release

@@ -23,10 +23,16 @@ usage() {
     echo Build the project in debug or release mode
     echo
     echo Options:
-    echo "  -d, --debug          build for debug, default = $debug"
-    echo "  -r, --release        build for release, default = $release"
+    echo "  -d, --debug          select debug build, default = $debug"
+    echo "  -r, --release        select release build, default = $release"
+    echo "      --lite           select the lite version, default = $lite"
+    echo "      --full           select the full version, default = $full"
     echo
-    echo "  -b, --build          custom build, default = $build"
+    echo "  -b, --build          build, default = $build"
+    echo "      --clean          clean, default = $clean"
+    echo "  -i, --install        install selected app, default = $install"
+    echo "  -u, --uninstall      uninstall selected app, default = $uninstall"
+    echo "  -s, --start          start selected app, default = $start"
     echo
     echo "  -l, --list           list built apks, default = $list"
     echo
@@ -41,14 +47,26 @@ args=
 #param=
 debug=off
 release=off
+lite=on
+full=off
 build=off
+clean=off
+install=off
+uninstall=off
+start=off
 list=off
 while [ $# != 0 ]; do
     case $1 in
     -h|--help) usage ;;
     -d|--debug) debug=on ;;
     -r|--release) release=on ;;
+    --lite) lite=on; full=off ;;
+    --full) full=on; lite=off ;;
+    --clean) clean=on ;;
     -b|--build) build=on ;;
+    -i|--install) install=on; uninstall=off ;;
+    -u|--uninstall) uninstall=on; install=off; start=off ;;
+    -s|--start) start=on ;;
     -l|--list) list=on ;;
     --) shift; while [ $# != 0 ]; do args="$args \"$1\""; shift; done; break ;;
     -) usage "Unknown option: $1" ;;
@@ -94,19 +112,8 @@ fi
 
 projectname=$(grep ^include settings.gradle | head -n 1 | sed -e 's/.*://' -e 's/.$//')
 
-test $build = on || tasks=clean
-test $# -gt 0 || tasks="$tasks"
-
-if test $release = on; then
-    check_or_setup_keys=on
-    build=on
-    tasks="$tasks assembleRelease"
-else
-    check_or_setup_keys=off
-fi
-
 keys_config=./keys/config.sh
-if test $check_or_setup_keys = on; then
+if test $release = on; then
     test -f $keys_config || {
         mkdir -p keys
         cat<<EOF >$keys_config
@@ -127,16 +134,40 @@ EOF
     . $keys_config
 fi
 
-if test $debug = on; then
-    build=on
-    tasks="$tasks assembleDebug"
-fi
-
 if test $build = on; then
+    test $clean = on && tasks=clean || tasks=
+    test $debug = on && tasks="$tasks assembleDebug"
+    test $release = on && tasks="$tasks assembleRelease"
     echo $gradle $tasks $*
     $gradle $tasks $*
     echo
     list=on
+fi
+
+proj=
+if test $lite = on; then
+    proj=$projectname-lite
+elif test $full = on; then
+    proj=$projectname-full
+fi
+
+apk=
+if test "$proj"; then 
+    if test $debug = on; then
+        apk=$proj/build/apk/$proj-debug-unaligned.apk
+    elif test $release = on; then
+        apk=$proj/build/apk/$proj-release.apk
+    fi
+fi
+
+if test $install = on; then
+    adb -d install -r $apk
+elif test $uninstall = on; then
+    echo todo: adb uninstall com.winenotes.lite
+fi
+
+if test $start = on; then
+    adb shell am start -n com.winenotes.lite/com.winenotes.activity.WineListActivity
 fi
 
 test $list = on && list
