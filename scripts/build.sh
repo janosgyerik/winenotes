@@ -99,6 +99,11 @@ list() {
     ls -ltr */build/apk/*-{release,debug*}.apk 2>/dev/null
 }
 
+run() {
+    echo $*
+    $*
+}
+
 dirname=$(dirname "$0")
 config=$dirname/config.sh
 test -f "$config" && . "$config"
@@ -138,8 +143,7 @@ if test $build = on; then
     test $clean = on && tasks=clean || tasks=
     test $debug = on && tasks="$tasks assembleDebug"
     test $release = on && tasks="$tasks assembleRelease"
-    echo $gradle $tasks $*
-    $gradle $tasks $*
+    run $gradle $tasks $*
     echo
     list=on
 fi
@@ -160,23 +164,18 @@ if test "$proj"; then
     fi
 fi
 
-_adb() {
-    echo adb $*
-    adb $*
-}
-
 if test $install = on; then
-    _adb -d install -r $apk
+    run adb -d install -r $apk
 elif test $uninstall = on; then
     if test $lite = on; then
-        _adb uninstall com.$projectname.lite
+        run adb uninstall com.$projectname.lite
     elif test $full = on; then
-        _adb uninstall com.$projectname.full
+        run adb uninstall com.$projectname.full
     fi
 fi
 
 if test $start = on; then
-    _adb shell am start -n com.$projectname.lite/$activity
+    run adb shell am start -n com.$projectname.lite/$activity
 fi
 
 test $list = on && list
