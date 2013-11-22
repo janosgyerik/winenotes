@@ -4,14 +4,6 @@ release
 - indicate in list the flag
 
 
-next
-----
-- improve build script
-    - backup
-    - uninstall
-    - start
-
-
 release
 -------
 - fix the photo rotation bug

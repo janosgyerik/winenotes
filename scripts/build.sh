@@ -47,7 +47,7 @@ args=
 #param=
 debug=off
 release=off
-lite=on
+lite=off
 full=off
 build=off
 clean=off
@@ -160,14 +160,23 @@ if test "$proj"; then
     fi
 fi
 
+_adb() {
+    echo adb $*
+    adb $*
+}
+
 if test $install = on; then
-    adb -d install -r $apk
+    _adb -d install -r $apk
 elif test $uninstall = on; then
-    echo todo: adb uninstall com.winenotes.lite
+    if test $lite = on; then
+        _adb uninstall com.$projectname.lite
+    elif test $full = on; then
+        _adb uninstall com.$projectname.full
+    fi
 fi
 
 if test $start = on; then
-    adb shell am start -n com.winenotes.lite/com.winenotes.activity.WineListActivity
+    _adb shell am start -n com.$projectname.lite/$activity
 fi
 
 test $list = on && list
