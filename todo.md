@@ -1,6 +1,6 @@
 release
 -------
-- indicate in list if has aroma/* rating or tag
+- indicate in list if has aroma/taste/... rating or tag
 - indicate in list the flag
 
 
