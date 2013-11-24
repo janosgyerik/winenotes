@@ -11,6 +11,7 @@ target
 
 # Django
 *.pyc
+django-winenotes/sqlite3.db
 
 # Android
 local.properties
