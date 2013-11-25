@@ -738,7 +738,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
         Log.d(TAG, "get all wines");
         SQLiteDatabase db = getReadableDatabase();
         if (db != null) {
-            return db.rawQuery(String.format(
+            String sql = String.format(
                     "SELECT w._id, ifnull(nullif(w.name, ''), '(noname)') name, " +
                             "listing_text summary, overall_rating rating, " +
                             "winetype_id " +
@@ -747,8 +747,9 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
                             "ORDER BY ifnull(f.display_order, 99), overall_rating DESC, w.updated_dt DESC",
                     WINES_TABLE_NAME,
                     FLAGS_TABLE_NAME
-            ),
-                    null);
+            );
+            Log.d(TAG, sql);
+            return db.rawQuery(sql, null);
         }
         return null;
     }
