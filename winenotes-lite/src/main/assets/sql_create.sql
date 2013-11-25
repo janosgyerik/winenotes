@@ -162,6 +162,7 @@ CREATE TABLE "main_favoritewine" (
     "updated_dt" datetime NULL
 )
 ;
+
 INSERT INTO main_region (name, ascii_name) VALUES ('Bordelais-Aquitaine', 'Bordelais-Aquitaine');
 INSERT INTO main_region (name, ascii_name) VALUES ('Bourgogne-Beaujolais', 'Bourgogne-Beaujolais');
 INSERT INTO main_region (name, ascii_name) VALUES ('Charentes - Poitou', 'Charentes - Poitou');
