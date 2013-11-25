@@ -4,6 +4,7 @@ from django.db import models
 
 
 class WineType(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=20)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
@@ -11,6 +12,7 @@ class WineType(models.Model):
 
 
 class Region(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=80)
     ascii_name = models.CharField(max_length=80)
     display_order = models.IntegerField()
@@ -19,6 +21,7 @@ class Region(models.Model):
 
 
 class Flag(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=20)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
@@ -26,6 +29,7 @@ class Flag(models.Model):
 
 
 class Winery(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=80)
     ascii_name = models.CharField(max_length=80)
     lat = models.FloatField()
@@ -39,6 +43,7 @@ class Winery(models.Model):
 
 
 class Wine(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=80)
     ascii_name = models.CharField(max_length=80)
     winery = models.ForeignKey(Winery)
@@ -62,6 +67,7 @@ class Wine(models.Model):
 
 
 class Grape(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=80, unique=True)
     ascii_name = models.CharField(max_length=80, unique=True)
     display_order = models.IntegerField()
@@ -70,6 +76,7 @@ class Grape(models.Model):
 
 
 class WineGrape(models.Model):
+    _id = models.AutoField(primary_key=True)
     wine = models.ForeignKey(Wine)
     grape = models.ForeignKey(Grape)
     display_order = models.IntegerField()
@@ -81,6 +88,7 @@ class WineGrape(models.Model):
 
 
 class AromaImpression(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=80, unique=True)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
@@ -88,6 +96,7 @@ class AromaImpression(models.Model):
 
 
 class WineAromaImpression(models.Model):
+    _id = models.AutoField(primary_key=True)
     wine = models.ForeignKey(Wine)
     aroma_impression = models.ForeignKey(AromaImpression)
     display_order = models.IntegerField()
@@ -99,6 +108,7 @@ class WineAromaImpression(models.Model):
 
 
 class TasteImpression(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=80, unique=True)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
@@ -106,6 +116,7 @@ class TasteImpression(models.Model):
 
 
 class WineTasteImpression(models.Model):
+    _id = models.AutoField(primary_key=True)
     wine = models.ForeignKey(Wine)
     taste_impression = models.ForeignKey(TasteImpression)
     display_order = models.IntegerField()
@@ -117,6 +128,7 @@ class WineTasteImpression(models.Model):
 
 
 class WineAfterTasteImpression(models.Model):
+    _id = models.AutoField(primary_key=True)
     wine = models.ForeignKey(Wine)
     aftertaste_impression = models.ForeignKey(TasteImpression)
     display_order = models.IntegerField()
@@ -128,6 +140,7 @@ class WineAfterTasteImpression(models.Model):
 
 
 class Tag(models.Model):
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=40, unique=True)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
@@ -135,6 +148,7 @@ class Tag(models.Model):
 
 
 class WineTag(models.Model):
+    _id = models.AutoField(primary_key=True)
     wine = models.ForeignKey(Wine)
     tag = models.ForeignKey(Tag)
     display_order = models.IntegerField()
@@ -146,6 +160,7 @@ class WineTag(models.Model):
 
 
 class WinePhoto(models.Model):
+    _id = models.AutoField(primary_key=True)
     wine = models.ForeignKey(Wine)
     filename = models.CharField(max_length=50)
     display_order = models.IntegerField()
@@ -157,6 +172,7 @@ class WinePhoto(models.Model):
 
 
 class FavoriteWine(models.Model):
+    _id = models.AutoField(primary_key=True)
     wine = models.ForeignKey(Wine, unique=True)
     display_order = models.IntegerField()
     created_dt = models.DateTimeField(default=datetime.now)
