@@ -23,7 +23,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String TAG = WineNotesSQLiteOpenHelper.class.getSimpleName();
 
     private static final String DATABASE_NAME = "sqlite3.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     // lists
     private static final String WINES_TABLE_NAME = "main_wine";
@@ -54,6 +54,7 @@ public class WineNotesSQLiteOpenHelper extends SQLiteOpenHelper {
         sqlUpgradeStatements = new SparseArray<List<String>>();
         sqlUpgradeStatements.put(2, getSqlStatements(context, "sql_upgrade2.sql"));
         sqlUpgradeStatements.put(3, getSqlStatements(context, "sql_upgrade3.sql"));
+        sqlUpgradeStatements.put(4, getSqlStatements(context, "sql_upgrade4.sql"));
     }
 
     private List<String> getSqlStatements(Context context, String assetName) {
