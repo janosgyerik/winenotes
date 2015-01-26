@@ -9,7 +9,7 @@ ldpi_target:=$(patsubst %,$(ldpi_dir)/%,$(names))
 mdpi_target:=$(patsubst %,$(mdpi_dir)/%,$(names))
 launchpad_target:=launchpad/icon.png launchpad/logo.png launchpad/brand.png
 market_target:=market/android.png
-promo_target:=market/promo.png
+feature_target:=market/feature.png
 canvas:=market/canvas.png
 work:=market/work.png
 
@@ -28,12 +28,12 @@ lp launchpad: $(launchpad_target)
 
 market: $(market_target)
 
-promo: $(promo_target)
+feature: $(feature_target)
 
-all: hdpi ldpi mdpi launchpad market promo
+all: hdpi ldpi mdpi launchpad market feature
 
 clean: 
-	rm $(hdpi_target) $(ldpi_target) $(mdpi_target) $(launchpad_target) $(market_target) $(promo_target)
+	rm $(hdpi_target) $(ldpi_target) $(mdpi_target) $(launchpad_target) $(market_target) $(feature_target)
 
 $(hdpi_dir)/tab_%.png: $(src_dir)/tab_%.png
 	convert -geometry 48x $< $@
@@ -139,7 +139,7 @@ market/android.png: $(src_dir)/launcher_main.png
 	convert -geometry 512x $< $@
 	identify $@
 
-market/promo.png: $(src_dir)/launcher_main.png
+market/feature.png: $(src_dir)/launcher_main.png
 	@mkdir -p $(@D)
 	convert -size 1024x500 xc:transparent $(canvas)
 	convert -geometry 1024x500 $< $(work)
