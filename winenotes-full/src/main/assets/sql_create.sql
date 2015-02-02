@@ -162,6 +162,7 @@ CREATE TABLE "main_favoritewine" (
     "updated_dt" datetime NULL
 )
 ;
+
 INSERT INTO main_region (name, ascii_name) VALUES ('Bordelais-Aquitaine', 'Bordelais-Aquitaine');
 INSERT INTO main_region (name, ascii_name) VALUES ('Bourgogne-Beaujolais', 'Bourgogne-Beaujolais');
 INSERT INTO main_region (name, ascii_name) VALUES ('Charentes - Poitou', 'Charentes - Poitou');
@@ -1129,15 +1130,17 @@ INSERT INTO main_tasteimpression (name) VALUES ('Yeasty');
 INSERT INTO main_tasteimpression (name) VALUES ('Young');
 INSERT INTO main_tasteimpression (name) VALUES ('Zesty');
 INSERT INTO main_tasteimpression (name) VALUES ('Zippy');
-INSERT INTO "main_winetype" VALUES(1,'Red',30,NULL,NULL);
-INSERT INTO "main_winetype" VALUES(2,'White',30,NULL,NULL);
-INSERT INTO "main_winetype" VALUES(3,'Rosé',30,NULL,NULL);
-INSERT INTO "main_winetype" VALUES(4,'Dessert',30,NULL,NULL);
-INSERT INTO "main_winetype" VALUES(5,'Ice',30,NULL,NULL);
-INSERT INTO "main_winetype" VALUES(6,'Sparkling',39,NULL,NULL);
+INSERT INTO "main_winetype" VALUES(1,'Red wine',30,NULL,NULL);
+INSERT INTO "main_winetype" VALUES(2,'White wine',30,NULL,NULL);
+INSERT INTO "main_winetype" VALUES(3,'Rosé wine',30,NULL,NULL);
+INSERT INTO "main_winetype" VALUES(4,'Dessert wine',30,NULL,NULL);
+INSERT INTO "main_winetype" VALUES(5,'Ice wine',30,NULL,NULL);
+INSERT INTO "main_winetype" VALUES(6,'Sparkling (white)',39,NULL,NULL);
 INSERT INTO "main_winetype" VALUES(7,'Champagne',40,NULL,NULL);
 INSERT INTO "main_winetype" VALUES(8,'Whisky',40,NULL,NULL);
 INSERT INTO "main_winetype" VALUES(9,'Other',90,NULL,NULL);
+INSERT INTO "main_winetype" VALUES(10,'Sparkling (rosé)',39,NULL,NULL);
+INSERT INTO "main_winetype" VALUES(11,'Sparkling (red)',39,NULL,NULL);
 INSERT INTO "main_flag" VALUES(1,'To Buy',30,NULL,NULL);
 INSERT INTO "main_flag" VALUES(2,'Undecided',50,NULL,NULL);
 INSERT INTO "main_flag" VALUES(3,'Blacklist',100,NULL,NULL);
