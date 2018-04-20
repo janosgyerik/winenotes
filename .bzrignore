@@ -1,9 +1,0 @@
-gen
-bin
-.DS_Store
-local.properties
-proguard-project.txt
-tmp
-libs
-backups
-./winenotes/sqlite3.db
