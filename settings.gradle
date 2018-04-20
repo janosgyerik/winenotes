@@ -1,5 +1,4 @@
+// TODO drop this; for one thing use the newer script; for another, use a dedicated property with descriptive name
 // note: ./scripts/build.sh detects the project name from the first include
 include ':winenotes'
-//include ':winenotes-common'
-include ':winenotes-lite'
-include ':winenotes-full'
+// TODO winenotes-tests ?
